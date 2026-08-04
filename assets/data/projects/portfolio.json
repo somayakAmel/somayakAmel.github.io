@@ -1,0 +1,54 @@
+{
+  "_comment": "PLACEHOLDER CONTENT. Replace with real case-study copy.",
+  "slug": "portfolio",
+  "overview": {
+    "en": "TODO: two to four sentences on the problem and context.",
+    "ar": "مطلوب: من جملتين إلى أربع جمل عن المشكلة والسياق."
+  },
+  "role": {
+    "en": "Designer & Developer",
+    "ar": "مصممة ومطورة"
+  },
+  "duration": {
+    "en": "TODO: e.g. Jan 2024 – Aug 2024 · 8 months",
+    "ar": "مطلوب: مثال يناير ٢٠٢٤ – أغسطس ٢٠٢٤ · ٨ أشهر"
+  },
+  "platforms": [
+    "web",
+    "android",
+    "ios"
+  ],
+  "status": "live",
+  "responsibilities": [
+    {
+      "en": "TODO: an outcome statement, not a duty. What changed because you were there?",
+      "ar": "مطلوب: نتيجة محققة وليست مهمة موكلة."
+    }
+  ],
+  "challenges": [
+    {
+      "challenge": {
+        "en": "TODO: a real constraint you hit.",
+        "ar": "مطلوب: قيد حقيقي واجهته."
+      },
+      "solution": {
+        "en": "TODO: how you addressed it.",
+        "ar": "مطلوب: كيف عالجته."
+      }
+    }
+  ],
+  "tech_stack": [
+    "Flutter",
+    "Dart",
+    "Bloc",
+    "GetIt",
+    "Clean Architecture"
+  ],
+  "gallery": [],
+  "links": {
+    "github": null,
+    "live_demo": null,
+    "app_store": null,
+    "play_store": null
+  }
+}

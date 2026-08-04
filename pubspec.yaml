@@ -1,0 +1,79 @@
+name: portfolio
+description: "Flutter & Mobile Developer portfolio — a reference implementation of Clean Architecture in Flutter."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Global Material/Widgets/Cupertino delegates + RTL support for Arabic (§12)
+  flutter_localizations:
+    sdk: flutter
+
+  # Path URL strategy — clean shareable URLs on Web, no /#/ fragment (SPEC §5)
+  flutter_web_plugins:
+    sdk: flutter
+
+  # State management — Cubits only (ARCHITECTURE_GUIDE §3)
+  flutter_bloc: ^9.1.1
+  equatable: ^2.1.0
+
+  # Dependency injection — single GetIt instance exposed as `sl` (§4)
+  get_it: ^9.2.1
+
+  # Functional error handling — Either<Failure, T> (§8)
+  dartz: ^0.10.1
+
+  # Responsive sizing — clamped above the tablet breakpoint (SPEC §12)
+  flutter_screenutil: ^5.9.3
+
+  # SVG rendering for icons and logos (§13.3)
+  flutter_svg: ^2.3.0
+
+  # Contact actions: mailto / tel / https (SPEC §7.8)
+  url_launcher: ^6.3.2
+
+  # Persists ONLY the saved locale — not used as a database (SPEC §19)
+  shared_preferences: ^2.5.5
+
+  # One-shot section entrance animations (SPEC §13)
+  visibility_detector: ^0.4.0+2
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  bloc_test: ^10.0.0
+  mocktail: ^1.0.4
+
+flutter:
+  uses-material-design: true
+
+  # [RULE] Declare folders, not individual files (§13.1).
+  # EXCEPTION: assets/projects/ is NOT recursive — each project's subfolder
+  # must be declared explicitly. See SPEC risk R-7. When adding a project,
+  # add its folder here or its images silently 404 with no analyzer warning.
+  assets:
+    - assets/data/
+    - assets/data/projects/
+    - assets/images/
+    - assets/icons/
+    - assets/logos/
+    - assets/certificates/
+    - assets/animations/
+    - assets/documents/
+    - lang/
+
+  # Fonts are declared once the families are confirmed (SPEC open item 1).
+  # Until then the app falls back to the platform default via ThemeManager.
+  # fonts:
+  #   - family: Inter
+  #     fonts:
+  #       - asset: assets/fonts/english/Inter-Bold.ttf
+  #         weight: 700

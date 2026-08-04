@@ -1,0 +1,51 @@
+{
+  "_comment": "PLACEHOLDER CONTENT. Adding a project: (1) add an entry here, (2) create the detail_file, (3) add assets/projects/<slug>/ to pubspec.yaml — folder declarations are NOT recursive. See PROJECT_SPEC.md risk R-7.",
+
+  "projects": [
+    {
+      "slug": "motary",
+      "title": { "en": "Motary", "ar": "موتري" },
+      "tagline": {
+        "en": "TODO: one line on what this product does.",
+        "ar": "مطلوب: سطر واحد يصف المنتج."
+      },
+      "domain": { "en": "Automotive", "ar": "السيارات" },
+      "cover_path": null,
+      "type": "client",
+      "primary_tech": ["Flutter", "Bloc", "Firebase"],
+      "is_featured": true,
+      "order": 1,
+      "detail_file": "assets/data/projects/motary.json"
+    },
+    {
+      "slug": "qanony",
+      "title": { "en": "Qanony", "ar": "قانوني" },
+      "tagline": {
+        "en": "TODO: one line on what this product does.",
+        "ar": "مطلوب: سطر واحد يصف المنتج."
+      },
+      "domain": { "en": "Legal Services", "ar": "الخدمات القانونية" },
+      "cover_path": null,
+      "type": "client",
+      "primary_tech": ["Flutter", "Clean Architecture", "GetIt"],
+      "is_featured": true,
+      "order": 2,
+      "detail_file": "assets/data/projects/qanony.json"
+    },
+    {
+      "slug": "portfolio",
+      "title": { "en": "This Portfolio", "ar": "هذا الموقع" },
+      "tagline": {
+        "en": "A Flutter portfolio built as a reference implementation of Clean Architecture.",
+        "ar": "موقع أعمال بفلاتر مبني كمرجع لتطبيق المعمارية النظيفة."
+      },
+      "domain": { "en": "Open Source", "ar": "مفتوح المصدر" },
+      "cover_path": null,
+      "type": "personal",
+      "primary_tech": ["Flutter", "Bloc", "Clean Architecture"],
+      "is_featured": true,
+      "order": 3,
+      "detail_file": "assets/data/projects/portfolio.json"
+    }
+  ]
+}

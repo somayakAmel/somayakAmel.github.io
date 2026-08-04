@@ -1,46 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+
+  <!--
+    REQUIRED. Without this, mobile browsers render at a ~980px virtual desktop
+    width and scale the result down, so every phone visitor sees a clipped,
+    horizontally-overflowing page regardless of what the Dart layout does.
+    This was a real bug, caught by screenshotting a 390px viewport.
+  -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <meta name="description"
+        content="Flutter & Mobile Developer portfolio — production apps built on Clean Architecture.">
+
+  <!--
+    Open Graph / Twitter Card tags.
+
+    Flutter Web renders to canvas, so crawlers and link-preview bots read
+    nothing from the running app. These static tags are what make a link shared
+    on LinkedIn or WhatsApp show a title and description instead of a bare URL —
+    which matters more for this audience than search ranking (SPEC risk R-1).
+
+    TODO: set og:url and add assets/images/og_image.png (1200x630) before
+    publishing, then point og:image at it.
+  -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mariam Fawzy — Flutter &amp; Mobile Developer">
+  <meta property="og:description"
+        content="Production Flutter apps built on Clean Architecture.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mariam Fawzy — Flutter &amp; Mobile Developer">
+  <meta name="twitter:description"
+        content="Production Flutter apps built on Clean Architecture.">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="portfolio">
+  <meta name="apple-mobile-web-app-title" content="Portfolio">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>portfolio</title>
+  <title>Mariam Fawzy — Flutter &amp; Mobile Developer</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    /*
+      The Flutter engine ships several MB before it can paint anything. Without
+      this the visitor stares at a white flash, then a blank page, and may leave
+      before the app loads. Matching the app's own surface colour makes the gap
+      read as loading rather than broken (SPEC risk R-1).
+    */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #0D0D0F;
+    }
+    #loading {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      background-color: #0D0D0F;
+      color: #F2F2F5;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                   sans-serif;
+      transition: opacity 300ms ease-out;
+    }
+    #loading.hidden { opacity: 0; pointer-events: none; }
+    #loading .name { font-size: 20px; font-weight: 700; letter-spacing: -0.2px; }
+    #loading .bar {
+      width: 120px;
+      height: 2px;
+      background-color: #232328;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    #loading .bar::after {
+      content: '';
+      display: block;
+      width: 40%;
+      height: 100%;
+      background-color: #6C8EFF;
+      animation: slide 1.1s ease-in-out infinite;
+    }
+    @keyframes slide {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(350%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #loading .bar::after { animation: none; width: 100%; }
+    }
+  </style>
 </head>
 <body>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
+  <div id="loading">
+    <div class="name">Mariam Fawzy</div>
+    <div class="bar"></div>
+  </div>
 
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
+  <!--
+    Plain-text fallback for crawlers and for anyone with JS disabled, so the
+    page is never completely empty.
   -->
+  <noscript>
+    <div style="color:#F2F2F5;font-family:sans-serif;padding:32px;">
+      <h1>Mariam Fawzy</h1>
+      <p>Flutter &amp; Mobile Developer</p>
+      <p>This portfolio requires JavaScript.
+         Reach me at <a style="color:#6C8EFF"
+         href="mailto:mariamfawzy110@gmail.com">mariamfawzy110@gmail.com</a>.</p>
+    </div>
+  </noscript>
+
+  <script>
+    // Remove the placeholder once Flutter paints its first frame.
+    window.addEventListener('flutter-first-frame', function () {
+      var el = document.getElementById('loading');
+      if (!el) return;
+      el.classList.add('hidden');
+      setTimeout(function () { el.remove(); }, 300);
+    });
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

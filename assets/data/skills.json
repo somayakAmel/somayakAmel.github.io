@@ -1,0 +1,54 @@
+{
+  "_comment": "PLACEHOLDER. 'kind' partitions the two Home sections: competency -> Skills (grouped, with level), technology -> Tech Stack (logo grid, no level). Replace names and add logo_path values; a missing logo renders a monogram tile.",
+  "skills": [
+    {
+      "id": "TODO_competency_1",
+      "name": "TODO",
+      "kind": "competency",
+      "category": "mobile",
+      "level": "expert"
+    },
+    {
+      "id": "TODO_competency_2",
+      "name": "TODO",
+      "kind": "competency",
+      "category": "architecture",
+      "level": "proficient"
+    },
+    {
+      "id": "TODO_competency_3",
+      "name": "TODO",
+      "kind": "competency",
+      "category": "stateManagement",
+      "level": "proficient"
+    },
+    {
+      "id": "TODO_competency_4",
+      "name": "TODO",
+      "kind": "competency",
+      "category": "practices",
+      "level": "familiar"
+    },
+    {
+      "id": "TODO_technology_1",
+      "name": "TODO",
+      "kind": "technology",
+      "category": "mobile",
+      "logo_path": null
+    },
+    {
+      "id": "TODO_technology_2",
+      "name": "TODO",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "TODO_technology_3",
+      "name": "TODO",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    }
+  ]
+}

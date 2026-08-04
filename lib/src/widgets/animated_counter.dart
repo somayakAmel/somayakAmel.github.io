@@ -37,7 +37,13 @@ class AnimatedCounter extends StatelessWidget {
       duration: DurationValues.dm600.milliseconds,
       curve: AppCurves.entrance,
       builder: (BuildContext context, int current, _) =>
-          _text(context, '$current$suffix'),
+          // Semantics carries the FINAL value, not the tweening one: a screen
+          // reader must never announce "1 Years Experience" because it happened
+          // to read the tree mid-animation.
+          Semantics(
+            label: '$target$suffix',
+            child: ExcludeSemantics(child: _text(context, '$current$suffix')),
+          ),
     );
   }
 

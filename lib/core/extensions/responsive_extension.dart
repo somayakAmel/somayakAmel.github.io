@@ -32,9 +32,23 @@ extension Responsive on num {
   /// Responsive radius.
   double get rb => _clamped(toDouble().r);
 
-  /// Responsive size — the averaged dimension, for square-ish values
-  /// (icon sizes, avatars) where neither height nor width alone is right.
-  double get rs => _clamped((toDouble().h + toDouble().w) / 2);
+  /// Responsive size — for square-ish values: font sizes, icon sizes, avatars.
+  ///
+  /// The guide averages `.h` and `.w`. That is safe on a phone, where both
+  /// factors are close, and badly wrong on any wide viewport: at 1440x900 the
+  /// width factor is 3.27 while the height factor is 0.94, so the average is
+  /// 2.11 and a 34pt heading asks for 71pt. The clamp then caps it, which hid
+  /// the problem rather than fixing it.
+  ///
+  /// Taking the MINIMUM of the two factors keeps the averaging intent — react
+  /// to whichever axis is more constrained — without letting a wide-but-short
+  /// viewport inflate type. Text and square glyphs are bounded by horizontal
+  /// space, so the width factor is the meaningful ceiling.
+  double get rs {
+    final double byHeight = toDouble().h;
+    final double byWidth = toDouble().w;
+    return _clamped(byHeight < byWidth ? byHeight : byWidth);
+  }
 
   /// Clamps the scaled result so it never exceeds the raw design value on
   /// viewports at or above the tablet breakpoint.
@@ -53,13 +67,23 @@ extension Responsive on num {
   /// extension stays callable from const-ish contexts and from any widget
   /// without threading context through. ScreenUtil is initialised in app.dart
   /// before the first frame.
+  ///
+  /// The threshold is the DESIGN WIDTH, not a named breakpoint. Scaling only
+  /// ever inflates above the design width, so that is exactly where clamping
+  /// must begin. An earlier version keyed this to `Breakpoints.tablet` (900),
+  /// which left the whole 600–899 band inflating — a 16pt body rendered at
+  /// ~22pt on a tablet. Caught by screenshotting the real breakpoints.
   bool get _isWideViewport {
     final double width = ScreenUtil().screenWidth;
     // Guard: before ScreenUtil.init completes, screenWidth is 0. Treat that as
     // "not wide" so early calls behave as on mobile rather than clamping.
     if (width <= 0) return false;
-    return width >= Breakpoints.tablet;
+    return width >= _designWidth;
   }
+
+  /// Mirrors `PortfolioApp.designSize.width`. Duplicated rather than imported
+  /// to keep core/ free of any dependency on src/.
+  static const double _designWidth = 440;
 }
 
 /// Device-type and layout helpers on BuildContext.

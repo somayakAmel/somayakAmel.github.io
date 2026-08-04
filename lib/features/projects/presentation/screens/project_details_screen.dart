@@ -9,6 +9,7 @@ import '../../../../src/widgets/section_state_builder.dart';
 import '../../../../src/widgets/tag_chip.dart';
 import '../../domain/entities/project_detail.dart';
 import '../cubit/project_details_cubit.dart';
+import 'image_viewer_screen.dart';
 import 'project_details_arguments.dart';
 
 export 'project_details_arguments.dart';
@@ -102,6 +103,7 @@ class _DetailBody extends StatelessWidget {
               ),
             if (detail.challenges.isNotEmpty) _challenges(context),
             if (detail.techStack.isNotEmpty) _techStack(context),
+            if (detail.hasGallery) _gallery(context),
             if (detail.links.hasAny) ...<Widget>[
               AppSize.s40.spaceH,
               _LinksRow(links: detail.links),
@@ -145,8 +147,7 @@ class _DetailBody extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
       _sectionTitle(context, key),
-      ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: AppSize.maxProseWidth),
+      ProseWidth(
         child: CustomText(
           body.of(context),
           fontSize: FontSize.bodyDesktop,
@@ -257,6 +258,51 @@ class _DetailBody extends StatelessWidget {
         children: <Widget>[
           for (final String tech in detail.techStack) TagChip(tech),
         ],
+      ),
+    ],
+  );
+
+  /// Horizontally scrolling screenshots; tapping one opens the full-screen
+  /// viewer at that index (PROJECT_SPEC §7.10).
+  Widget _gallery(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      _sectionTitle(context, StringsManager.gallery),
+      SizedBox(
+        height: AppSize.s320.rh,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: detail.gallery.length,
+          separatorBuilder: (_, _) => AppSize.s12.spaceW,
+          itemBuilder: (BuildContext context, int index) {
+            final GalleryImage image = detail.gallery[index];
+            return CustomContainer(
+              onTap: () => Navigator.of(context).pushNamed(
+                ImageViewerScreen.route,
+                arguments: ImageViewerArguments(
+                  images: detail.gallery,
+                  initialIndex: index,
+                ),
+              ),
+              padding: PaddingValues.zero,
+              borderRadius: BorderValues.b12.borderAll,
+              borderColor: context.colors.borderSubtle,
+              hoverLift: true,
+              semanticLabel: image.caption?.of(context),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(BorderValues.b12),
+                child: AspectRatio(
+                  aspectRatio: 9 / 16,
+                  child: CustomImage(
+                    path: image.path,
+                    fit: BoxFit.cover,
+                    semanticLabel: image.caption?.of(context),
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
       ),
     ],
   );

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../core/core.dart';
+import '../features/certificates/presentation/screens/certificates_screen.dart';
 import '../features/home/presentation/screens/home_screen.dart';
+import '../features/projects/presentation/screens/image_viewer_screen.dart';
 // project_details_screen re-exports ProjectDetailsArguments.
 import '../features/projects/presentation/screens/project_details_screen.dart';
 import '../features/projects/presentation/screens/projects_screen.dart';
@@ -20,6 +22,10 @@ class RoutesManager {
     // platform rather than each route deciding.
     return MaterialPageRoute<dynamic>(
       settings: settings,
+      // The viewer presents as a modal: it overlays content rather than being
+      // a destination, and this is what traps focus inside it (SPEC §14).
+      fullscreenDialog:
+          Uri.parse(settings.name ?? '').path == ImageViewerScreen.route,
       builder: (_) => screen,
     );
   }
@@ -38,6 +44,19 @@ class RoutesManager {
 
       case ProjectsScreen.route:
         return const ProjectsScreen();
+
+      case CertificatesScreen.route:
+        return const CertificatesScreen();
+
+      case ImageViewerScreen.route:
+        final Object? viewerArgs = settings.arguments;
+        if (viewerArgs is ImageViewerArguments) {
+          return ImageViewerScreen(args: viewerArgs);
+        }
+        // The viewer carries its images in memory, so it cannot be deep-linked
+        // the way a project can. A direct URL falls through to 404 rather than
+        // opening an empty gallery.
+        return const UndefinedRouteScreen();
 
       case ProjectDetailsScreen.route:
         final Object? args = settings.arguments;

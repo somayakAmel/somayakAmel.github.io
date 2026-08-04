@@ -1,0 +1,47 @@
+{
+  "_comment": "PLACEHOLDER. end_date null means 'present' and renders an accent marker. Achievements must be OUTCOME statements, not duty lists (SPEC section 9).",
+  "experience": [
+    {
+      "id": "TODO_role_1",
+      "company": {
+        "en": "TODO",
+        "ar": "TODO"
+      },
+      "role": {
+        "en": "TODO",
+        "ar": "TODO"
+      },
+      "employment_type": "fullTime",
+      "start_date": "2024-01-01",
+      "end_date": null,
+      "location": {
+        "en": "TODO",
+        "ar": "TODO"
+      },
+      "logo_path": null,
+      "achievements": [],
+      "technologies": []
+    },
+    {
+      "id": "TODO_role_2",
+      "company": {
+        "en": "TODO",
+        "ar": "TODO"
+      },
+      "role": {
+        "en": "TODO",
+        "ar": "TODO"
+      },
+      "employment_type": "fullTime",
+      "start_date": "2022-01-01",
+      "end_date": "2023-12-31",
+      "location": {
+        "en": "TODO",
+        "ar": "TODO"
+      },
+      "logo_path": null,
+      "achievements": [],
+      "technologies": []
+    }
+  ]
+}

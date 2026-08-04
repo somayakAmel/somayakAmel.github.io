@@ -1,0 +1,41 @@
+{
+  "_comment": "PLACEHOLDER. url must include the FULL scheme (mailto:, https://). The email entry becomes the primary CTA in the Contact section.",
+  "social_links": [
+    {
+      "id": "github",
+      "platform": "github",
+      "label": {
+        "en": "GitHub",
+        "ar": "جيت هب"
+      },
+      "url": "https://github.com/TODO",
+      "icon_key": "github",
+      "show_in_footer": true,
+      "order": 1
+    },
+    {
+      "id": "linkedin",
+      "platform": "linkedin",
+      "label": {
+        "en": "LinkedIn",
+        "ar": "لينكد إن"
+      },
+      "url": "https://linkedin.com/in/TODO",
+      "icon_key": "linkedin",
+      "show_in_footer": true,
+      "order": 2
+    },
+    {
+      "id": "email",
+      "platform": "email",
+      "label": {
+        "en": "Email me",
+        "ar": "راسلني"
+      },
+      "url": "mailto:mariamfawzy110@gmail.com",
+      "icon_key": "mail",
+      "show_in_footer": true,
+      "order": 3
+    }
+  ]
+}

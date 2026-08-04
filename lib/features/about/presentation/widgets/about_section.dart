@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/core.dart';
 import '../../../../src/service_locator.dart';
+import '../../../../src/widgets/max_width_wrapper.dart';
 import '../../../../src/widgets/section_container.dart';
 import '../../../../src/widgets/section_header.dart';
 import '../../../../src/widgets/section_state_builder.dart';
@@ -88,12 +89,7 @@ class _AboutContent extends StatelessWidget {
         children: <Widget>[
           Expanded(
             flex: 2,
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                maxWidth: AppSize.maxProseWidth,
-              ),
-              child: bio,
-            ),
+            child: ProseWidth(child: bio),
           ),
           AppSize.s48.spaceW,
           Expanded(child: stats),

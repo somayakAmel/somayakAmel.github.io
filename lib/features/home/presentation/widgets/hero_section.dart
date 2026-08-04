@@ -90,8 +90,7 @@ class _HeroContent extends StatelessWidget {
             textAlign: isWide ? TextAlign.start : TextAlign.center,
           ),
           AppSize.s20.spaceH,
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: AppSize.maxProseWidth),
+          ProseWidth(
             child: CustomText(
               about!.tagline.of(context),
               fontSize: isMobile

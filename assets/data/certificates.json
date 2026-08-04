@@ -1,0 +1,39 @@
+{
+  "_comment": "PLACEHOLDER. credential_url enables the Verify action; expiry_date null means no expiry.",
+  "certificates": [
+    {
+      "id": "TODO_cert_1",
+      "title": {
+        "en": "TODO",
+        "ar": "TODO"
+      },
+      "issuer": {
+        "en": "TODO",
+        "ar": "TODO"
+      },
+      "issue_date": "2024-01-01",
+      "expiry_date": null,
+      "credential_id": null,
+      "credential_url": null,
+      "image_path": null,
+      "issuer_logo_path": null
+    },
+    {
+      "id": "TODO_cert_2",
+      "title": {
+        "en": "TODO",
+        "ar": "TODO"
+      },
+      "issuer": {
+        "en": "TODO",
+        "ar": "TODO"
+      },
+      "issue_date": "2023-01-01",
+      "expiry_date": null,
+      "credential_id": null,
+      "credential_url": null,
+      "image_path": null,
+      "issuer_logo_path": null
+    }
+  ]
+}

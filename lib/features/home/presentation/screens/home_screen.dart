@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/core.dart';
+import '../../../../src/widgets/app_footer.dart';
+import '../../../../src/widgets/language_toggle.dart';
+import '../../../../src/widgets/mobile_nav_sheet.dart';
 import '../../../about/presentation/widgets/about_section.dart';
+import '../../../certificates/presentation/widgets/certificates_section.dart';
+import '../../../contact/presentation/widgets/contact_section.dart';
+import '../../../experience/presentation/widgets/experience_section.dart';
 import '../../../projects/presentation/widgets/featured_projects_section.dart';
+import '../../../skills/presentation/widgets/skills_section.dart';
+import '../../../skills/presentation/widgets/tech_stack_section.dart';
 import '../widgets/hero_section.dart';
 
 /// The scrolling composite (PROJECT_SPEC §6, S2).
 ///
 /// [RULE] HomeScreen owns nothing but layout and scroll. Each `<Feature>Section`
 /// provides its own cubit, fetches its own data, and renders its own states —
-/// so reordering Home is moving one line in [_sections] (SPEC §10.3).
+/// so reordering Home is moving one line in the children list (SPEC §10.3).
+///
+/// Section order is deliberate (SPEC §3): proof (Projects) comes third, before
+/// Skills, because a recruiter scanning for fifteen seconds should hit the
+/// strongest evidence early. A skills list only means something after the
+/// reader has seen work that backs it.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -24,6 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final GlobalKey _aboutKey = GlobalKey();
   final GlobalKey _projectsKey = GlobalKey();
+  final GlobalKey _skillsKey = GlobalKey();
+  final GlobalKey _experienceKey = GlobalKey();
+  final GlobalKey _contactKey = GlobalKey();
 
   bool _isScrolled = false;
 
@@ -61,6 +77,29 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  List<NavDestination> get _destinations => <NavDestination>[
+    NavDestination(
+      labelKey: StringsManager.navAbout,
+      onTap: () => _scrollTo(_aboutKey),
+    ),
+    NavDestination(
+      labelKey: StringsManager.navWork,
+      onTap: () => _scrollTo(_projectsKey),
+    ),
+    NavDestination(
+      labelKey: StringsManager.navSkills,
+      onTap: () => _scrollTo(_skillsKey),
+    ),
+    NavDestination(
+      labelKey: StringsManager.navExperience,
+      onTap: () => _scrollTo(_experienceKey),
+    ),
+    NavDestination(
+      labelKey: StringsManager.navContact,
+      onTap: () => _scrollTo(_contactKey),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,15 +114,27 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: <Widget>[
           if (context.isDesktopClass) ...<Widget>[
-            _NavLink(
-              labelKey: StringsManager.navAbout,
-              onTap: () => _scrollTo(_aboutKey),
+            for (final NavDestination destination in _destinations)
+              _NavLink(
+                labelKey: destination.labelKey,
+                onTap: destination.onTap,
+              ),
+            AppSize.s8.spaceW,
+            const LanguageToggle(),
+          ] else
+            // Mobile and tablet collapse the nav into a bottom sheet (§12).
+            CustomContainer(
+              onTap: () => MobileNavSheet.show(context, _destinations),
+              shape: BoxShape.circle,
+              color: context.colors.surface2,
+              padding: PaddingValues.p10.pAll,
+              semanticLabel: StringsManager.openMenu.tr(context),
+              child: Icon(
+                IconsManager.menu,
+                size: AppSize.s20,
+                color: context.colors.textPrimary,
+              ),
             ),
-            _NavLink(
-              labelKey: StringsManager.navWork,
-              onTap: () => _scrollTo(_projectsKey),
-            ),
-          ],
         ],
       ),
       body: SingleChildScrollView(
@@ -96,7 +147,12 @@ class _HomeScreenState extends State<HomeScreen> {
             HeroSection(onScrollToWork: () => _scrollTo(_projectsKey)),
             AboutSection(anchorKey: _aboutKey),
             FeaturedProjectsSection(anchorKey: _projectsKey),
-            AppSize.s96.spaceH,
+            SkillsSection(anchorKey: _skillsKey),
+            const TechStackSection(),
+            ExperienceSection(anchorKey: _experienceKey),
+            const CertificatesSection(),
+            ContactSection(anchorKey: _contactKey),
+            const AppFooter(),
           ],
         ),
       ),

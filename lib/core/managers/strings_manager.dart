@@ -76,26 +76,64 @@ class StringsManager {
   // Skills
   static const String skillsTitle = 'skillsTitle';
   static const String skillsEyebrow = 'skillsEyebrow';
+  static const String skillsCompetencies = 'skillsCompetencies';
   static const String techStackTitle = 'techStackTitle';
   static const String levelFamiliar = 'levelFamiliar';
   static const String levelProficient = 'levelProficient';
   static const String levelExpert = 'levelExpert';
+  static const String noSkills = 'noSkills';
+
+  // Skill categories
+  static const String categoryMobile = 'categoryMobile';
+  static const String categoryArchitecture = 'categoryArchitecture';
+  static const String categoryStateManagement = 'categoryStateManagement';
+  static const String categoryBackend = 'categoryBackend';
+  static const String categoryTools = 'categoryTools';
+  static const String categoryPractices = 'categoryPractices';
 
   // Experience
   static const String experienceTitle = 'experienceTitle';
   static const String experienceEyebrow = 'experienceEyebrow';
+  static const String noExperience = 'noExperience';
+  static const String durationYears = 'durationYears';
+  static const String durationMonths = 'durationMonths';
+  static const String employmentFullTime = 'employmentFullTime';
+  static const String employmentPartTime = 'employmentPartTime';
+  static const String employmentFreelance = 'employmentFreelance';
+  static const String employmentContract = 'employmentContract';
+  static const String employmentInternship = 'employmentInternship';
 
   // Certificates
   static const String certificatesTitle = 'certificatesTitle';
   static const String certificatesEyebrow = 'certificatesEyebrow';
+  static const String allCertificates = 'allCertificates';
   static const String verifyCredential = 'verifyCredential';
   static const String credentialId = 'credentialId';
+  static const String noCertificates = 'noCertificates';
+  static const String issued = 'issued';
+  static const String expires = 'expires';
+  static const String expired = 'expired';
 
   // Contact
   static const String contactTitle = 'contactTitle';
   static const String contactEyebrow = 'contactEyebrow';
+  static const String contactAvailability = 'contactAvailability';
   static const String getInTouch = 'getInTouch';
   static const String emailMe = 'emailMe';
+  static const String noContactLinks = 'noContactLinks';
+
+  // Navigation / viewer
+  static const String openMenu = 'openMenu';
+  static const String closeMenu = 'closeMenu';
+  static const String imageViewer = 'imageViewer';
+  static const String previousImage = 'previousImage';
+  static const String nextImage = 'nextImage';
+  static const String imageOf = 'imageOf';
+
+  // Project status
+  static const String statusLive = 'statusLive';
+  static const String statusInDevelopment = 'statusInDevelopment';
+  static const String statusArchived = 'statusArchived';
 
   // Footer
   static const String builtWithFlutter = 'builtWithFlutter';

@@ -58,10 +58,9 @@ class AppFooter extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                CustomText(
+                CustomText.display(
                   StringsManager.appName.tr(context),
                   fontSize: FontSize.h3Desktop,
-                  fontWeight: FontWeightManager.bold,
                   textAlign: TextAlign.start,
                 ),
                 AppSize.s6.spaceH,

@@ -36,11 +36,21 @@ class AppColorScheme extends ThemeExtension<AppColorScheme> {
   final Color borderSubtle;
   final Color borderStrong;
 
-  // Accent — exactly one
+  // Accents
   final Color accent;
   final Color accentHover;
   final Color accentMuted;
   final Color onAccent;
+
+  /// [RULE] Decorative only — never text, never a meaning-bearing icon. It does
+  /// not meet AA for body text on cards (4.18:1). Use [accentSecondaryText]
+  /// when purple text is genuinely wanted.
+  final Color accentSecondary;
+  final Color accentSecondaryText;
+
+  /// Soft ambient glow, only behind hero and interactive elements.
+  final Color glowPrimary;
+  final Color glowSecondary;
 
   // Semantic
   final Color success;
@@ -65,6 +75,10 @@ class AppColorScheme extends ThemeExtension<AppColorScheme> {
     required this.accentHover,
     required this.accentMuted,
     required this.onAccent,
+    required this.accentSecondary,
+    required this.accentSecondaryText,
+    required this.glowPrimary,
+    required this.glowSecondary,
     required this.success,
     required this.warning,
     required this.danger,
@@ -88,6 +102,10 @@ class AppColorScheme extends ThemeExtension<AppColorScheme> {
     accentHover: ColorsManager.accentHover,
     accentMuted: ColorsManager.accentMuted,
     onAccent: ColorsManager.darkSurface0,
+    accentSecondary: ColorsManager.accentSecondary,
+    accentSecondaryText: ColorsManager.accentSecondaryText,
+    glowPrimary: ColorsManager.glowPrimary,
+    glowSecondary: ColorsManager.glowSecondary,
     success: ColorsManager.success,
     warning: ColorsManager.warning,
     danger: ColorsManager.danger,
@@ -112,6 +130,10 @@ class AppColorScheme extends ThemeExtension<AppColorScheme> {
     accentHover: ColorsManager.accentHover,
     accentMuted: ColorsManager.accentMuted,
     onAccent: ColorsManager.pureWhite,
+    accentSecondary: ColorsManager.accentSecondary,
+    accentSecondaryText: ColorsManager.accentSecondary,
+    glowPrimary: ColorsManager.glowPrimary,
+    glowSecondary: ColorsManager.glowSecondary,
     success: ColorsManager.success,
     warning: ColorsManager.warning,
     danger: ColorsManager.danger,
@@ -135,6 +157,10 @@ class AppColorScheme extends ThemeExtension<AppColorScheme> {
     Color? accentHover,
     Color? accentMuted,
     Color? onAccent,
+    Color? accentSecondary,
+    Color? accentSecondaryText,
+    Color? glowPrimary,
+    Color? glowSecondary,
     Color? success,
     Color? warning,
     Color? danger,
@@ -155,6 +181,10 @@ class AppColorScheme extends ThemeExtension<AppColorScheme> {
     accentHover: accentHover ?? this.accentHover,
     accentMuted: accentMuted ?? this.accentMuted,
     onAccent: onAccent ?? this.onAccent,
+    accentSecondary: accentSecondary ?? this.accentSecondary,
+    accentSecondaryText: accentSecondaryText ?? this.accentSecondaryText,
+    glowPrimary: glowPrimary ?? this.glowPrimary,
+    glowSecondary: glowSecondary ?? this.glowSecondary,
     success: success ?? this.success,
     warning: warning ?? this.warning,
     danger: danger ?? this.danger,
@@ -180,6 +210,11 @@ class AppColorScheme extends ThemeExtension<AppColorScheme> {
       accentHover: Color.lerp(accentHover, other.accentHover, t)!,
       accentMuted: Color.lerp(accentMuted, other.accentMuted, t)!,
       onAccent: Color.lerp(onAccent, other.onAccent, t)!,
+      accentSecondary: Color.lerp(accentSecondary, other.accentSecondary, t)!,
+      accentSecondaryText:
+          Color.lerp(accentSecondaryText, other.accentSecondaryText, t)!,
+      glowPrimary: Color.lerp(glowPrimary, other.glowPrimary, t)!,
+      glowSecondary: Color.lerp(glowSecondary, other.glowSecondary, t)!,
       success: Color.lerp(success, other.success, t)!,
       warning: Color.lerp(warning, other.warning, t)!,
       danger: Color.lerp(danger, other.danger, t)!,

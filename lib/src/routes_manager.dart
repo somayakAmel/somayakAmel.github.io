@@ -95,10 +95,9 @@ class UndefinedRouteScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            CustomText(
+            CustomText.display(
               '404',
-              fontSize: FontSize.displayDesktop,
-              fontWeight: FontWeightManager.bold,
+              fontSize: FontSize.h1Desktop,
               color: context.colors.accent,
             ),
             AppSize.s12.spaceH,

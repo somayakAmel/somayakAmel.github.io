@@ -34,7 +34,7 @@ class ThemeManager {
       brightness: scheme.brightness,
       scaffoldBackgroundColor: scheme.surface0,
       canvasColor: scheme.surface0,
-      fontFamily: FontConstants.fontFamily,
+      fontFamily: FontConstants.bodyFamily,
 
       // The single source of role aliases. Read via `context.colors`.
       extensions: <ThemeExtension<dynamic>>[scheme],
@@ -77,12 +77,12 @@ class ThemeManager {
       tooltipTheme: TooltipThemeData(
         decoration: BoxDecoration(
           color: scheme.surface4,
-          borderRadius: BorderRadius.circular(BorderValues.b8),
+          borderRadius: BorderRadius.circular(BorderValues.small),
         ),
         textStyle: TextStyle(
           color: scheme.textPrimary,
           fontSize: FontSize.labelDesktop,
-          fontFamily: FontConstants.fontFamily,
+          fontFamily: FontConstants.bodyFamily,
         ),
       ),
 

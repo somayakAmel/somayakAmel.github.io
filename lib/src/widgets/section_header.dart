@@ -49,10 +49,9 @@ class SectionHeader extends StatelessWidget {
         // Screen readers can jump between sections by header (SPEC §14).
         Semantics(
           header: true,
-          child: CustomText(
+          child: CustomText.display(
             titleKey.tr(context),
             fontSize: isMobile ? FontSize.h1Mobile : FontSize.h1Desktop,
-            fontWeight: FontWeightManager.bold,
             height: LineHeights.heading,
             textAlign: TextAlign.start,
           ),

@@ -159,12 +159,11 @@ class _TimelineEntry extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
-                            CustomText(
+                            CustomText.display(
                               experience.role.of(context),
                               fontSize: isMobile
                                   ? FontSize.h3Mobile
                                   : FontSize.h3Desktop,
-                              fontWeight: FontWeightManager.bold,
                               textAlign: TextAlign.start,
                             ),
                             AppSize.s4.spaceH,

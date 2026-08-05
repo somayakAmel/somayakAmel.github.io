@@ -416,6 +416,22 @@ class DataValidator {
       }
     }
 
+    // An architecture note with no reasoning is worse than none — it claims a
+    // decision was made without showing the thinking, which is exactly the
+    // impression this section exists to avoid.
+    for (final Map<String, dynamic> note in _objList(json['architecture'])) {
+      if (note['title'] == null || note['detail'] == null) {
+        _result.add(
+          ValidationIssue.error(
+            check: 'architecture-notes',
+            file: file,
+            message: 'Every architecture note needs both a title and a detail.',
+          ),
+        );
+      }
+      _checkLocalized(file, note, const <String>['title', 'detail']);
+    }
+
     // Check 6: screenshot paths exist.
     for (final Map<String, dynamic> image in _objList(json['gallery'])) {
       final String? path = _str(image['path']);

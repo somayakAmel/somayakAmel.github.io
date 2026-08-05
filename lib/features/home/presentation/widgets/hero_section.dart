@@ -4,20 +4,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/core.dart';
 import '../../../../core/utils/link_launcher.dart';
 import '../../../../src/service_locator.dart';
+import '../../../../src/widgets/ambient_glow.dart';
 import '../../../../src/widgets/max_width_wrapper.dart';
 import '../../../about/domain/entities/about.dart';
 import '../../../about/presentation/cubit/about_cubit.dart';
 import '../../../projects/presentation/screens/projects_screen.dart';
 
-/// The Hero block (PROJECT_SPEC §7.1).
+/// The Hero block (PROJECT_SPEC §7.1, design system §Hero).
 ///
-/// Answers "who is this" in under three seconds: name, role, years, positioning
-/// statement, and two CTAs. A recruiter scanning for 20 seconds must get all of
-/// it without scrolling.
-///
-/// Hero reads `about.json` but does not own it — it provides its own
-/// [AboutCubit] instance, separate from the About section's. Both resolve to
-/// the same memoized asset read, so there is no double parse (SPEC §16).
+/// Minimal by intent: huge type, generous whitespace, two CTAs, and the ambient
+/// glow. No illustration, no laptop mockup, no coding GIF — the message is
+/// "this engineer builds production software", and stock imagery undercuts it.
 class HeroSection extends StatelessWidget {
   final VoidCallback? onScrollToWork;
 
@@ -28,20 +25,12 @@ class HeroSection extends StatelessWidget {
     return BlocProvider<AboutCubit>(
       create: (_) => sl<AboutCubit>()..getAbout(),
       child: Builder(
-        builder: (BuildContext context) =>
-            BlocBuilder<AboutCubit, AboutState>(
-              builder: (BuildContext context, AboutState state) {
-                final About? about = state.getAboutState.data;
-
-                // Above the fold: a skeleton, never a spinner. And on failure a
-                // static fallback rather than an error card — a broken hero is
-                // the worst possible first impression (SPEC §7.1).
-                return _HeroContent(
-                  about: about,
-                  onScrollToWork: onScrollToWork,
-                );
-              },
-            ),
+        builder: (BuildContext context) => BlocBuilder<AboutCubit, AboutState>(
+          builder: (BuildContext context, AboutState state) => _HeroContent(
+            about: state.getAboutState.data,
+            onScrollToWork: onScrollToWork,
+          ),
+        ),
       ),
     );
   }
@@ -64,91 +53,112 @@ class _HeroContent extends StatelessWidget {
       desktop: PaddingValues.screenPaddingDesktop,
     );
 
-    final Widget text = Column(
-      crossAxisAlignment: isWide
-          ? CrossAxisAlignment.start
-          : CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        if (about != null) ...<Widget>[
-          CustomText(
-            about!.roleTitle.of(context).toUpperCase(),
-            fontSize: FontSize.labelDesktop,
-            fontWeight: FontWeightManager.semiBold,
-            color: colors.accent,
-            letterSpacing: 1.4,
-            textAlign: isWide ? TextAlign.start : TextAlign.center,
-          ),
-          AppSize.s16.spaceH,
-          CustomText(
-            about!.name.of(context),
-            fontSize: isMobile
-                ? FontSize.displayMobile
-                : FontSize.displayDesktop,
-            fontWeight: FontWeightManager.bold,
-            height: LineHeights.tight,
-            textAlign: isWide ? TextAlign.start : TextAlign.center,
-          ),
-          AppSize.s20.spaceH,
-          ProseWidth(
-            child: CustomText(
-              about!.tagline.of(context),
-              fontSize: isMobile
-                  ? FontSize.bodyLargeMobile
-                  : FontSize.bodyLargeDesktop,
-              color: colors.textSecondary,
-              textAlign: isWide ? TextAlign.start : TextAlign.center,
-            ),
-          ),
-        ] else
-          const _HeroSkeleton(),
-        AppSize.s32.spaceH,
-        Wrap(
-          spacing: AppSize.s12,
-          runSpacing: AppSize.s12,
-          alignment: isWide ? WrapAlignment.start : WrapAlignment.center,
-          children: <Widget>[
-            CustomContainer(
-              text: StringsManager.viewMyWork.tr(context),
-              onTap: onScrollToWork ??
-                  () => Navigator.of(context).pushNamed(ProjectsScreen.route),
-              padding: (PaddingValues.p16, PaddingValues.p32).pSymmetricVH,
-              hoverLift: true,
-            ),
-            if (about?.hasResume ?? false)
-              CustomContainer(
-                text: StringsManager.downloadResume.tr(context),
-                onTap: () => _openResume(context, about!.resumePath!),
-                isFilled: false,
-                color: colors.textPrimary,
-                padding: (PaddingValues.p16, PaddingValues.p32).pSymmetricVH,
-              ),
-          ],
+    return AmbientGlow(
+      child: Container(
+        width: double.infinity,
+        constraints: BoxConstraints(
+          // Tall enough to feel composed, short enough that the first project
+          // card peeks above the fold on a 900px laptop — a hero that fills the
+          // screen hides the proof (SPEC §7.1).
+          minHeight: isWide ? AppSize.s600.rh : 0,
         ),
-      ],
-    );
-
-    return Container(
-      width: double.infinity,
-      constraints: BoxConstraints(
-        // Sized so the first project card peeks above the fold on a 900px-tall
-        // laptop viewport. A hero that fills the screen hides the proof, which
-        // is the exact failure mode SPEC §7.1 warns about.
-        minHeight: isWide ? AppSize.s480.rh : 0,
-      ),
-      padding: EdgeInsetsDirectional.only(
-        top: AppSize.s96.rh,
-        bottom: AppSize.s48.rh,
-      ),
-      child: MaxWidthWrapper(
-        // The wrapper centres the clamped 1200px column on the page; the
-        // SizedBox makes that column full-width so the inner Column's
-        // crossAxisAlignment (start on desktop, center on mobile) governs
-        // where the text sits WITHIN it. Without the SizedBox the Column
-        // shrink-wraps and its own alignment has nothing to align against.
-        child: SizedBox(
-          width: double.infinity,
-          child: text.withPadding(hPad.pSymmetricH),
+        padding: EdgeInsetsDirectional.only(
+          top: AppSize.s120.rh,
+          // Mobile has no scroll indicator, so a desktop-sized bottom pad
+          // leaves a dead gap between the CTA and the first project card.
+          bottom: (isWide ? AppSize.s80 : AppSize.s48).rh,
+        ),
+        child: MaxWidthWrapper(
+          child: SizedBox(
+            width: double.infinity,
+            child:
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    if (about != null) ...<Widget>[
+                      CustomText(
+                        StringsManager.heroGreeting.tr(context),
+                        fontSize: isMobile
+                            ? FontSize.bodyLargeMobile
+                            : FontSize.bodyLargeDesktop,
+                        color: colors.textSecondary,
+                        textAlign: TextAlign.start,
+                      ),
+                      AppSize.s8.spaceH,
+                      CustomText.display(
+                        about!.name.of(context),
+                        fontSize: isMobile
+                            ? FontSize.displayMobile
+                            : FontSize.displayDesktop,
+                        height: LineHeights.display,
+                        letterSpacing: LetterSpacings.display,
+                        textAlign: TextAlign.start,
+                      ),
+                      AppSize.s12.spaceH,
+                      CustomText(
+                        about!.roleTitle.of(context),
+                        fontSize: isMobile
+                            ? FontSize.h2Mobile
+                            : FontSize.h1Desktop,
+                        fontWeight: FontWeightManager.medium,
+                        color: colors.accent,
+                        height: LineHeights.heading,
+                        textAlign: TextAlign.start,
+                      ),
+                      AppSize.s24.spaceH,
+                      ProseWidth(
+                        child: CustomText(
+                          about!.tagline.of(context),
+                          fontSize: isMobile
+                              ? FontSize.bodyMobile
+                              : FontSize.bodyLargeDesktop,
+                          color: colors.textSecondary,
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                    ] else
+                      const _HeroSkeleton(),
+                    AppSize.s40.spaceH,
+                    Wrap(
+                      spacing: AppSize.s12,
+                      runSpacing: AppSize.s12,
+                      children: <Widget>[
+                        CustomContainer(
+                          text: StringsManager.viewMyWork.tr(context),
+                          onTap:
+                              onScrollToWork ??
+                              () => Navigator.of(
+                                context,
+                              ).pushNamed(ProjectsScreen.route),
+                          padding: (PaddingValues.p16, PaddingValues.p32)
+                              .pSymmetricVH,
+                          borderRadius: BorderValues.small.borderAll,
+                          hoverLift: true,
+                          glow: true,
+                        ),
+                        if (about?.hasResume ?? false)
+                          CustomContainer(
+                            text: StringsManager.downloadResume.tr(context),
+                            onTap: () =>
+                                _openResume(context, about!.resumePath!),
+                            isFilled: false,
+                            color: colors.textPrimary,
+                            borderColor: colors.borderStrong,
+                            borderRadius: BorderValues.small.borderAll,
+                            padding: (PaddingValues.p16, PaddingValues.p32)
+                                .pSymmetricVH,
+                            hoverLift: true,
+                          ),
+                      ],
+                    ),
+                    if (isWide) ...<Widget>[
+                      AppSize.s64.spaceH,
+                      const _ScrollIndicator(),
+                    ],
+                  ],
+                ).withPadding(hPad.pSymmetricH),
+          ),
         ),
       ),
     );
@@ -163,7 +173,74 @@ class _HeroContent extends StatelessWidget {
   }
 }
 
-/// Matches the final layout's shape so there is no reflow when content lands.
+/// The only looping animation in the app (SPEC §13).
+class _ScrollIndicator extends StatefulWidget {
+  const _ScrollIndicator();
+
+  @override
+  State<_ScrollIndicator> createState() => _ScrollIndicatorState();
+}
+
+class _ScrollIndicatorState extends State<_ScrollIndicator>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1600),
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (context.reduceMotion) {
+      _controller.stop();
+    } else if (!_controller.isAnimating) {
+      _controller.repeat(reverse: true);
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final AppColorScheme colors = context.colors;
+
+    return Row(
+      children: <Widget>[
+        AnimatedBuilder(
+          animation: _controller,
+          builder: (BuildContext context, Widget? child) => Transform.translate(
+            offset: Offset(0, _controller.value * AppSize.s8),
+            child: child,
+          ),
+          child: Icon(
+            IconsManager.scrollDown,
+            size: AppSize.s20,
+            color: colors.textTertiary,
+          ),
+        ),
+        AppSize.s8.spaceW,
+        CustomText(
+          StringsManager.scrollToExplore.tr(context),
+          fontSize: FontSize.labelDesktop,
+          color: colors.textTertiary,
+          letterSpacing: LetterSpacings.label,
+        ),
+      ],
+    );
+  }
+}
+
+/// Matches the final layout's shape so nothing reflows when content lands.
 class _HeroSkeleton extends StatelessWidget {
   const _HeroSkeleton();
 
@@ -176,19 +253,18 @@ class _HeroSkeleton extends StatelessWidget {
       margin: EdgeInsetsDirectional.only(bottom: AppSize.s16.rh),
       decoration: BoxDecoration(
         color: colors.surface2,
-        borderRadius: BorderRadius.circular(BorderValues.b8),
+        borderRadius: BorderRadius.circular(BorderValues.small),
       ),
     );
 
     return Column(
-      crossAxisAlignment: context.isWide
-          ? CrossAxisAlignment.start
-          : CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        bar(AppSize.s160, AppSize.s14),
-        bar(AppSize.s400, AppSize.s56),
-        bar(AppSize.s320, AppSize.s20),
+        bar(AppSize.s120, AppSize.s20),
+        bar(AppSize.s480, AppSize.s64),
+        bar(AppSize.s320, AppSize.s32),
+        bar(AppSize.s400, AppSize.s20),
       ],
     );
   }

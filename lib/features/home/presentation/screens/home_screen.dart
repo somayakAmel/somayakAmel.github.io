@@ -19,10 +19,10 @@ import '../widgets/hero_section.dart';
 /// provides its own cubit, fetches its own data, and renders its own states —
 /// so reordering Home is moving one line in the children list (SPEC §10.3).
 ///
-/// Section order is deliberate (SPEC §3): proof (Projects) comes third, before
-/// Skills, because a recruiter scanning for fifteen seconds should hit the
-/// strongest evidence early. A skills list only means something after the
-/// reader has seen work that backs it.
+/// Section order is deliberate (design system §Layout Philosophy): Projects sit
+/// SECOND, immediately after the hero, because projects get interviews. About
+/// follows as context for work the reader has already seen, rather than as a
+/// preamble they have to get through first.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -79,12 +79,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<NavDestination> get _destinations => <NavDestination>[
     NavDestination(
-      labelKey: StringsManager.navAbout,
-      onTap: () => _scrollTo(_aboutKey),
-    ),
-    NavDestination(
       labelKey: StringsManager.navWork,
       onTap: () => _scrollTo(_projectsKey),
+    ),
+    NavDestination(
+      labelKey: StringsManager.navAbout,
+      onTap: () => _scrollTo(_aboutKey),
     ),
     NavDestination(
       labelKey: StringsManager.navSkills,
@@ -107,10 +107,9 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: CustomAppBar(
         isScrolled: _isScrolled,
         showBack: false,
-        leadingWidget: CustomText(
+        leadingWidget: CustomText.display(
           StringsManager.appName.tr(context),
           fontSize: FontSize.h3Desktop,
-          fontWeight: FontWeightManager.bold,
         ),
         actions: <Widget>[
           if (context.isDesktopClass) ...<Widget>[
@@ -144,9 +143,13 @@ class _HomeScreenState extends State<HomeScreen> {
         key: const PageStorageKey<String>('home-scroll'),
         child: Column(
           children: <Widget>[
+            // Order is deliberate (design system §Layout Philosophy):
+            // Projects sit SECOND, immediately after the hero, because
+            // projects get interviews. About follows as context for work the
+            // reader has already seen.
             HeroSection(onScrollToWork: () => _scrollTo(_projectsKey)),
-            AboutSection(anchorKey: _aboutKey),
             FeaturedProjectsSection(anchorKey: _projectsKey),
+            AboutSection(anchorKey: _aboutKey),
             SkillsSection(anchorKey: _skillsKey),
             const TechStackSection(),
             ExperienceSection(anchorKey: _experienceKey),

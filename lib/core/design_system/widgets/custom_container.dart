@@ -48,6 +48,13 @@ class CustomContainer extends StatefulWidget {
   final bool isLoading;
   final List<BoxShadow>? boxShadow;
   final bool hoverLift;
+
+  /// Soft accent glow behind the surface, strengthening on hover.
+  ///
+  /// [RULE] Reserved for primary CTAs. A glow on every button is decoration;
+  /// a glow on the one action that matters is hierarchy (design system §Glow).
+  final bool glow;
+
   final AlignmentGeometry? alignment;
 
   /// Announced to screen readers when this acts as a button and its content is
@@ -77,6 +84,7 @@ class CustomContainer extends StatefulWidget {
     this.isLoading = false,
     this.boxShadow,
     this.hoverLift = false,
+    this.glow = false,
     this.alignment,
     this.semanticLabel,
   });
@@ -235,6 +243,21 @@ class _CustomContainerState extends State<CustomContainer> {
 
   List<BoxShadow>? _buildShadow() {
     if (widget.boxShadow != null) return widget.boxShadow;
+
+    if (widget.glow) {
+      // Wide, very soft, no offset — this reads as light coming off the
+      // surface rather than as a drop shadow, which is invisible on a
+      // near-black page anyway.
+      final AppColorScheme colors = context.colors;
+      return <BoxShadow>[
+        BoxShadow(
+          color: colors.accent.withValues(alpha: _isHovered ? 0.34 : 0.20),
+          blurRadius: _isHovered ? 32 : 22,
+          spreadRadius: _isHovered ? 1 : 0,
+        ),
+      ];
+    }
+
     if (widget.hoverLift && _isHovered) return AppShadow.hovered;
     return null;
   }

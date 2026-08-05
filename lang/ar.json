@@ -1,5 +1,5 @@
 {
-  "appName": "مريم فوزي",
+  "appName": "سمية كامل",
   "tryAgain": "أعد المحاولة",
   "somethingWentWrong": "حدث خطأ ما",
   "undefinedRoute": "مسار غير معرّف",
@@ -100,5 +100,8 @@
   "imageOf": "صورة {current} من {total}",
   "statusLive": "منشور",
   "statusInDevelopment": "قيد التطوير",
-  "statusArchived": "مؤرشف"
+  "statusArchived": "مؤرشف",
+  "heroGreeting": "مرحبًا، أنا",
+  "viewCaseStudy": "عرض دراسة الحالة",
+  "architecture": "المعمارية"
 }

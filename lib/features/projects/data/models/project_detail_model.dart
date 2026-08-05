@@ -14,6 +14,7 @@ class ProjectDetailModel {
   final List<LocalizedText> responsibilities;
   final List<ChallengeSolutionModel> challenges;
   final List<String> techStack;
+  final List<ArchitectureNoteModel> architecture;
   final List<GalleryImageModel> gallery;
   final ProjectLinksModel links;
 
@@ -27,6 +28,7 @@ class ProjectDetailModel {
     this.responsibilities = const <LocalizedText>[],
     this.challenges = const <ChallengeSolutionModel>[],
     this.techStack = const <String>[],
+    this.architecture = const <ArchitectureNoteModel>[],
     this.gallery = const <GalleryImageModel>[],
     this.links = const ProjectLinksModel(),
   });
@@ -58,6 +60,10 @@ class ProjectDetailModel {
             .map(ChallengeSolutionModel.fromJson)
             .toList(growable: false),
         techStack: json.strList('tech_stack'),
+        architecture: json
+            .objList('architecture')
+            .map(ArchitectureNoteModel.fromJson)
+            .toList(growable: false),
         gallery: json
             .objList('gallery')
             .map(GalleryImageModel.fromJson)
@@ -79,11 +85,30 @@ class ProjectDetailModel {
         .map((ChallengeSolutionModel e) => e.toEntity())
         .toList(growable: false),
     techStack: techStack,
+    architecture: architecture
+        .map((ArchitectureNoteModel e) => e.toEntity())
+        .toList(growable: false),
     gallery: gallery
         .map((GalleryImageModel e) => e.toEntity())
         .toList(growable: false),
     links: links.toEntity(),
   );
+}
+
+class ArchitectureNoteModel {
+  final LocalizedText title;
+  final LocalizedText detail;
+
+  const ArchitectureNoteModel({required this.title, required this.detail});
+
+  factory ArchitectureNoteModel.fromJson(Map<String, dynamic> json) =>
+      ArchitectureNoteModel(
+        title: json.localized('title'),
+        detail: json.localized('detail'),
+      );
+
+  ArchitectureNote toEntity() =>
+      ArchitectureNote(title: title, detail: detail);
 }
 
 class ChallengeSolutionModel {

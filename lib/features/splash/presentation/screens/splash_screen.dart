@@ -55,10 +55,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
     body: Center(
-      child: CustomText(
+      child: CustomText.display(
         StringsManager.appName.tr(context),
         fontSize: FontSize.h1Desktop,
-        fontWeight: FontWeightManager.bold,
       ),
     ),
   );

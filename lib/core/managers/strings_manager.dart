@@ -41,6 +41,7 @@ class StringsManager {
   static const String switchLanguage = 'switchLanguage';
 
   // Hero
+  static const String heroGreeting = 'heroGreeting';
   static const String viewMyWork = 'viewMyWork';
   static const String downloadResume = 'downloadResume';
   static const String scrollToExplore = 'scrollToExplore';
@@ -55,6 +56,8 @@ class StringsManager {
   static const String featuredProjects = 'featuredProjects';
   static const String allProjects = 'allProjects';
   static const String viewDetails = 'viewDetails';
+  static const String viewCaseStudy = 'viewCaseStudy';
+  static const String architecture = 'architecture';
   static const String noProjects = 'noProjects';
   static const String overview = 'overview';
   static const String myRole = 'myRole';

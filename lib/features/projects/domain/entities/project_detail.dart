@@ -18,6 +18,15 @@ class ProjectDetail extends Equatable {
   final List<LocalizedText> responsibilities;
   final List<ChallengeSolution> challenges;
   final List<String> techStack;
+
+  /// How the app was structured, and why.
+  ///
+  /// This is the section that separates "I built an app" from "I made
+  /// engineering decisions I can defend" — the reason the detail page is the
+  /// portfolio's centrepiece rather than the landing page (design system
+  /// §My biggest UI/UX recommendation).
+  final List<ArchitectureNote> architecture;
+
   final List<GalleryImage> gallery;
   final ProjectLinks links;
 
@@ -31,6 +40,7 @@ class ProjectDetail extends Equatable {
     this.responsibilities = const <LocalizedText>[],
     this.challenges = const <ChallengeSolution>[],
     this.techStack = const <String>[],
+    this.architecture = const <ArchitectureNote>[],
     this.gallery = const <GalleryImage>[],
     this.links = const ProjectLinks(),
   });
@@ -38,6 +48,8 @@ class ProjectDetail extends Equatable {
   String get slug => summary.slug;
 
   bool get hasGallery => gallery.isNotEmpty;
+
+  bool get hasArchitecture => architecture.isNotEmpty;
 
   @override
   List<Object?> get props => <Object?>[
@@ -50,9 +62,24 @@ class ProjectDetail extends Equatable {
     responsibilities,
     challenges,
     techStack,
+    architecture,
     gallery,
     links,
   ];
+}
+
+/// One architectural decision: what was chosen, and the reasoning behind it.
+///
+/// Modelled as a titled note rather than free prose so the section renders as
+/// scannable decisions instead of an essay a recruiter will skip.
+class ArchitectureNote extends Equatable {
+  final LocalizedText title;
+  final LocalizedText detail;
+
+  const ArchitectureNote({required this.title, required this.detail});
+
+  @override
+  List<Object?> get props => <Object?>[title, detail];
 }
 
 /// A challenge paired with how it was solved.

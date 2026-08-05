@@ -73,13 +73,13 @@ class _DetailBody extends StatelessWidget {
           children: <Widget>[
             _cover(context),
             AppSize.s32.spaceH,
-            CustomText(
+            CustomText.display(
               detail.summary.title.of(context),
               fontSize: isMobile
                   ? FontSize.displayMobile
                   : FontSize.h1Desktop,
-              fontWeight: FontWeightManager.bold,
-              height: LineHeights.heading,
+              height: LineHeights.display,
+              letterSpacing: LetterSpacings.display,
               textAlign: TextAlign.start,
             ),
             AppSize.s8.spaceH,
@@ -94,7 +94,11 @@ class _DetailBody extends StatelessWidget {
             AppSize.s24.spaceH,
             _MetaRow(detail: detail),
             AppSize.s40.spaceH,
+            // Order per design system §Project Detail: overview, then the
+            // visual proof, then the engineering narrative, then the stack and
+            // the architecture reasoning, then links.
             _prose(context, StringsManager.overview, detail.overview),
+            if (detail.hasGallery) _gallery(context),
             if (detail.responsibilities.isNotEmpty)
               _bullets(
                 context,
@@ -103,7 +107,7 @@ class _DetailBody extends StatelessWidget {
               ),
             if (detail.challenges.isNotEmpty) _challenges(context),
             if (detail.techStack.isNotEmpty) _techStack(context),
-            if (detail.hasGallery) _gallery(context),
+            if (detail.hasArchitecture) _architecture(context),
             if (detail.links.hasAny) ...<Widget>[
               AppSize.s40.spaceH,
               _LinksRow(links: detail.links),
@@ -134,10 +138,9 @@ class _DetailBody extends StatelessWidget {
     ),
     child: Semantics(
       header: true,
-      child: CustomText(
+      child: CustomText.display(
         key.tr(context),
         fontSize: context.isMobile ? FontSize.h2Mobile : FontSize.h2Desktop,
-        fontWeight: FontWeightManager.bold,
         textAlign: TextAlign.start,
       ),
     ),
@@ -261,6 +264,71 @@ class _DetailBody extends StatelessWidget {
       ),
     ],
   );
+
+  /// The section that makes this page the portfolio's centrepiece.
+  ///
+  /// Numbered decisions rather than prose: a recruiter scanning can read three
+  /// titles and understand that architectural choices were made deliberately,
+  /// and an engineer who wants the reasoning can read the detail beneath each.
+  Widget _architecture(BuildContext context) {
+    final AppColorScheme colors = context.colors;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        _sectionTitle(context, StringsManager.architecture),
+        for (int i = 0; i < detail.architecture.length; i++)
+          Padding(
+            padding: EdgeInsetsDirectional.only(bottom: AppSize.s16.rh),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                // The index marker doubles as the visual rhythm for the
+                // section — no icons needed.
+                Container(
+                  width: AppSize.s32.rs,
+                  height: AppSize.s32.rs,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: colors.accentMuted,
+                    borderRadius: BorderRadius.circular(BorderValues.small),
+                  ),
+                  child: CustomText(
+                    '${i + 1}',
+                    fontSize: FontSize.labelDesktop,
+                    fontWeight: FontWeightManager.bold,
+                    color: colors.accent,
+                  ),
+                ),
+                AppSize.s16.spaceW,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      CustomText.display(
+                        detail.architecture[i].title.of(context),
+                        fontSize: FontSize.h3Desktop,
+                        textAlign: TextAlign.start,
+                      ),
+                      AppSize.s6.spaceH,
+                      ProseWidth(
+                        child: CustomText(
+                          detail.architecture[i].detail.of(context),
+                          fontSize: FontSize.captionDesktop,
+                          color: colors.textSecondary,
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
 
   /// Horizontally scrolling screenshots; tapping one opens the full-screen
   /// viewer at that index (PROJECT_SPEC §7.10).

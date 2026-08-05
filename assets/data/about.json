@@ -1,9 +1,8 @@
 {
   "_comment": "PLACEHOLDER CONTENT. Replace every value below with real copy before publishing. See PROJECT_SPEC.md risk R-2.",
-
   "name": {
-    "en": "Mariam Fawzy",
-    "ar": "مريم فوزي"
+    "en": "Somaya Kamel",
+    "ar": "سمية كامل"
   },
   "role_title": {
     "en": "Flutter & Mobile Developer",
@@ -22,25 +21,33 @@
     "en": "Cairo, Egypt",
     "ar": "القاهرة، مصر"
   },
-  "email": "mariamfawzy110@gmail.com",
+  "email": "TODO@example.com",
   "phone": null,
   "avatar_path": null,
   "resume_path": null,
-
   "highlights": [
     {
       "value": "5+",
-      "label": { "en": "Years Experience", "ar": "سنوات خبرة" },
+      "label": {
+        "en": "Years Experience",
+        "ar": "سنوات خبرة"
+      },
       "icon_key": "calendar"
     },
     {
       "value": "20+",
-      "label": { "en": "Apps Shipped", "ar": "تطبيق منشور" },
+      "label": {
+        "en": "Apps Shipped",
+        "ar": "تطبيق منشور"
+      },
       "icon_key": "rocket"
     },
     {
       "value": "3",
-      "label": { "en": "Platforms", "ar": "منصات" },
+      "label": {
+        "en": "Platforms",
+        "ar": "منصات"
+      },
       "icon_key": "devices"
     }
   ]

@@ -1,3 +1,5 @@
+import 'dart:ui' show ImageFilter;
+
 import 'package:flutter/material.dart';
 
 import '../../extensions/responsive_extension.dart';
@@ -51,13 +53,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     final AppColorScheme colors = context.colors;
     final bool canPop = showBack ?? Navigator.of(context).canPop();
 
-    return AnimatedContainer(
+    // Glass is deliberately rare (design system §Glass Effect): the navbar,
+    // floating buttons, dialogs, and the image viewer — never a whole page.
+    // The blur only engages once content is actually passing beneath the bar;
+    // over the hero it would frost empty background for no reason.
+    final Widget bar = AnimatedContainer(
       duration: context.reduceMotion
           ? Duration.zero
           : const Duration(milliseconds: 200),
       height: height.rh,
       decoration: BoxDecoration(
-        color: isScrolled ? colors.surface0 : Colors.transparent,
+        // Translucent rather than opaque, so the blur has something to do.
+        color: isScrolled
+            ? colors.surface0.withValues(alpha: 0.72)
+            : Colors.transparent,
         border: Border(
           bottom: BorderSide(
             color: isScrolled ? colors.borderSubtle : Colors.transparent,
@@ -106,6 +115,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               )
               .pSymmetricH,
         ),
+      ),
+    );
+
+    if (!isScrolled) return bar;
+
+    // ClipRect bounds the blur to the bar; without it the filter samples the
+    // whole layer and costs far more on Web.
+    return ClipRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 18, sigmaY: 18),
+        child: bar,
       ),
     );
   }

@@ -42,6 +42,18 @@
     "Bloc",
     "GetIt"
   ],
+  "architecture": [
+    {
+      "title": {
+        "en": "TODO: a decision you made",
+        "ar": "مطلوب: قرار اتخذته"
+      },
+      "detail": {
+        "en": "TODO: why you made it, and what it bought you.",
+        "ar": "مطلوب: لماذا اتخذته وما الذي حققه."
+      }
+    }
+  ],
   "gallery": [],
   "links": {
     "github": null,

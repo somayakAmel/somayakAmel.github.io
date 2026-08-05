@@ -70,10 +70,27 @@ flutter:
     - assets/documents/
     - lang/
 
-  # Fonts are declared once the families are confirmed (SPEC open item 1).
-  # Until then the app falls back to the platform default via ThemeManager.
-  # fonts:
-  #   - family: Inter
-  #     fonts:
-  #       - asset: assets/fonts/english/Inter-Bold.ttf
-  #         weight: 700
+  # Two Latin families, one Arabic (design system §Typography):
+  #   Space Grotesk — headlines. Technical without feeling robotic.
+  #   Inter         — body. Built for reading long text at small sizes.
+  #   IBM Plex Sans Arabic — the Arabic counterpart for both roles.
+  #
+  # The Latin families ship as VARIABLE fonts: one file covers every weight,
+  # which is ~1.2MB smaller than four statics and matters on Web (risk R-1).
+  fonts:
+    - family: SpaceGrotesk
+      fonts:
+        - asset: assets/fonts/english/SpaceGrotesk-Variable.ttf
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/english/Inter-Variable.ttf
+    - family: IBMPlexSansArabic
+      fonts:
+        - asset: assets/fonts/arabic/IBMPlexSansArabic-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/arabic/IBMPlexSansArabic-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/arabic/IBMPlexSansArabic-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/arabic/IBMPlexSansArabic-Bold.ttf
+          weight: 700

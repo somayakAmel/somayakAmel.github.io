@@ -47,7 +47,7 @@ class AnimatedCounter extends StatelessWidget {
     );
   }
 
-  Widget _text(BuildContext context, String display) => CustomText(
+  Widget _text(BuildContext context, String display) => CustomText.display(
     display,
     fontSize: fontSize ?? FontSize.h1Desktop,
     fontWeight: FontWeightManager.bold,

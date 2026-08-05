@@ -82,22 +82,37 @@ class PaddingValues {
 }
 
 /// Border radius ladder.
+///
+/// [RULE] Three sizes, no random radii (design system §Corners):
+///   small 12 · medium 18 · large 24.
+///
+/// Anything below 12 is reserved for genuinely tiny elements (a 2px progress
+/// segment), and [bFull] is the pill.
 class BorderValues {
   const BorderValues._();
 
   static const BorderRadiusDirectional zero = BorderRadiusDirectional.zero;
 
+  /// Chips, progress segments, and other sub-12 elements only.
   static const double b4 = 4;
-  static const double b6 = 6;
   static const double b8 = 8;
-  static const double b10 = 10;
-  static const double b12 = 12;
-  static const double b16 = 16;
-  static const double b20 = 20;
-  static const double b24 = 24;
+
+  /// The scale.
+  static const double small = 12;
+  static const double medium = 18;
+  static const double large = 24;
 
   /// Pill.
   static const double bFull = 1000;
+
+  // Legacy aliases, mapped onto the three-step scale so no call site keeps a
+  // radius that is off-system.
+  static const double b12 = small;
+  static const double b16 = medium;
+  static const double b20 = medium;
+  static const double b24 = large;
+  static const double b6 = b8;
+  static const double b10 = small;
 }
 
 /// Duration ladder, in milliseconds unless the name says otherwise.

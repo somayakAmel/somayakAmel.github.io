@@ -56,10 +56,9 @@ class CertificateCard extends StatelessWidget {
             ],
           ),
           AppSize.s16.spaceH,
-          CustomText(
+          CustomText.display(
             certificate.title.of(context),
             fontSize: FontSize.h3Desktop,
-            fontWeight: FontWeightManager.bold,
             height: LineHeights.heading,
             textAlign: TextAlign.start,
             maxLines: 2,

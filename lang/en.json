@@ -1,5 +1,5 @@
 {
-  "appName": "Mariam Fawzy",
+  "appName": "Somaya Kamel",
   "tryAgain": "Try again",
   "somethingWentWrong": "Something went wrong",
   "undefinedRoute": "Undefined route",
@@ -100,5 +100,8 @@
   "imageOf": "Image {current} of {total}",
   "statusLive": "Live",
   "statusInDevelopment": "In development",
-  "statusArchived": "Archived"
+  "statusArchived": "Archived",
+  "heroGreeting": "Hi, I'm",
+  "viewCaseStudy": "View case study",
+  "architecture": "Architecture"
 }

@@ -37,7 +37,7 @@ class _ProjectCardState extends State<ProjectCard> {
         onTap: widget.onTap,
         color: colors.surface2,
         borderColor: _isHovered ? colors.accent : colors.borderSubtle,
-        borderRadius: BorderValues.b16.borderAll,
+        borderRadius: BorderValues.medium.borderAll,
         padding: PaddingValues.zero,
         hoverLift: true,
         semanticLabel:
@@ -63,12 +63,11 @@ class _ProjectCardState extends State<ProjectCard> {
                     maxLines: 1,
                   ),
                   AppSize.s8.spaceH,
-                  CustomText(
+                  CustomText.display(
                     project.title.of(context),
                     fontSize: isMobile
                         ? FontSize.h2Mobile
                         : FontSize.h2Desktop,
-                    fontWeight: FontWeightManager.bold,
                     height: LineHeights.heading,
                     textAlign: TextAlign.start,
                     maxLines: 1,
@@ -92,6 +91,42 @@ class _ProjectCardState extends State<ProjectCard> {
                       ],
                     ),
                   ],
+                  AppSize.s20.spaceH,
+                  // The affordance that turns a card into an invitation.
+                  // Always present, brightening and nudging on hover rather
+                  // than appearing from nothing — a control that materialises
+                  // only on hover is undiscoverable on touch
+                  // (design system §Cards).
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      CustomText(
+                        StringsManager.viewCaseStudy.tr(context),
+                        fontSize: FontSize.labelDesktop,
+                        fontWeight: FontWeightManager.semiBold,
+                        color: _isHovered
+                            ? colors.accent
+                            : colors.textTertiary,
+                      ),
+                      AppSize.s6.spaceW,
+                      AnimatedSlide(
+                        offset: _isHovered && !context.reduceMotion
+                            ? const Offset(0.3, 0)
+                            : Offset.zero,
+                        duration: DurationValues.dm150.milliseconds,
+                        curve: AppCurves.state,
+                        child: Icon(
+                          context.isRtl
+                              ? IconsManager.back
+                              : IconsManager.forward,
+                          size: AppSize.s14,
+                          color: _isHovered
+                              ? colors.accent
+                              : colors.textTertiary,
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -103,7 +138,7 @@ class _ProjectCardState extends State<ProjectCard> {
 
   Widget _buildCover(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderValues.b16.borderTop.asBorderRadius,
+      borderRadius: BorderValues.medium.borderTop.asBorderRadius,
       child: AspectRatio(
         aspectRatio: 16 / 10,
         child: AnimatedScale(

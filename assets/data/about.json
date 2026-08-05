@@ -1,0 +1,47 @@
+{
+  "_comment": "PLACEHOLDER CONTENT. Replace every value below with real copy before publishing. See PROJECT_SPEC.md risk R-2.",
+
+  "name": {
+    "en": "Mariam Fawzy",
+    "ar": "مريم فوزي"
+  },
+  "role_title": {
+    "en": "Flutter & Mobile Developer",
+    "ar": "مطورة تطبيقات فلاتر"
+  },
+  "tagline": {
+    "en": "I build production Flutter apps with architecture that lasts.",
+    "ar": "أبني تطبيقات فلاتر جاهزة للإنتاج بمعمارية قابلة للتوسع."
+  },
+  "bio": {
+    "en": "TODO: two to four sentences. What you build, who for, and what makes your engineering different. Lead with outcomes, not duties.",
+    "ar": "مطلوب: من جملتين إلى أربع جمل تصف ما تبنينه، ولمن، وما الذي يميز أسلوبك الهندسي."
+  },
+  "years_of_experience": 5,
+  "location": {
+    "en": "Cairo, Egypt",
+    "ar": "القاهرة، مصر"
+  },
+  "email": "mariamfawzy110@gmail.com",
+  "phone": null,
+  "avatar_path": null,
+  "resume_path": null,
+
+  "highlights": [
+    {
+      "value": "5+",
+      "label": { "en": "Years Experience", "ar": "سنوات خبرة" },
+      "icon_key": "calendar"
+    },
+    {
+      "value": "20+",
+      "label": { "en": "Apps Shipped", "ar": "تطبيق منشور" },
+      "icon_key": "rocket"
+    },
+    {
+      "value": "3",
+      "label": { "en": "Platforms", "ar": "منصات" },
+      "icon_key": "devices"
+    }
+  ]
+}

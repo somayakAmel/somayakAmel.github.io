@@ -1,5 +1,5 @@
 {
-  "_comment": "Transcribed from assets/about.md, which declares itself the single source of truth for personal sections. LinkedIn and the CV file are still unresolved — see assets/contact.md.",
+  "_comment": "Transcribed from assets/about.md, which declares itself the single source of truth for personal sections. Contact details and the resume path are confirmed.",
   "name": {
     "en": "Somaya Kamel",
     "ar": "سمية كامل"
@@ -24,7 +24,7 @@
   "email": "somayaa.kamell@gmail.com",
   "phone": "+20 114 023 9195",
   "avatar_path": null,
-  "resume_path": null,
+  "resume_path": "assets/documents/resume.pdf",
   "highlights": [
     {
       "value": "2+",

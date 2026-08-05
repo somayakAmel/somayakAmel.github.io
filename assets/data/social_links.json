@@ -1,5 +1,5 @@
 {
-  "_comment": "Transcribed from assets/contact.md and about.md. LinkedIn is absent from every supplied source and is therefore omitted rather than invented — add an entry here once the URL is known.",
+  "_comment": "Transcribed from assets/contact.md and about.md. All values confirmed.",
   "social_links": [
     {
       "id": "email",
@@ -26,6 +26,18 @@
       "order": 2
     },
     {
+      "id": "linkedin",
+      "platform": "linkedin",
+      "label": {
+        "en": "LinkedIn",
+        "ar": "لينكد إن"
+      },
+      "url": "https://www.linkedin.com/in/somaya-kamel",
+      "icon_key": "linkedin",
+      "show_in_footer": true,
+      "order": 3
+    },
+    {
       "id": "phone",
       "platform": "phone",
       "label": {
@@ -35,7 +47,7 @@
       "url": "tel:+201140239195",
       "icon_key": "phone",
       "show_in_footer": false,
-      "order": 3
+      "order": 4
     }
   ]
 }

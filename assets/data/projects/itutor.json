@@ -1,0 +1,73 @@
+{
+  "_comment": "Transcribed from assets/projects/itutor.md. 'role' is an unfilled TODO: that document states attribution could not be verified from git history.",
+  "slug": "itutor",
+  "overview": {
+    "en": "i_tutor is a Flutter application for AI-assisted teaching and studying, built for two distinct user roles — teachers and students — with separate home experiences. Users organize their work into subjects, upload source materials as files or raw text, then converse with an AI tutor grounded in those materials. Beyond chat, the app generates fifteen distinct types of learning artifact from the same material set: flashcards, mind maps, quizzes, exam simulators, presentation decks, podcast scripts, videos, audio, interactive HTML games, deep-research documents, trainer manuals, forms, surveys, storytelling content, and infographics. It ships with English and Arabic localization at full key parity and is monetized through subscription packages.",
+    "ar": "آي تيوتر تطبيق فلاتر للتدريس والمذاكرة بمساعدة الذكاء الاصطناعي، لدورين متمايزين: المعلمون والطلاب، لكل منهما تجربة رئيسية منفصلة. ينظّم المستخدمون عملهم في مواد، ويرفعون مصادر كملفات أو نصوص، ثم يحاورون مدرّسًا ذكيًا مستندًا إلى تلك المواد. ويولّد التطبيق خمسة عشر نوعًا من المخرجات التعليمية من المواد نفسها: بطاقات تعليمية وخرائط ذهنية واختبارات ومحاكيات امتحانات وعروضًا تقديمية ونصوص بودكاست وفيديوهات وملفات صوتية وألعابًا تفاعلية ووثائق بحث معمق وأدلة مدربين ونماذج واستبيانات ومحتوى قصصي ورسومًا معلوماتية. يدعم الإنجليزية والعربية بتطابق كامل في المفاتيح، ويُموّل عبر باقات اشتراك."
+  },
+  "role": {
+    "en": "TODO: not verified. The case study for this project states that no commits in its git history match the local identity, and explicitly advises against claiming ownership of the architecture. Fill in from your own records before publishing.",
+    "ar": "مطلوب: غير مُتحقق منه. تذكر دراسة الحالة أن سجل الـ git لا يطابق الهوية المحلية، وتنصح صراحةً بعدم ادعاء ملكية المعمارية. يُرجى تعبئته من سجلاتك قبل النشر."
+  },
+  "duration": {
+    "en": "TODO",
+    "ar": "مطلوب"
+  },
+  "platforms": [
+    "android",
+    "ios"
+  ],
+  "status": "live",
+  "responsibilities": [],
+  "challenges": [],
+  "tech_stack": [
+    "Flutter",
+    "Dart",
+    "Cubit / flutter_bloc",
+    "Clean Architecture",
+    "GetIt",
+    "Dio",
+    "Server-Sent Events",
+    "WebView",
+    "Cloudflare Turnstile"
+  ],
+  "architecture": [
+    {
+      "title": {
+        "en": "Streaming responses over Server-Sent Events",
+        "ar": "بث الاستجابات عبر Server-Sent Events"
+      },
+      "detail": {
+        "en": "Chat and learning-plan generation parse SSE incrementally so output appears as it is produced rather than after completion.",
+        "ar": "تُحلَّل المحادثات وتوليد الخطط تدريجيًا فيظهر الناتج أثناء إنتاجه لا بعد اكتماله."
+      }
+    },
+    {
+      "title": {
+        "en": "Fifteen artifact types behind one plan abstraction",
+        "ar": "خمسة عشر نوعًا من المخرجات خلف تجريد واحد للخطة"
+      },
+      "detail": {
+        "en": "Per-type metadata builders and dedicated renderers let a new artifact type be added without reworking the pipeline.",
+        "ar": "بُناة بيانات وصفية لكل نوع وعارضون مخصصون يتيحون إضافة نوع جديد دون إعادة بناء المسار."
+      }
+    },
+    {
+      "title": {
+        "en": "Clean Architecture with a tryCatch error funnel",
+        "ar": "معمارية نظيفة مع قمع أخطاء عبر tryCatch"
+      },
+      "detail": {
+        "en": "Ten feature modules registered through one composition root, with errors converted at a single boundary.",
+        "ar": "عشر وحدات مسجلة عبر جذر تركيب واحد، مع تحويل الأخطاء عند حدّ واحد."
+      }
+    }
+  ],
+  "gallery": [],
+  "links": {
+    "github": null,
+    "live_demo": null,
+    "app_store": null,
+    "play_store": null
+  }
+}

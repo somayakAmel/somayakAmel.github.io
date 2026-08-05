@@ -1,56 +1,137 @@
 {
-  "_comment": "PLACEHOLDER CONTENT. Replace with real case-study copy.",
+  "_comment": "Transcribed from assets/projects/qanony.md. 'role' is an unfilled TODO: that document states attribution could not be verified from git history.",
   "slug": "qanony",
   "overview": {
-    "en": "TODO: two to four sentences on the problem and context.",
-    "ar": "مطلوب: من جملتين إلى أربع جمل عن المشكلة والسياق."
+    "en": "Qanony is a bilingual Flutter client for a legal-services marketplace targeting the Egyptian market. It lets individuals and businesses browse legal services — contract drafting and review, company formation, trademark registration, wills and inheritance, consultations — submit a structured request with supporting documents, pay, then track the request through to delivery of the finished legal document. Services publish their price and delivery estimate, intake is driven by a per-subtype form specification so users answer only relevant questions, and requests move through an explicit lifecycle surfaced as a status timeline. Around 52,700 lines across 287 Dart files in 15 feature modules.",
+    "ar": "قانوني تطبيق فلاتر ثنائي اللغة لمنصة خدمات قانونية تستهدف السوق المصري. يتيح تصفح الخدمات القانونية — صياغة العقود ومراجعتها وتأسيس الشركات وتسجيل العلامات التجارية والوصايا والمواريث والاستشارات — وتقديم طلب منظم مع المستندات الداعمة والدفع ثم تتبع الطلب حتى تسليم المستند النهائي. تُنشر الخدمات بسعرها ومدة تسليمها، ويُبنى الإدخال على مواصفة نموذج لكل نوع فرعي، وتمر الطلبات بدورة حياة صريحة تظهر كخط زمني للحالة. نحو ٥٢٧٠٠ سطر عبر ٢٨٧ ملف Dart في ١٥ وحدة."
   },
   "role": {
-    "en": "Flutter Developer",
-    "ar": "مطورة فلاتر"
+    "en": "TODO: not verified. The case study for this project states that no commits in its git history match the local identity, and explicitly advises against claiming ownership of the architecture. Fill in from your own records before publishing.",
+    "ar": "مطلوب: غير مُتحقق منه. تذكر دراسة الحالة أن سجل الـ git لا يطابق الهوية المحلية، وتنصح صراحةً بعدم ادعاء ملكية المعمارية. يُرجى تعبئته من سجلاتك قبل النشر."
   },
   "duration": {
-    "en": "TODO: e.g. Jan 2024 – Aug 2024 · 8 months",
-    "ar": "مطلوب: مثال يناير ٢٠٢٤ – أغسطس ٢٠٢٤ · ٨ أشهر"
+    "en": "Feb 2026 – Aug 2026",
+    "ar": "فبراير ٢٠٢٦ – أغسطس ٢٠٢٦"
   },
   "platforms": [
     "android",
     "ios"
   ],
-  "status": "live",
-  "responsibilities": [
-    {
-      "en": "TODO: an outcome statement, not a duty. What changed because you were there?",
-      "ar": "مطلوب: نتيجة محققة وليست مهمة موكلة."
-    }
-  ],
+  "status": "inDevelopment",
+  "responsibilities": [],
   "challenges": [
     {
       "challenge": {
-        "en": "TODO: a real constraint you hit.",
-        "ar": "مطلوب: قيد حقيقي واجهته."
+        "en": "Heterogeneous intake across a dozen legal service subtypes, each needing a different and sometimes conditional field set.",
+        "ar": "إدخال متباين عبر عشرات الأنواع الفرعية للخدمات القانونية، لكل منها مجموعة حقول مختلفة وأحيانًا شرطية."
       },
       "solution": {
-        "en": "TODO: how you addressed it.",
-        "ar": "مطلوب: كيف عالجته."
+        "en": "A declarative form-spec layer: field kinds, dropdown option sets, and visibility dependencies are declared as data, and the wizard renders from the spec. Adding a service variant is a spec change, not new UI code.",
+        "ar": "طبقة مواصفات نماذج تعريفية: تُعلن أنواع الحقول ومجموعات الخيارات وشروط الظهور كبيانات، ويُبنى المعالج من المواصفة. فإضافة خدمة جديدة تعديل في المواصفة لا كود واجهة جديد."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Firebase phone auth's reCAPTCHA flow destroys the calling screen, and OTP-sent success may be emitted before the callback handler mounts.",
+        "ar": "يُتلف مسار reCAPTCHA في مصادقة الهاتف الشاشة المستدعية، وقد يُطلق نجاح إرسال الرمز قبل تركيب معالج الاستدعاء."
+      },
+      "solution": {
+        "en": "A dedicated deep-link route with dual-path recovery: a post-frame check of current auth state for the case where success already fired, plus a listener for the normal post-mount path, closing the race in both directions.",
+        "ar": "مسار رابط عميق مخصص باستعادة ثنائية المسار: فحص بعد أول إطار لحالة المصادقة إن كان النجاح قد أُطلق سلفًا، ومستمع للمسار الطبيعي بعد التركيب، ما يغلق التسابق في الاتجاهين."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Backend error messages leak internal detail — a real risk in production builds.",
+        "ar": "رسائل أخطاء الخادم تسرّب تفاصيل داخلية — خطر حقيقي في إصدارات الإنتاج."
+      },
+      "solution": {
+        "en": "Pattern-based sanitization detects SQL, stack traces, and file-line markers. In debug the raw message passes through; in release anything flagged technical is replaced by a friendly message while the raw text is preserved in the developer log.",
+        "ar": "تنقية قائمة على الأنماط تكتشف استعلامات SQL وتتبع المكدس وعلامات الملفات والأسطر. في وضع التطوير تمر الرسالة كما هي، وفي الإصدار تُستبدل كل رسالة تقنية برسالة ودية مع حفظ النص الأصلي في سجل المطور."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Long multi-step forms lose user work if the app is backgrounded or killed mid-flow.",
+        "ar": "النماذج الطويلة متعددة الخطوات تفقد عمل المستخدم إذا أُغلق التطبيق أثناء التعبئة."
+      },
+      "solution": {
+        "en": "A draft datasource persists in-progress form state locally, with every operation wrapped so that a storage failure can never break the form.",
+        "ar": "مصدر بيانات للمسودات يحفظ حالة النموذج محليًا، وكل عملية مغلفة بحيث لا يعطل فشل التخزين النموذج أبدًا."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Biometric auth is a device-side check, not an authorization — treating a Face ID success as a session is a security error.",
+        "ar": "المصادقة الحيوية فحص على الجهاز لا تفويض — واعتبار نجاح بصمة الوجه جلسةً خطأ أمني."
+      },
+      "solution": {
+        "en": "A successful prompt unlocks securely cached credentials which are then replayed against the real login API. An unauthorized response wipes the credentials and forces manual login; a server or network error keeps them so the user can retry.",
+        "ar": "نجاح البصمة يفتح بيانات اعتماد مخزنة بأمان تُعاد إلى واجهة الدخول الحقيقية. فاستجابة الرفض تمسح البيانات وتفرض دخولًا يدويًا، بينما يبقيها خطأ الخادم أو الشبكة ليعيد المستخدم المحاولة."
       }
     }
   ],
   "tech_stack": [
     "Flutter",
     "Dart",
-    "Bloc",
-    "GetIt"
+    "Cubit / flutter_bloc",
+    "Clean Architecture",
+    "GetIt",
+    "Dio",
+    "go_router",
+    "Firebase",
+    "flutter_secure_storage",
+    "local_auth"
   ],
   "architecture": [
     {
       "title": {
-        "en": "TODO: a decision you made",
-        "ar": "مطلوب: قرار اتخذته"
+        "en": "Clean Architecture per feature",
+        "ar": "معمارية نظيفة لكل ميزة"
       },
       "detail": {
-        "en": "TODO: why you made it, and what it bought you.",
-        "ar": "مطلوب: لماذا اتخذته وما الذي حققه."
+        "en": "Fifteen features with distinct backends; a shared-layer structure would couple them. The domain layer has no Flutter dependency.",
+        "ar": "خمس عشرة ميزة بخوادم مختلفة، وهيكل الطبقات المشترك كان سيربطها ببعضها. وطبقة النطاق بلا اعتماد على فلاتر."
+      }
+    },
+    {
+      "title": {
+        "en": "Secure storage as the sole token source",
+        "ar": "التخزين الآمن كمصدر وحيد للرموز"
+      },
+      "detail": {
+        "en": "Tokens in shared preferences are readable on rooted devices; the interceptor reads the bearer token straight from the keychain and never touches the plaintext cache.",
+        "ar": "الرموز في التخزين العادي قابلة للقراءة على الأجهزة المخترقة، فيقرأ المعترض الرمز مباشرة من التخزين الآمن ولا يمس الذاكرة النصية."
+      }
+    },
+    {
+      "title": {
+        "en": "Either at repository boundaries",
+        "ar": "استخدام Either عند حدود المستودعات"
+      },
+      "detail": {
+        "en": "Network failure is expected rather than exceptional, so presentation handles it explicitly and no exceptions cross layers.",
+        "ar": "فشل الشبكة متوقع لا استثنائي، فتعالجه طبقة العرض صراحةً ولا تعبر الاستثناءات الطبقات."
+      }
+    },
+    {
+      "title": {
+        "en": "Orientation policy by physical device class",
+        "ar": "سياسة الاتجاه حسب فئة الجهاز الفعلية"
+      },
+      "detail": {
+        "en": "Shortest side is computed before runApp, locking phones to portrait while allowing tablets to rotate — so rotation can never reclassify a device.",
+        "ar": "يُحسب أقصر ضلع قبل تشغيل التطبيق، فتُقفل الهواتف رأسيًا وتُسمح الأجهزة اللوحية بالدوران، ولا يعيد الدوران تصنيف الجهاز."
+      }
+    },
+    {
+      "title": {
+        "en": "Server-driven CMS, config, and FAQ",
+        "ar": "محتوى وإعدادات وأسئلة شائعة يقودها الخادم"
+      },
+      "detail": {
+        "en": "Legal copy, support contacts, and FAQs change without an app release.",
+        "ar": "تتغير النصوص القانونية وبيانات الدعم والأسئلة الشائعة دون إصدار جديد للتطبيق."
       }
     }
   ],

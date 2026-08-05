@@ -1,38 +1,103 @@
 {
-  "_comment": "PLACEHOLDER CONTENT. Replace with real case-study copy.",
+  "_comment": "Transcribed from assets/projects/motary.md. 'role' is an unfilled TODO: that document states attribution could not be verified from git history.",
   "slug": "motary",
   "overview": {
-    "en": "TODO: two to four sentences on the problem and context.",
-    "ar": "مطلوب: من جملتين إلى أربع جمل عن المشكلة والسياق."
+    "en": "Motary is a Flutter B2C marketplace for automotive parts built for the Arabic-speaking market. It ships two distinct applications inside one codebase: a buyer storefront for browsing, filtering, and purchasing parts, and a seller portal for merchants to register a shop, list inventory, and fulfil orders. The dual-role design is enforced at the architecture level rather than by UI toggles — separate authentication stacks, data sources, and navigation shells, with a persisted user-type enum driving request authorization and push routing. 515 Dart files across 17 feature modules, 77 use cases, and 49 routes.",
+    "ar": "موتري سوق إلكتروني لقطع غيار السيارات مبني بفلاتر للسوق الناطق بالعربية. يضم تطبيقين متمايزين في قاعدة كود واحدة: متجر للمشترين للتصفح والتصفية والشراء، وبوابة للبائعين لتسجيل متجر وإدارة المخزون وتنفيذ الطلبات. يُفرض الفصل بين الدورين على مستوى المعمارية لا عبر مفاتيح في الواجهة. ٥١٥ ملف Dart عبر ١٧ وحدة و٧٧ حالة استخدام و٤٩ مسارًا."
   },
   "role": {
-    "en": "Lead Flutter Developer",
-    "ar": "مطورة فلاتر رئيسية"
+    "en": "TODO: not verified. The case study for this project states that no commits in its git history match the local identity, and explicitly advises against claiming ownership of the architecture. Fill in from your own records before publishing.",
+    "ar": "مطلوب: غير مُتحقق منه. تذكر دراسة الحالة أن سجل الـ git لا يطابق الهوية المحلية، وتنصح صراحةً بعدم ادعاء ملكية المعمارية. يُرجى تعبئته من سجلاتك قبل النشر."
   },
   "duration": {
-    "en": "TODO: e.g. Jan 2024 – Aug 2024 · 8 months",
-    "ar": "مطلوب: مثال يناير ٢٠٢٤ – أغسطس ٢٠٢٤ · ٨ أشهر"
+    "en": "Oct 2024 – Mar 2025",
+    "ar": "أكتوبر ٢٠٢٤ – مارس ٢٠٢٥"
   },
   "platforms": [
     "android",
     "ios"
   ],
   "status": "live",
-  "responsibilities": [
-    {
-      "en": "TODO: an outcome statement, not a duty. What changed because you were there?",
-      "ar": "مطلوب: نتيجة محققة وليست مهمة موكلة."
-    }
-  ],
+  "responsibilities": [],
   "challenges": [
     {
       "challenge": {
-        "en": "TODO: a real constraint you hit.",
-        "ar": "مطلوب: قيد حقيقي واجهته."
+        "en": "Two applications, one codebase. Buyer and seller differ in authentication, API surface, navigation shell, and permissions while sharing commerce primitives, lookups, and networking.",
+        "ar": "تطبيقان في قاعدة كود واحدة. يختلف المشتري والبائع في المصادقة وواجهة الـ API وهيكل التنقل والصلاحيات مع تشارك أساسيات التجارة والبيانات المرجعية والشبكات."
       },
       "solution": {
-        "en": "TODO: how you addressed it.",
-        "ar": "مطلوب: كيف عالجته."
+        "en": "Role separation at the architecture layer: separate auth stacks, data sources, and navigation shells, with a persisted user-type enum driving authorization.",
+        "ar": "فصل الأدوار على مستوى المعمارية: مسارات مصادقة ومصادر بيانات وهياكل تنقل منفصلة، مع تخزين نوع المستخدم لتحديد الصلاحيات."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Authenticating five sign-in methods across two roles while keeping a single authorization mechanism at the HTTP layer.",
+        "ar": "دعم خمس طرق تسجيل دخول عبر دورين مع الإبقاء على آلية تفويض واحدة في طبقة HTTP."
+      },
+      "solution": {
+        "en": "Unified authorization at the interceptor, so no datasource or cubit ever passes a token.",
+        "ar": "توحيد التفويض في المعترض، فلا يمرر أي مصدر بيانات أو Cubit رمزًا مميزًا."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Silent session expiry — long-lived commerce sessions must not drop a user mid-checkout, and refresh logic must not recurse.",
+        "ar": "انتهاء الجلسة بصمت — يجب ألا تنقطع جلسات التسوق الطويلة أثناء إتمام الشراء، وألا يتكرر منطق التجديد لانهائيًا."
+      },
+      "solution": {
+        "en": "Pre-emptive refresh before expiry plus centralized 401 recovery, with the refresh endpoint itself excluded from the check.",
+        "ar": "تجديد استباقي قبل انتهاء الصلاحية مع معالجة مركزية لخطأ 401، واستثناء نقطة التجديد نفسها من الفحص."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Pagination racing against fast scrolling, producing duplicate pages and out-of-order responses.",
+        "ar": "تسابق ترقيم الصفحات مع التمرير السريع ما ينتج صفحات مكررة واستجابات خارج الترتيب."
+      },
+      "solution": {
+        "en": "throttleTime combined with switchMap, so only the latest in-flight page request resolves.",
+        "ar": "استخدام throttleTime مع switchMap فلا تُحسم إلا آخر طلب صفحة جارٍ."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Network chatter from rapid cart interactions.",
+        "ar": "كثرة طلبات الشبكة الناتجة عن التفاعل السريع مع السلة."
+      },
+      "solution": {
+        "en": "Per-item debounce timers, collapsing bursts of taps into one request.",
+        "ar": "مؤقتات تهدئة لكل عنصر تدمج ضغطات متتابعة في طلب واحد."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Full RTL Arabic as the default locale, with server-returned content also needing localization.",
+        "ar": "دعم عربي كامل من اليمين لليسار كلغة افتراضية، مع محتوى قادم من الخادم يحتاج ترجمة أيضًا."
+      },
+      "solution": {
+        "en": "JSON-based localization with locale-aware networking, so UI language and API content language cannot drift apart.",
+        "ar": "ترجمة بصيغة JSON مع شبكات تراعي اللغة، فلا تنفصل لغة الواجهة عن لغة محتوى الـ API."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Payment via a hosted external page, where the app must reliably detect a result it does not control.",
+        "ar": "الدفع عبر صفحة خارجية مستضافة، وعلى التطبيق اكتشاف نتيجة لا يتحكم بها."
+      },
+      "solution": {
+        "en": "URL-based payment result detection at the navigation layer.",
+        "ar": "اكتشاف نتيجة الدفع من الروابط في طبقة التنقل."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Large, effectively-static fitment datasets sitting on the critical discovery path.",
+        "ar": "مجموعات بيانات توافق كبيرة وشبه ثابتة تقع على مسار الاكتشاف الحرج."
+      },
+      "solution": {
+        "en": "Cache-first lookups with network backfill.",
+        "ar": "قراءة من التخزين المؤقت أولًا مع تحديث لاحق من الشبكة."
       }
     }
   ],
@@ -40,17 +105,62 @@
     "Flutter",
     "Dart",
     "Bloc",
-    "GetIt"
+    "Cubit",
+    "Clean Architecture",
+    "GetIt",
+    "Dio",
+    "Firebase",
+    "flutter_screenutil"
   ],
   "architecture": [
     {
       "title": {
-        "en": "TODO: a decision you made",
-        "ar": "مطلوب: قرار اتخذته"
+        "en": "Clean Architecture with per-feature vertical slices",
+        "ar": "معمارية نظيفة بشرائح رأسية لكل ميزة"
       },
       "detail": {
-        "en": "TODO: why you made it, and what it bought you.",
-        "ar": "مطلوب: لماذا اتخذته وما الذي حققه."
+        "en": "Seventeen feature modules each carry their own data, domain, and presentation layers, so features stay independently readable.",
+        "ar": "سبع عشرة وحدة، لكل منها طبقات البيانات والنطاق والعرض الخاصة بها، فتبقى الميزات مقروءة على حدة."
+      }
+    },
+    {
+      "title": {
+        "en": "BLoC as the primary state manager, Cubit for trivial state",
+        "ar": "BLoC كمدير حالة أساسي وCubit للحالات البسيطة"
+      },
+      "detail": {
+        "en": "Events earn their ceremony where flows are complex; simple state uses Cubit instead.",
+        "ar": "تستحق الأحداث تعقيدها في المسارات المعقدة، بينما تستخدم الحالات البسيطة Cubit."
+      }
+    },
+    {
+      "title": {
+        "en": "Service locator over constructor injection or code generation",
+        "ar": "محدد خدمات بدل الحقن عبر المُنشئ أو توليد الكود"
+      },
+      "detail": {
+        "en": "Keeps wiring in one composition root without a build step.",
+        "ar": "يُبقي الربط في جذر تركيب واحد دون خطوة بناء."
+      }
+    },
+    {
+      "title": {
+        "en": "Named routes through a central RoutesManager",
+        "ar": "مسارات مسماة عبر RoutesManager مركزي"
+      },
+      "detail": {
+        "en": "One table owns navigation, with typed arguments cast once.",
+        "ar": "جدول واحد يملك التنقل مع تحويل الوسائط المُعرّفة مرة واحدة."
+      }
+    },
+    {
+      "title": {
+        "en": "Cross-project shared packages",
+        "ar": "حزم مشتركة بين المشاريع"
+      },
+      "detail": {
+        "en": "Networking, error, and locale primitives are reused across the organization's apps.",
+        "ar": "تُعاد الاستفادة من أساسيات الشبكات والأخطاء واللغة عبر تطبيقات المؤسسة."
       }
     }
   ],

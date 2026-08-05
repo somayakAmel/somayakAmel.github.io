@@ -1,0 +1,236 @@
+{
+  "_comment": "Transcribed from assets/projects/masr_alkher.md. Attribution VERIFIED in that document from git history.",
+  "slug": "masr_alkher",
+  "overview": {
+    "en": "Gharemeen is a Flutter application for field research teams conducting social and financial assessments of debt cases. It is an internal operational tool rather than a consumer product: users are staff working across four distinct roles. Field researchers are assigned cases, travel to conduct in-person household assessments, and complete multi-step research forms on-site. Quality administrators and supervisors review that work, assign cases down the hierarchy, and approve or reject submitted research.",
+    "ar": "غارمين تطبيق فلاتر لفرق البحث الميداني التي تُجري تقييمات اجتماعية ومالية لحالات الغارمين. هو أداة تشغيلية داخلية لا منتجًا استهلاكيًا، ويستخدمه موظفون بأربعة أدوار مختلفة. يتنقل الباحثون الميدانيون لإجراء التقييمات المنزلية ويملؤون نماذج بحث متعددة الخطوات في الموقع، بينما يراجع مديرو ومشرفو الجودة هذا العمل ويوزعون الحالات ويعتمدون أو يرفضون البحوث المقدمة."
+  },
+  "role": {
+    "en": "Authored 93 of 136 commits (68%) across the repository's full lifetime, from the initial project-init commit to the most recent, touching 355 files. I created the application architecture and scaffolding — main.dart bootstrap, the root widget composition, the GetIt composition root, the routes table, and the API interceptor — then built the feature modules end to end and designed and implemented the offline-first system.",
+    "ar": "كتبتُ ٩٣ من أصل ١٣٦ commit (٦٨٪) على مدى عمر المستودع بالكامل، من أول commit حتى آخره، بتعديلات شملت ٣٥٥ ملفًا. أنشأتُ معمارية التطبيق وهيكله الأساسي ثم بنيتُ وحدات الميزات كاملة، وصمّمتُ ونفّذتُ نظام العمل دون اتصال."
+  },
+  "duration": {
+    "en": "Aug 2025 – Feb 2026",
+    "ar": "أغسطس ٢٠٢٥ – فبراير ٢٠٢٦"
+  },
+  "platforms": [
+    "android",
+    "ios"
+  ],
+  "status": "live",
+  "responsibilities": [
+    {
+      "en": "Created the app's foundational structure in the initial commit and maintained it throughout: bootstrap, orientation lock, system UI, and DI initialization.",
+      "ar": "أنشأتُ البنية الأساسية للتطبيق في أول commit وحافظتُ عليها طوال المشروع: التهيئة وقفل الاتجاه وواجهة النظام وتهيئة حقن التبعيات."
+    },
+    {
+      "en": "Authored the GetIt composition root and every per-feature DI module.",
+      "ar": "كتبتُ جذر تركيب حقن التبعيات وكل وحدة تبعيات خاصة بميزة."
+    },
+    {
+      "en": "Built the feature modules end to end across data, domain, and presentation layers.",
+      "ar": "بنيتُ وحدات الميزات كاملة عبر طبقات البيانات والنطاق والعرض."
+    },
+    {
+      "en": "Designed and implemented the offline-first system: write-through cache, de-duplicated offline queue, and replay on reconnect.",
+      "ar": "صمّمتُ ونفّذتُ نظام العمل دون اتصال: تخزين مؤقت فوري وطابور عمليات بلا تكرار يُعاد تشغيله عند عودة الاتصال."
+    },
+    {
+      "en": "Authored the routes table with platform-adaptive transitions and the auth/Accept-Language request interceptor.",
+      "ar": "كتبتُ جدول المسارات بانتقالات تتكيف مع المنصة، ومعترض الطلبات الخاص بالمصادقة ولغة المحتوى."
+    }
+  ],
+  "challenges": [
+    {
+      "challenge": {
+        "en": "Preserving multi-step form work without connectivity.",
+        "ar": "الحفاظ على عمل النماذج متعددة الخطوات دون اتصال."
+      },
+      "solution": {
+        "en": "A write queue with de-duplication by (type, entity id) and FIFO replay in timestamp order once connectivity returns.",
+        "ar": "طابور كتابة يمنع التكرار حسب (النوع، معرّف الكيان) ويعيد التشغيل بترتيب زمني عند عودة الاتصال."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Making search and filtering behave identically online and offline.",
+        "ar": "جعل البحث والتصفية يعملان بالطريقة نفسها مع الاتصال وبدونه."
+      },
+      "solution": {
+        "en": "Filter logic mirrored in the local datasource so the same query returns the same shape from either source.",
+        "ar": "محاكاة منطق التصفية في مصدر البيانات المحلي ليعيد الاستعلام نفسه النتيجة نفسها من أي مصدر."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Inconsistent backend response shapes.",
+        "ar": "اختلاف أشكال استجابات الخادم."
+      },
+      "solution": {
+        "en": "Defensive parsing at the model boundary: coerce varying types, default nullable-but-required values, and accept both nested objects and flat fields.",
+        "ar": "تحليل دفاعي عند حدود النموذج: توحيد الأنواع المتغيّرة ووضع قيم افتراضية وقبول الأشكال المتداخلة والمسطّحة معًا."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Persisting nested object graphs in a relational store.",
+        "ar": "حفظ الكائنات المتداخلة في قاعدة بيانات علائقية."
+      },
+      "solution": {
+        "en": "JSON-encoded columns with a symmetric round-trip, so the same model serializes for both the API shape and the database row shape.",
+        "ar": "أعمدة مُرمّزة بصيغة JSON مع تحويل متماثل، ليخدم النموذج نفسه شكل الـ API وشكل صف قاعدة البيانات."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Sorting by date when timestamps arrive in multiple formats.",
+        "ar": "الترتيب زمنيًا رغم وصول التواريخ بصيغ متعددة."
+      },
+      "solution": {
+        "en": "Normalization at parse time plus a derived numeric sort column written alongside the raw value.",
+        "ar": "توحيد الصيغة أثناء التحليل مع عمود ترتيب رقمي مشتق يُحفظ بجانب القيمة الأصلية."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Detecting genuine connectivity, not just network attachment.",
+        "ar": "اكتشاف الاتصال الحقيقي بالإنترنت لا مجرد الارتباط بالشبكة."
+      },
+      "solution": {
+        "en": "Active internet verification with a fallback probe rather than trusting the OS connectivity flag alone.",
+        "ar": "تحقق فعلي من الوصول للإنترنت مع فحص احتياطي بدل الاعتماد على مؤشر النظام وحده."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Role-based behavior across four user types.",
+        "ar": "اختلاف السلوك بين أربعة أدوار للمستخدمين."
+      },
+      "solution": {
+        "en": "Role branching resolved in the repository rather than the UI, so screens stay identical across roles.",
+        "ar": "حسم تفرّع الأدوار في طبقة المستودع لا في الواجهة، لتبقى الشاشات موحّدة."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Schema evolution during active development.",
+        "ar": "تطور مخطط قاعدة البيانات أثناء التطوير النشط."
+      },
+      "solution": {
+        "en": "A versioned schema with an explicit upgrade hook.",
+        "ar": "مخطط بإصدارات مع خطاف ترقية صريح."
+      }
+    }
+  ],
+  "tech_stack": [
+    "Flutter",
+    "Dart",
+    "Cubit / flutter_bloc",
+    "Clean Architecture",
+    "GetIt",
+    "Dio",
+    "SQLite (sqflite)",
+    "SharedPreferences",
+    "flutter_screenutil",
+    "Monorepo packages"
+  ],
+  "architecture": [
+    {
+      "title": {
+        "en": "Cubit only, no Bloc with events",
+        "ar": "استخدام Cubit فقط دون Bloc بالأحداث"
+      },
+      "detail": {
+        "en": "Screens are request/response shaped, so event classes add ceremony without payoff. The method call on the cubit is the event.",
+        "ar": "الشاشات ذات طابع طلب/استجابة، فتضيف فئات الأحداث تعقيدًا دون فائدة. استدعاء الدالة على الـ Cubit هو الحدث نفسه."
+      }
+    },
+    {
+      "title": {
+        "en": "Repositories throw; use cases convert to Either",
+        "ar": "المستودعات ترمي الاستثناءات وحالات الاستخدام تحوّلها إلى Either"
+      },
+      "detail": {
+        "en": "Keeps repositories readable and puts error policy in exactly one place.",
+        "ar": "يبقي المستودعات واضحة ويضع سياسة الأخطاء في مكان واحد فقط."
+      }
+    },
+    {
+      "title": {
+        "en": "The online/offline decision belongs to the repository",
+        "ar": "قرار الاتصال أو عدمه من مسؤولية المستودع"
+      },
+      "detail": {
+        "en": "Not the cubit and not the datasource — one layer owns the choice, so callers never branch on connectivity.",
+        "ar": "ليس الـ Cubit ولا مصدر البيانات، بل طبقة واحدة تملك القرار فلا يتفرع المستدعون حسب حالة الاتصال."
+      }
+    },
+    {
+      "title": {
+        "en": "Cubits as factories, everything else as lazy singletons",
+        "ar": "تسجيل الـ Cubits كمصانع وكل ما عداها كـ lazy singletons"
+      },
+      "detail": {
+        "en": "A fresh cubit per screen prevents state leaking between routes; stateless collaborators are constructed once.",
+        "ar": "إنشاء Cubit جديد لكل شاشة يمنع تسرب الحالة بين المسارات، بينما تُنشأ المكوّنات عديمة الحالة مرة واحدة."
+      }
+    },
+    {
+      "title": {
+        "en": "Contracts in a dependency-free package",
+        "ar": "العقود في حزمة بلا تبعيات"
+      },
+      "detail": {
+        "en": "Abstract classes, failures, and base use cases carry zero implementation, so lower layers never import higher ones.",
+        "ar": "الفئات المجردة وأنواع الأخطاء وحالات الاستخدام الأساسية بلا تنفيذ، فلا تستورد الطبقات الدنيا الطبقات العليا."
+      }
+    },
+    {
+      "title": {
+        "en": "Hand-written serialization, no code generation",
+        "ar": "تسلسل مكتوب يدويًا دون توليد كود"
+      },
+      "detail": {
+        "en": "fromJson/toJson/copyWith are written by hand, which keeps defensive parsing explicit at every field.",
+        "ar": "تُكتب دوال التحويل يدويًا، ما يجعل التحليل الدفاعي ظاهرًا عند كل حقل."
+      }
+    },
+    {
+      "title": {
+        "en": "Runtime JSON localization instead of generated ARB",
+        "ar": "ترجمة بصيغة JSON وقت التشغيل بدل ARB المولّد"
+      },
+      "detail": {
+        "en": "Translations load from asset JSON at runtime, so a missing key surfaces loudly in debug and falls back silently in release.",
+        "ar": "تُحمّل الترجمات من ملفات JSON وقت التشغيل، فيظهر المفتاح المفقود بوضوح في وضع التطوير ويُستبدل بصمت في الإصدار."
+      }
+    },
+    {
+      "title": {
+        "en": "Design tokens as static constants, not ThemeExtension",
+        "ar": "رموز التصميم كثوابت ساكنة لا كامتداد للثيم"
+      },
+      "detail": {
+        "en": "Trades context lookups for direct static access and compile-time constants.",
+        "ar": "يستبدل البحث عبر السياق بوصول ساكن مباشر وثوابت وقت الترجمة."
+      }
+    },
+    {
+      "title": {
+        "en": "Imperative named routing",
+        "ar": "توجيه صريح بالأسماء"
+      },
+      "detail": {
+        "en": "onGenerateRoute with route constants declared on each screen, and platform-adaptive transitions.",
+        "ar": "استخدام onGenerateRoute مع ثوابت مسار معلنة في كل شاشة وانتقالات تتكيف مع المنصة."
+      }
+    }
+  ],
+  "gallery": [],
+  "links": {
+    "github": null,
+    "live_demo": null,
+    "app_store": null,
+    "play_store": null
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "_comment": "Transcribed from assets/projects/flowers.md. 'role' is an unfilled TODO: that document states attribution could not be verified from git history.",
+  "slug": "flowers",
+  "overview": {
+    "en": "Flowers is a cross-platform e-commerce marketplace built in Flutter for a flower and gift retail business. The app is Arabic-first with English support, and targets buyers browsing and ordering from multiple sellers. It ships a guest browsing mode that hits dedicated unauthenticated endpoints so users can explore the catalogue before creating an account, multi-provider authentication, a product discovery stack, a cart-to-payment flow completed in an embedded WebView, order lifecycle management, and Google Maps-based address capture.",
+    "ar": "فلاورز سوق تجارة إلكترونية عبر المنصات مبني بفلاتر لمتجر زهور وهدايا. التطبيق عربي أولًا مع دعم الإنجليزية، ويستهدف المشترين الذين يتصفحون ويطلبون من بائعين متعددين. يضم وضع تصفح للضيوف عبر نقاط نهاية مخصصة دون مصادقة، ومصادقة متعددة المزودين، ومنظومة اكتشاف للمنتجات، ومسارًا من السلة إلى الدفع داخل WebView، وإدارة لدورة حياة الطلب، والتقاط العناوين عبر خرائط جوجل."
+  },
+  "role": {
+    "en": "TODO: not verified. The case study for this project states that no commits in its git history match the local identity, and explicitly advises against claiming ownership of the architecture. Fill in from your own records before publishing.",
+    "ar": "مطلوب: غير مُتحقق منه. تذكر دراسة الحالة أن سجل الـ git لا يطابق الهوية المحلية، وتنصح صراحةً بعدم ادعاء ملكية المعمارية. يُرجى تعبئته من سجلاتك قبل النشر."
+  },
+  "duration": {
+    "en": "Jan 2025 – Jul 2025",
+    "ar": "يناير ٢٠٢٥ – يوليو ٢٠٢٥"
+  },
+  "platforms": [
+    "android",
+    "ios"
+  ],
+  "status": "live",
+  "responsibilities": [],
+  "challenges": [
+    {
+      "challenge": {
+        "en": "Multi-provider auth converging on one session model. Four sign-in paths must all produce the same cached buyer, and email-unverified users must be diverted into the OTP flow rather than reaching the app.",
+        "ar": "مصادقة متعددة المزودين تتقارب على نموذج جلسة واحد. يجب أن تنتج مسارات الدخول الأربعة المستخدم نفسه، وأن يُحوّل غير المُوثّق بريده إلى مسار رمز التحقق."
+      },
+      "solution": {
+        "en": "Repository-level session normalization funnels every provider through one contract, persisting locally only if the email is verified. A two-minute freshness window returns the cached user immediately and refreshes in the background.",
+        "ar": "توحيد الجلسة في طبقة المستودع يمرر كل مزود عبر عقد واحد، ولا يُحفظ محليًا إلا إذا كان البريد موثقًا. ونافذة حداثة مدتها دقيقتان تعيد المستخدم المخزن فورًا وتحدّثه في الخلفية."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Token expiry across a large surface of authenticated endpoints — with around sixty use cases hitting authenticated routes, per-call refresh logic would be unmaintainable and race-prone.",
+        "ar": "انتهاء صلاحية الرمز عبر عدد كبير من النقاط المُصادقة — مع نحو ستين حالة استخدام، يصبح تجديد الرمز في كل استدعاء غير قابل للصيانة وعرضة للتسابق."
+      },
+      "solution": {
+        "en": "Interceptor-level proactive refresh checks expiry before each call rather than reacting to 401s. The refresh and OTP-resend endpoints are explicitly excluded to prevent infinite recursion.",
+        "ar": "تجديد استباقي في المعترض يفحص الصلاحية قبل كل استدعاء بدل الاستجابة لخطأ 401. وتُستثنى نقطتا التجديد وإعادة إرسال الرمز صراحةً لمنع التكرار اللانهائي."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Payment completion detection in a WebView — the gateway runs as a web flow with no native SDK callback.",
+        "ar": "اكتشاف اكتمال الدفع داخل WebView — تعمل البوابة كمسار ويب دون استدعاء من حزمة أصلية."
+      },
+      "solution": {
+        "en": "A navigation delegate matches verify URLs, cancels the navigation, and dispatches a status check so the backend, not the client, is the source of truth. The WebView clears cache and local storage on both init and dispose to prevent session leakage between attempts.",
+        "ar": "مفوّض تنقل يطابق روابط التحقق ويلغي الانتقال ويطلب حالة الدفع، فيكون الخادم لا العميل مصدر الحقيقة. ويمسح WebView الذاكرة والتخزين المحلي عند البدء والإغلاق منعًا لتسرب الجلسة بين المحاولات."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Arabic-first RTL with mixed content — requiring RTL layout, Arabic date formatting, and correct server-side content language while still supporting English.",
+        "ar": "عربية أولًا من اليمين لليسار مع محتوى مختلط — تتطلب تخطيطًا معكوسًا وتنسيق تواريخ عربيًا ولغة محتوى صحيحة من الخادم مع دعم الإنجليزية."
+      },
+      "solution": {
+        "en": "Locale as a cross-cutting concern: the same cubit drives the app locale and is read inside the Dio interceptor to set the content-language header, so UI and API language can never drift apart.",
+        "ar": "اللغة كاهتمام شامل: الـ Cubit نفسه يقود لغة التطبيق ويُقرأ داخل معترض Dio لضبط ترويسة لغة المحتوى، فلا تنفصل لغة الواجهة عن الـ API."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Bloc state sharing across routes — cart, order, and address flows span multiple screens that must mutate the same instance.",
+        "ar": "مشاركة حالة Bloc عبر المسارات — تمتد مسارات السلة والطلب والعنوان عبر شاشات يجب أن تعدّل النسخة نفسها."
+      },
+      "solution": {
+        "en": "Routes that continue an existing flow accept the live bloc as a typed route argument and re-provide it by value.",
+        "ar": "المسارات التي تكمل تدفقًا قائمًا تستقبل الـ bloc الحي كوسيط مسار مُعرّف وتعيد تقديمه بالقيمة."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Backend response shape coupling — the API uses an include query-parameter convention, so the client must construct different include-sets per auth state.",
+        "ar": "ارتباط شكل استجابة الخادم — يستخدم الـ API معامل include، فيبني العميل مجموعات تضمين مختلفة حسب حالة المصادقة."
+      },
+      "solution": {
+        "en": "Include-set construction in the datasource, deriving guest status from cached user data and routing to the guest endpoint with wishlist fields omitted.",
+        "ar": "بناء مجموعة التضمين في مصدر البيانات، باستنتاج حالة الضيف من البيانات المخزنة والتوجيه لنقطة الضيوف مع حذف حقول قائمة الرغبات."
+      }
+    }
+  ],
+  "tech_stack": [
+    "Flutter",
+    "Dart",
+    "Bloc",
+    "Clean Architecture",
+    "GetIt",
+    "Dio",
+    "Firebase",
+    "Google Maps",
+    "WebView"
+  ],
+  "architecture": [
+    {
+      "title": {
+        "en": "Clean Architecture with per-feature data, domain, and presentation",
+        "ar": "معمارية نظيفة بطبقات بيانات ونطاق وعرض لكل ميزة"
+      },
+      "detail": {
+        "en": "Each feature owns its full vertical slice.",
+        "ar": "كل ميزة تملك شريحتها الرأسية كاملة."
+      }
+    },
+    {
+      "title": {
+        "en": "Guest mode as a first-class data path",
+        "ar": "وضع الضيف كمسار بيانات أصيل"
+      },
+      "detail": {
+        "en": "Guests hit dedicated unauthenticated endpoints with wishlist fields stripped, so browsing never requires signup.",
+        "ar": "يستخدم الضيوف نقاط نهاية مخصصة دون مصادقة مع حذف حقول قائمة الرغبات، فلا يتطلب التصفح تسجيلًا."
+      }
+    },
+    {
+      "title": {
+        "en": "Backend as the source of truth for payment status",
+        "ar": "الخادم مصدر الحقيقة لحالة الدفع"
+      },
+      "detail": {
+        "en": "The client intercepts the callback URL but asks the server for the actual result.",
+        "ar": "يعترض العميل رابط الاستدعاء لكنه يسأل الخادم عن النتيجة الفعلية."
+      }
+    },
+    {
+      "title": {
+        "en": "Descoped seller modules commented out rather than deleted",
+        "ar": "تعطيل وحدات البائع بالتعليق لا بالحذف"
+      },
+      "detail": {
+        "en": "Preserves the implementation for reactivation, at the cost of dead code.",
+        "ar": "يحفظ التنفيذ لإعادة تفعيله لاحقًا على حساب وجود كود غير مستخدم."
+      }
+    }
+  ],
+  "gallery": [],
+  "links": {
+    "github": null,
+    "live_demo": null,
+    "app_store": null,
+    "play_store": null
+  }
+}

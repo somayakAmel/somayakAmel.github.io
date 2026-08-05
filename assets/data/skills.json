@@ -1,51 +1,201 @@
 {
-  "_comment": "PLACEHOLDER. 'kind' partitions the two Home sections: competency -> Skills (grouped, with level), technology -> Tech Stack (logo grid, no level). Replace names and add logo_path values; a missing logo renders a monogram tile.",
+  "_comment": "Technologies and competencies named in assets/projects/*.md tech stacks. 'level' is deliberately null — no source file ranks proficiency, and inventing a rating would be fabrication. Add logo_path values to replace the monogram tiles.",
   "skills": [
     {
-      "id": "TODO_competency_1",
-      "name": "TODO",
-      "kind": "competency",
-      "category": "mobile",
-      "level": "expert"
-    },
-    {
-      "id": "TODO_competency_2",
-      "name": "TODO",
+      "id": "clean_architecture",
+      "name": "Clean Architecture",
       "kind": "competency",
       "category": "architecture",
-      "level": "proficient"
+      "level": null,
+      "logo_path": null
     },
     {
-      "id": "TODO_competency_3",
-      "name": "TODO",
+      "id": "repository_pattern",
+      "name": "Repository Pattern",
+      "kind": "competency",
+      "category": "architecture",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "dependency_injection",
+      "name": "Dependency Injection",
+      "kind": "competency",
+      "category": "architecture",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "offline_first",
+      "name": "Offline-First Sync",
+      "kind": "competency",
+      "category": "architecture",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "bloc",
+      "name": "BLoC",
       "kind": "competency",
       "category": "stateManagement",
-      "level": "proficient"
+      "level": null,
+      "logo_path": null
     },
     {
-      "id": "TODO_competency_4",
-      "name": "TODO",
+      "id": "cubit",
+      "name": "Cubit",
+      "kind": "competency",
+      "category": "stateManagement",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "rest_integration",
+      "name": "REST API Integration",
+      "kind": "competency",
+      "category": "backend",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "localization_rtl",
+      "name": "Localization & RTL",
       "kind": "competency",
       "category": "practices",
-      "level": "familiar"
+      "level": null,
+      "logo_path": null
     },
     {
-      "id": "TODO_technology_1",
-      "name": "TODO",
+      "id": "responsive_design",
+      "name": "Responsive & Tablet Layouts",
+      "kind": "competency",
+      "category": "practices",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "widget_testing",
+      "name": "Widget & Integration Testing",
+      "kind": "competency",
+      "category": "practices",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "flutter",
+      "name": "Flutter",
       "kind": "technology",
       "category": "mobile",
       "logo_path": null
     },
     {
-      "id": "TODO_technology_2",
-      "name": "TODO",
+      "id": "dart",
+      "name": "Dart",
+      "kind": "technology",
+      "category": "mobile",
+      "logo_path": null
+    },
+    {
+      "id": "flutter_bloc",
+      "name": "flutter_bloc",
+      "kind": "technology",
+      "category": "stateManagement",
+      "logo_path": null
+    },
+    {
+      "id": "getit",
+      "name": "GetIt",
+      "kind": "technology",
+      "category": "architecture",
+      "logo_path": null
+    },
+    {
+      "id": "dartz",
+      "name": "dartz",
+      "kind": "technology",
+      "category": "architecture",
+      "logo_path": null
+    },
+    {
+      "id": "dio",
+      "name": "Dio",
       "kind": "technology",
       "category": "backend",
       "logo_path": null
     },
     {
-      "id": "TODO_technology_3",
-      "name": "TODO",
+      "id": "firebase",
+      "name": "Firebase",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "fcm",
+      "name": "Firebase Cloud Messaging",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "sqflite",
+      "name": "SQLite (sqflite)",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "shared_preferences",
+      "name": "SharedPreferences",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "secure_storage",
+      "name": "Flutter Secure Storage",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "google_maps",
+      "name": "Google Maps",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "go_router",
+      "name": "go_router",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "screenutil",
+      "name": "flutter_screenutil",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "webview",
+      "name": "WebView",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "git",
+      "name": "Git",
       "kind": "technology",
       "category": "tools",
       "logo_path": null

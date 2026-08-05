@@ -1,51 +1,96 @@
 {
-  "_comment": "PLACEHOLDER CONTENT. Adding a project: (1) add an entry here, (2) create the detail_file, (3) add assets/projects/<slug>/ to pubspec.yaml — folder declarations are NOT recursive. See PROJECT_SPEC.md risk R-7.",
+  "_comment": "Content transcribed from assets/projects/*.md. Adding a project: (1) add an entry here, (2) create the detail_file, (3) add assets/projects/<slug>/ to pubspec.yaml — folder declarations are NOT recursive. See PROJECT_SPEC.md risk R-7.",
 
   "projects": [
+    {
+      "slug": "masr_alkher",
+      "title": { "en": "Gharemeen", "ar": "غارمين" },
+      "tagline": {
+        "en": "Offline-first field research tool for social and financial debt-case assessments.",
+        "ar": "تطبيق ميداني يعمل دون اتصال لإجراء البحوث الاجتماعية والمالية لحالات الغارمين."
+      },
+      "domain": { "en": "Social Impact", "ar": "الأثر الاجتماعي" },
+      "cover_path": null,
+      "type": "product",
+      "primary_tech": ["Flutter", "Clean Architecture", "SQLite"],
+      "is_featured": true,
+      "order": 1,
+      "detail_file": "assets/data/projects/masr_alkher.json"
+    },
+    {
+      "slug": "yafleet",
+      "title": { "en": "YaFleet", "ar": "يا فليت" },
+      "tagline": {
+        "en": "Peer-to-peer luggage-space marketplace with escrowed payment and QR-verified handover.",
+        "ar": "سوق لمشاركة مساحة الأمتعة بين المسافرين مع دفع مضمون وتسليم موثّق برمز QR."
+      },
+      "domain": { "en": "Logistics", "ar": "الخدمات اللوجستية" },
+      "cover_path": null,
+      "type": "client",
+      "primary_tech": ["Flutter", "Bloc", "Stripe"],
+      "is_featured": true,
+      "order": 2,
+      "detail_file": "assets/data/projects/yafleet.json"
+    },
     {
       "slug": "motary",
       "title": { "en": "Motary", "ar": "موتري" },
       "tagline": {
-        "en": "TODO: one line on what this product does.",
-        "ar": "مطلوب: سطر واحد يصف المنتج."
+        "en": "Automotive parts marketplace shipping a buyer storefront and a seller portal from one codebase.",
+        "ar": "سوق لقطع غيار السيارات يضم متجرًا للمشترين وبوابة للبائعين في قاعدة كود واحدة."
       },
       "domain": { "en": "Automotive", "ar": "السيارات" },
       "cover_path": null,
       "type": "client",
-      "primary_tech": ["Flutter", "Bloc", "Firebase"],
+      "primary_tech": ["Flutter", "Clean Architecture", "Bloc"],
       "is_featured": true,
-      "order": 1,
+      "order": 3,
       "detail_file": "assets/data/projects/motary.json"
+    },
+    {
+      "slug": "itutor",
+      "title": { "en": "i_tutor", "ar": "آي تيوتر" },
+      "tagline": {
+        "en": "AI tutor that turns your own study material into 15 kinds of learning artifact.",
+        "ar": "مدرّس ذكي يحوّل موادك الدراسية إلى ١٥ نوعًا من المخرجات التعليمية."
+      },
+      "domain": { "en": "EdTech", "ar": "تقنيات التعليم" },
+      "cover_path": null,
+      "type": "client",
+      "primary_tech": ["Flutter", "SSE Streaming", "Clean Architecture"],
+      "is_featured": false,
+      "order": 4,
+      "detail_file": "assets/data/projects/itutor.json"
     },
     {
       "slug": "qanony",
       "title": { "en": "Qanony", "ar": "قانوني" },
       "tagline": {
-        "en": "TODO: one line on what this product does.",
-        "ar": "مطلوب: سطر واحد يصف المنتج."
+        "en": "Legal-services marketplace turning opaque legal engagement into a tracked transaction.",
+        "ar": "منصة خدمات قانونية تحوّل التعامل القانوني الغامض إلى معاملة قابلة للتتبع."
       },
       "domain": { "en": "Legal Services", "ar": "الخدمات القانونية" },
       "cover_path": null,
       "type": "client",
-      "primary_tech": ["Flutter", "Clean Architecture", "GetIt"],
-      "is_featured": true,
-      "order": 2,
+      "primary_tech": ["Flutter", "go_router", "Firebase"],
+      "is_featured": false,
+      "order": 5,
       "detail_file": "assets/data/projects/qanony.json"
     },
     {
-      "slug": "portfolio",
-      "title": { "en": "This Portfolio", "ar": "هذا الموقع" },
+      "slug": "flowers",
+      "title": { "en": "Flowers", "ar": "فلاورز" },
       "tagline": {
-        "en": "A Flutter portfolio built as a reference implementation of Clean Architecture.",
-        "ar": "موقع أعمال بفلاتر مبني كمرجع لتطبيق المعمارية النظيفة."
+        "en": "Arabic-first multi-vendor flower and gift marketplace with guest browsing.",
+        "ar": "سوق متعدد البائعين للزهور والهدايا يدعم التصفح دون تسجيل."
       },
-      "domain": { "en": "Open Source", "ar": "مفتوح المصدر" },
+      "domain": { "en": "E-commerce", "ar": "التجارة الإلكترونية" },
       "cover_path": null,
-      "type": "personal",
-      "primary_tech": ["Flutter", "Bloc", "Clean Architecture"],
-      "is_featured": true,
-      "order": 3,
-      "detail_file": "assets/data/projects/portfolio.json"
+      "type": "client",
+      "primary_tech": ["Flutter", "Clean Architecture", "Google Maps"],
+      "is_featured": false,
+      "order": 6,
+      "detail_file": "assets/data/projects/flowers.json"
     }
   ]
 }

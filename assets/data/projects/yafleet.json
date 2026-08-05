@@ -1,0 +1,177 @@
+{
+  "_comment": "Transcribed from assets/projects/yafleet.md. Attribution VERIFIED in that document from git history.",
+  "slug": "yafleet",
+  "overview": {
+    "en": "YaFleet is a cross-platform marketplace connecting travelers who have unused luggage capacity with shippers who need to send packages along the same route. A traveler publishes a trip — route, dates, travel method, available weight, meeting points; a shipper publishes a shipment; the platform matches the two and manages the transaction end to end: request negotiation, escrowed payment, QR-verified physical handover, in-app chat, and payout to the courier's wallet. It ships in English, Arabic, and Chinese.",
+    "ar": "يافليت سوق عبر المنصات يربط المسافرين الذين لديهم مساحة أمتعة غير مستغلة بمن يريدون شحن طرود على المسار نفسه. ينشر المسافر رحلته وينشر الشاحن شحنته، وتطابق المنصة بينهما وتدير المعاملة كاملة: التفاوض على الطلب، والدفع المضمون، والتسليم الموثّق برمز QR، والمحادثة داخل التطبيق، وصرف المستحقات لمحفظة الناقل. يدعم التطبيق الإنجليزية والعربية والصينية."
+  },
+  "role": {
+    "en": "Authored 90 commits between January and June 2025 on a team of three active developers, working in a feature-branch and merge-request workflow. I created 99 of the 458 files in lib/. The architectural skeleton, core networking, auth, trips, and shipments were established before I joined; I built vertical feature slices on top of it and maintained shared surfaces. I built the wallet and payouts module, the transactions ledger, and the profile module end to end, from data layer through to presentation.",
+    "ar": "كتبتُ ٩٠ commit بين يناير ويونيو ٢٠٢٥ ضمن فريق من ثلاثة مطورين نشطين، بأسلوب فروع الميزات وطلبات الدمج. أنشأتُ ٩٩ ملفًا من أصل ٤٥٨ في مجلد lib. كان الهيكل المعماري والشبكات والمصادقة والرحلات والشحنات موجودًا قبل انضمامي، فبنيتُ فوقه شرائح ميزات رأسية وحافظتُ على الأسطح المشتركة. بنيتُ وحدات المحفظة والمدفوعات وسجل المعاملات والملف الشخصي كاملة من طبقة البيانات حتى العرض."
+  },
+  "duration": {
+    "en": "Jan 2025 – Jun 2025",
+    "ar": "يناير ٢٠٢٥ – يونيو ٢٠٢٥"
+  },
+  "platforms": [
+    "android",
+    "ios"
+  ],
+  "status": "live",
+  "responsibilities": [
+    {
+      "en": "Built the wallet and payouts module in full: balance, withdrawal templates for bank and cash, transfers, and withdrawal requests — sole creator of all five data models, the repository implementation, all five use cases, the WalletBloc, and six screens.",
+      "ar": "بنيتُ وحدة المحفظة والمدفوعات كاملة: الرصيد وقوالب السحب البنكي والنقدي والتحويلات وطلبات السحب — المُنشئ الوحيد لجميع نماذج البيانات الخمسة وتنفيذ المستودع وحالات الاستخدام الخمس وWalletBloc وست شاشات."
+    },
+    {
+      "en": "Built the transactions ledger: paginated, date-grouped, and filtered by all, incoming, payment, and withdraw.",
+      "ar": "بنيتُ سجل المعاملات: مقسّم لصفحات ومجمّع بالتاريخ ومصفّى حسب الكل والوارد والمدفوعات والسحب."
+    },
+    {
+      "en": "Built the profile module: view and edit profile, per-field update, password change, email change with OTP re-verification, account deletion, and reviews display.",
+      "ar": "بنيتُ وحدة الملف الشخصي: العرض والتعديل وتحديث كل حقل وتغيير كلمة المرور وتغيير البريد مع إعادة التحقق برمز، وحذف الحساب وعرض التقييمات."
+    },
+    {
+      "en": "Maintained the trilingual string catalogues, keeping all three key-identical at 526 keys each.",
+      "ar": "حافظتُ على كتالوجات النصوص ثلاثية اللغة متطابقة المفاتيح عند ٥٢٦ مفتاحًا لكل لغة."
+    },
+    {
+      "en": "Authored the sent- and received-request section widgets for both the trip and shipment sides, making each role's rules independently readable.",
+      "ar": "كتبتُ عناصر أقسام الطلبات المرسلة والواردة لجانبي الرحلة والشحنة، ليبقى منطق كل دور مقروءًا على حدة."
+    }
+  ],
+  "challenges": [
+    {
+      "challenge": {
+        "en": "Payment confirmation across a WebView boundary — Stripe checkout runs on a hosted page outside Flutter's control, and the app must reliably learn whether payment succeeded, failed, or was abandoned.",
+        "ar": "تأكيد الدفع عبر حدود WebView — تعمل صفحة Stripe خارج سيطرة التطبيق، وعليه أن يعرف بدقة إن نجح الدفع أو فشل أو تُرك."
+      },
+      "solution": {
+        "en": "A NavigationDelegate inspects every URL transition: the sheet closes on the verify callback and parses the status query parameter. The sheet is non-dismissible so the user cannot exit into an ambiguous state, and the controller cache is cleared on dispose so no card session persists.",
+        "ar": "يفحص NavigationDelegate كل انتقال في الرابط: تُغلق النافذة عند رابط التحقق وتُقرأ حالة العملية من معاملات الرابط. النافذة غير قابلة للإغلاق اليدوي حتى لا يخرج المستخدم إلى حالة غامضة، وتُمسح ذاكرة المتحكم عند الإغلاق فلا تبقى جلسة بطاقة."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Physical handover cannot be trusted to a button tap — a status either party can set unilaterally is worthless as proof of custody.",
+        "ar": "لا يمكن الوثوق بزر لتأكيد التسليم الفعلي — فحالة يضبطها أي طرف منفردًا لا تصلح دليلًا على الاستلام."
+      },
+      "solution": {
+        "en": "The backend issues a per-request QR token that the receiving party scans and submits with the transition. Because the token originates server-side and must be physically presented, neither party can advance the state alone.",
+        "ar": "يُصدر الخادم رمز QR لكل طلب يمسحه الطرف المستلم ويُرسل مع تغيير الحالة. ولأن الرمز يأتي من الخادم ويجب تقديمه فعليًا، لا يستطيع أي طرف تغيير الحالة منفردًا."
+      }
+    },
+    {
+      "challenge": {
+        "en": "A ten-state request machine driven from three directions — the local user, the counterparty via push, and the backend — each mapping to a different endpoint and payload shape.",
+        "ar": "آلة حالات بعشر حالات تُدار من ثلاث جهات: المستخدم المحلي والطرف الآخر عبر الإشعارات والخادم، ولكل منها نقطة نهاية وشكل بيانات مختلف."
+      },
+      "solution": {
+        "en": "Endpoint and payload resolve from a single switch expression over the status enum, and remote-driven changes flow through a dedicated cubit so open screens refresh without polling.",
+        "ar": "تُحسم نقطة النهاية وشكل البيانات من تعبير switch واحد على حالة الطلب، وتمر التغييرات القادمة من الخادم عبر Cubit مخصص فتتحدث الشاشات المفتوحة دون استطلاع دوري."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Location-dependent search that must not dead-end — permission may be denied, permanently denied, or the OS service disabled.",
+        "ar": "بحث يعتمد على الموقع ويجب ألا يصل لطريق مسدود — فقد يُرفض الإذن أو يُرفض نهائيًا أو تُعطّل خدمة الموقع."
+      },
+      "solution": {
+        "en": "The geolocation service distinguishes all three cases and opens the matching settings screen, suppresses the prompt on first launch, and returns a sentinel position rather than throwing so the bloc can emit an actionable failure instead of an empty list.",
+        "ar": "تفرّق خدمة الموقع بين الحالات الثلاث وتفتح شاشة الإعدادات المناسبة، وتؤجل الطلب عند أول تشغيل، وتعيد قيمة بديلة بدل رمي استثناء ليعرض التطبيق رسالة قابلة للتنفيذ بدل قائمة فارغة."
+      }
+    },
+    {
+      "challenge": {
+        "en": "A dual-role user model — the same person is a traveler on one screen and a shipper on the next.",
+        "ar": "نموذج مستخدم بدورين — الشخص نفسه مسافر في شاشة وشاحن في أخرى."
+      },
+      "solution": {
+        "en": "Role resolution at the entity layer: the request carries requestedByMe and both party ids, so presentation branches on domain data rather than inferring role from navigation context.",
+        "ar": "حسم الدور في طبقة الكيانات: يحمل الطلب علامة صاحبه ومعرّفي الطرفين، فتتفرع الواجهة حسب بيانات النطاق لا حسب سياق التنقل."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Two withdrawal methods with divergent required fields behind one wallet flow.",
+        "ar": "طريقتا سحب بحقول مطلوبة مختلفة خلف مسار محفظة واحد."
+      },
+      "solution": {
+        "en": "A sealed-style model hierarchy lets one call site serialize the correct payload, and the getter defensively returns null for both a missing key and an empty list, because the API is inconsistent about which it returns.",
+        "ar": "تسلسل نماذج مغلق يتيح لنقطة استدعاء واحدة إرسال الشكل الصحيح، ويعيد الجالب null دفاعيًا عند غياب المفتاح أو وصول قائمة فارغة، لأن الـ API غير متسق في أيهما يعيد."
+      }
+    },
+    {
+      "challenge": {
+        "en": "Three languages with opposing text direction across 526 keys, on a feature set still being actively extended by three developers.",
+        "ar": "ثلاث لغات باتجاهات نص متعاكسة عبر ٥٢٦ مفتاحًا، مع ميزات يوسّعها ثلاثة مطورين باستمرار."
+      },
+      "solution": {
+        "en": "All three catalogues are kept key-identical and addressed through typed constants rather than raw strings, so a missing key is a visible mistake rather than a runtime blank.",
+        "ar": "تبقى الكتالوجات الثلاثة متطابقة المفاتيح ويُوصل إليها عبر ثوابت مُعرّفة لا نصوص خام، فيصبح المفتاح المفقود خطأ ظاهرًا لا فراغًا وقت التشغيل."
+      }
+    }
+  ],
+  "tech_stack": [
+    "Flutter",
+    "Dart",
+    "Bloc",
+    "Clean Architecture",
+    "GetIt",
+    "Dio",
+    "Stripe",
+    "Firebase",
+    "Google Maps",
+    "QR scanning",
+    "flutter_screenutil"
+  ],
+  "architecture": [
+    {
+      "title": {
+        "en": "Escrowed payment resolved by URL interception",
+        "ar": "حسم الدفع المضمون عبر اعتراض الروابط"
+      },
+      "detail": {
+        "en": "Payment state is derived from navigation URLs rather than trusting a client-side callback, and the sheet is non-dismissible so no ambiguous state is reachable.",
+        "ar": "تُشتق حالة الدفع من روابط التنقل بدل الوثوق باستدعاء من جانب العميل، والنافذة غير قابلة للإغلاق فلا يمكن الوصول لحالة غامضة."
+      }
+    },
+    {
+      "title": {
+        "en": "Server-issued QR as the custody proof",
+        "ar": "رمز QR من الخادم كدليل على الاستلام"
+      },
+      "detail": {
+        "en": "Physical handover requires presenting a token neither party can mint, which is what makes the status transition trustworthy.",
+        "ar": "يتطلب التسليم الفعلي تقديم رمز لا يستطيع أي طرف إنشاءه، وهو ما يجعل تغيّر الحالة جديرًا بالثقة."
+      }
+    },
+    {
+      "title": {
+        "en": "Status transitions centralized in one switch",
+        "ar": "تركيز انتقالات الحالة في تعبير switch واحد"
+      },
+      "detail": {
+        "en": "A single Dart 3 switch over the status enum resolves endpoint and payload, isolating the special hold and cancel cases from the uniform transitions.",
+        "ar": "تعبير switch واحد على حالة الطلب يحدد نقطة النهاية وشكل البيانات، ويعزل حالات التعليق والإلغاء عن الانتقالات الموحّدة."
+      }
+    },
+    {
+      "title": {
+        "en": "Role carried on the entity, not inferred from context",
+        "ar": "الدور محمول على الكيان لا مستنتج من السياق"
+      },
+      "detail": {
+        "en": "Presentation code branches on domain data, which keeps each role's rules independently readable and testable.",
+        "ar": "تتفرع الواجهة حسب بيانات النطاق، ما يبقي قواعد كل دور مقروءة وقابلة للاختبار على حدة."
+      }
+    }
+  ],
+  "gallery": [],
+  "links": {
+    "github": null,
+    "live_demo": null,
+    "app_store": null,
+    "play_store": null
+  }
+}

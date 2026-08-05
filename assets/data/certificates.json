@@ -1,15 +1,15 @@
 {
-  "_comment": "PLACEHOLDER. credential_url enables the Verify action; expiry_date null means no expiry.",
+  "_comment": "Transcribed from assets/certificates.md. issue_date values are approximated from the timeline in about.md (ITI training precedes the Aug-2024 IntraZero role; the GDSC term ran Oct 2023 - Jan 2024). No credential ids or verification URLs exist in any source, so those stay null and no Verify action renders.",
   "certificates": [
     {
-      "id": "TODO_cert_1",
+      "id": "iti-flutter",
       "title": {
-        "en": "TODO",
-        "ar": "TODO"
+        "en": "Flutter Mobile Application Development",
+        "ar": "تطوير تطبيقات الموبايل بفلاتر"
       },
       "issuer": {
-        "en": "TODO",
-        "ar": "TODO"
+        "en": "Information Technology Institute (ITI)",
+        "ar": "معهد تكنولوجيا المعلومات"
       },
       "issue_date": "2024-01-01",
       "expiry_date": null,
@@ -19,16 +19,16 @@
       "issuer_logo_path": null
     },
     {
-      "id": "TODO_cert_2",
+      "id": "gdsc-flutter-instructor-cert",
       "title": {
-        "en": "TODO",
-        "ar": "TODO"
+        "en": "Flutter Instructor",
+        "ar": "مدرّبة فلاتر"
       },
       "issuer": {
-        "en": "TODO",
-        "ar": "TODO"
+        "en": "Google Developer Student Clubs",
+        "ar": "نادي مطوّري جوجل للطلاب"
       },
-      "issue_date": "2023-01-01",
+      "issue_date": "2023-10-01",
       "expiry_date": null,
       "credential_id": null,
       "credential_url": null,

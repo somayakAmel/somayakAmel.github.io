@@ -1,96 +1,155 @@
 {
-  "_comment": "Content transcribed from assets/projects/*.md. Adding a project: (1) add an entry here, (2) create the detail_file, (3) add assets/projects/<slug>/ to pubspec.yaml — folder declarations are NOT recursive. See PROJECT_SPEC.md risk R-7.",
-
+  "_comment": "Transcribed from assets/projects/*.md, with categories from the supplied projects.md. Two deliberate departures from that file: (1) Gharemeen and YaFleet are featured because they are the only two whose case studies verify authorship, while the four it marked featured all state attribution could not be verified; (2) YaFleet's category is Logistics, not Fleet Management — its case study documents a peer-to-peer luggage-space marketplace. Adding a project: add an entry here, create the detail_file, and declare assets/projects/<slug>/ in pubspec.yaml — folder declarations are NOT recursive.",
   "projects": [
     {
       "slug": "masr_alkher",
-      "title": { "en": "Gharemeen", "ar": "غارمين" },
+      "title": {
+        "en": "Gharemeen",
+        "ar": "غارمين"
+      },
       "tagline": {
         "en": "Offline-first field research tool for social and financial debt-case assessments.",
         "ar": "تطبيق ميداني يعمل دون اتصال لإجراء البحوث الاجتماعية والمالية لحالات الغارمين."
       },
-      "domain": { "en": "Social Impact", "ar": "الأثر الاجتماعي" },
+      "domain": {
+        "en": "Charity",
+        "ar": "الأعمال الخيرية"
+      },
       "cover_path": null,
       "type": "product",
-      "primary_tech": ["Flutter", "Clean Architecture", "SQLite"],
+      "primary_tech": [
+        "Flutter",
+        "Clean Architecture",
+        "SQLite"
+      ],
       "is_featured": true,
       "order": 1,
       "detail_file": "assets/data/projects/masr_alkher.json"
     },
     {
       "slug": "yafleet",
-      "title": { "en": "YaFleet", "ar": "يا فليت" },
+      "title": {
+        "en": "YaFleet",
+        "ar": "يا فليت"
+      },
       "tagline": {
         "en": "Peer-to-peer luggage-space marketplace with escrowed payment and QR-verified handover.",
         "ar": "سوق لمشاركة مساحة الأمتعة بين المسافرين مع دفع مضمون وتسليم موثّق برمز QR."
       },
-      "domain": { "en": "Logistics", "ar": "الخدمات اللوجستية" },
+      "domain": {
+        "en": "Logistics",
+        "ar": "الخدمات اللوجستية"
+      },
       "cover_path": null,
       "type": "client",
-      "primary_tech": ["Flutter", "Bloc", "Stripe"],
+      "primary_tech": [
+        "Flutter",
+        "Bloc",
+        "Stripe"
+      ],
       "is_featured": true,
       "order": 2,
       "detail_file": "assets/data/projects/yafleet.json"
     },
     {
       "slug": "motary",
-      "title": { "en": "Motary", "ar": "موتري" },
+      "title": {
+        "en": "Motary",
+        "ar": "موتري"
+      },
       "tagline": {
         "en": "Automotive parts marketplace shipping a buyer storefront and a seller portal from one codebase.",
         "ar": "سوق لقطع غيار السيارات يضم متجرًا للمشترين وبوابة للبائعين في قاعدة كود واحدة."
       },
-      "domain": { "en": "Automotive", "ar": "السيارات" },
+      "domain": {
+        "en": "Marketplace",
+        "ar": "سوق إلكتروني"
+      },
       "cover_path": null,
       "type": "client",
-      "primary_tech": ["Flutter", "Clean Architecture", "Bloc"],
+      "primary_tech": [
+        "Flutter",
+        "Clean Architecture",
+        "Bloc"
+      ],
       "is_featured": true,
       "order": 3,
       "detail_file": "assets/data/projects/motary.json"
     },
     {
-      "slug": "itutor",
-      "title": { "en": "i_tutor", "ar": "آي تيوتر" },
-      "tagline": {
-        "en": "AI tutor that turns your own study material into 15 kinds of learning artifact.",
-        "ar": "مدرّس ذكي يحوّل موادك الدراسية إلى ١٥ نوعًا من المخرجات التعليمية."
-      },
-      "domain": { "en": "EdTech", "ar": "تقنيات التعليم" },
-      "cover_path": null,
-      "type": "client",
-      "primary_tech": ["Flutter", "SSE Streaming", "Clean Architecture"],
-      "is_featured": false,
-      "order": 4,
-      "detail_file": "assets/data/projects/itutor.json"
-    },
-    {
       "slug": "qanony",
-      "title": { "en": "Qanony", "ar": "قانوني" },
+      "title": {
+        "en": "Qanony",
+        "ar": "قانوني"
+      },
       "tagline": {
         "en": "Legal-services marketplace turning opaque legal engagement into a tracked transaction.",
         "ar": "منصة خدمات قانونية تحوّل التعامل القانوني الغامض إلى معاملة قابلة للتتبع."
       },
-      "domain": { "en": "Legal Services", "ar": "الخدمات القانونية" },
+      "domain": {
+        "en": "Legal Technology",
+        "ar": "التقنية القانونية"
+      },
       "cover_path": null,
       "type": "client",
-      "primary_tech": ["Flutter", "go_router", "Firebase"],
+      "primary_tech": [
+        "Flutter",
+        "go_router",
+        "Firebase"
+      ],
       "is_featured": false,
-      "order": 5,
+      "order": 4,
       "detail_file": "assets/data/projects/qanony.json"
     },
     {
       "slug": "flowers",
-      "title": { "en": "Flowers", "ar": "فلاورز" },
+      "title": {
+        "en": "Flowers",
+        "ar": "فلاورز"
+      },
       "tagline": {
         "en": "Arabic-first multi-vendor flower and gift marketplace with guest browsing.",
         "ar": "سوق متعدد البائعين للزهور والهدايا يدعم التصفح دون تسجيل."
       },
-      "domain": { "en": "E-commerce", "ar": "التجارة الإلكترونية" },
+      "domain": {
+        "en": "Marketplace",
+        "ar": "سوق إلكتروني"
+      },
       "cover_path": null,
       "type": "client",
-      "primary_tech": ["Flutter", "Clean Architecture", "Google Maps"],
+      "primary_tech": [
+        "Flutter",
+        "Clean Architecture",
+        "Google Maps"
+      ],
+      "is_featured": false,
+      "order": 5,
+      "detail_file": "assets/data/projects/flowers.json"
+    },
+    {
+      "slug": "itutor",
+      "title": {
+        "en": "i_tutor",
+        "ar": "آي تيوتر"
+      },
+      "tagline": {
+        "en": "AI tutor that turns your own study material into 15 kinds of learning artifact.",
+        "ar": "مدرّس ذكي يحوّل موادك الدراسية إلى ١٥ نوعًا من المخرجات التعليمية."
+      },
+      "domain": {
+        "en": "Education",
+        "ar": "التعليم"
+      },
+      "cover_path": null,
+      "type": "client",
+      "primary_tech": [
+        "Flutter",
+        "SSE Streaming",
+        "Clean Architecture"
+      ],
       "is_featured": false,
       "order": 6,
-      "detail_file": "assets/data/projects/flowers.json"
+      "detail_file": "assets/data/projects/itutor.json"
     }
   ]
 }

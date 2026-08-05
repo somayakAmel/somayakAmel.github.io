@@ -1,33 +1,33 @@
 {
-  "_comment": "PLACEHOLDER CONTENT. Replace every value below with real copy before publishing. See PROJECT_SPEC.md risk R-2.",
+  "_comment": "Transcribed from assets/about.md, which declares itself the single source of truth for personal sections. LinkedIn and the CV file are still unresolved — see assets/contact.md.",
   "name": {
     "en": "Somaya Kamel",
     "ar": "سمية كامل"
   },
   "role_title": {
     "en": "Flutter & Mobile Developer",
-    "ar": "مطورة تطبيقات فلاتر"
+    "ar": "مطوّرة تطبيقات فلاتر"
   },
   "tagline": {
-    "en": "I build production Flutter apps with architecture that lasts.",
-    "ar": "أبني تطبيقات فلاتر جاهزة للإنتاج بمعمارية قابلة للتوسع."
+    "en": "Building scalable mobile experiences with Flutter.",
+    "ar": "أبني تجارب موبايل قابلة للتوسع باستخدام فلاتر."
   },
   "bio": {
-    "en": "TODO: two to four sentences. What you build, who for, and what makes your engineering different. Lead with outcomes, not duties.",
-    "ar": "مطلوب: من جملتين إلى أربع جمل تصف ما تبنينه، ولمن، وما الذي يميز أسلوبك الهندسي."
+    "en": "I'm a Flutter Developer with more than two years of professional experience building production-ready mobile applications. I enjoy transforming complex business requirements into clean, maintainable, and scalable solutions using Flutter. My work spans multiple industries including e-commerce, legal technology, logistics, fleet management, healthcare, and enterprise systems.\n\nMy primary focus is writing clean, maintainable code that can scale as products grow. I enjoy designing feature-based architectures, solving challenging engineering problems, and creating applications that remain easy to extend and maintain over time.\n\nI have extensive experience integrating REST APIs, Firebase services, authentication systems, push notifications, payment gateways, localization, and responsive user interfaces. I also collaborate closely with backend engineers, UI/UX designers, and QA teams to deliver complete mobile products.",
+    "ar": "أنا مطوّرة تطبيقات فلاتر بخبرة تتجاوز العامين في بناء تطبيقات موبايل جاهزة للإنتاج. أستمتع بتحويل متطلبات العمل المعقدة إلى حلول نظيفة وقابلة للصيانة والتوسع باستخدام فلاتر، وقد شمل عملي مجالات متعددة منها التجارة الإلكترونية والتقنية القانونية والخدمات اللوجستية وإدارة الأساطيل والرعاية الصحية وأنظمة المؤسسات.\n\nتركيزي الأساسي هو كتابة كود نظيف قابل للصيانة ينمو مع نمو المنتج. أستمتع بتصميم معماريات قائمة على الميزات، وحل المشكلات الهندسية الصعبة، وبناء تطبيقات تبقى سهلة التوسعة والصيانة مع الوقت.\n\nلديّ خبرة واسعة في دمج واجهات REST وخدمات Firebase وأنظمة المصادقة والإشعارات وبوابات الدفع والترجمة والواجهات المتجاوبة. كما أتعاون عن قرب مع مهندسي الواجهة الخلفية ومصممي تجربة المستخدم وفرق الجودة لتسليم منتجات موبايل متكاملة."
   },
-  "years_of_experience": 5,
+  "years_of_experience": 2,
   "location": {
-    "en": "Cairo, Egypt",
-    "ar": "القاهرة، مصر"
+    "en": "Egypt",
+    "ar": "مصر"
   },
-  "email": "TODO@example.com",
-  "phone": null,
+  "email": "somayaa.kamell@gmail.com",
+  "phone": "+20 114 023 9195",
   "avatar_path": null,
   "resume_path": null,
   "highlights": [
     {
-      "value": "5+",
+      "value": "2+",
       "label": {
         "en": "Years Experience",
         "ar": "سنوات خبرة"
@@ -35,18 +35,18 @@
       "icon_key": "calendar"
     },
     {
-      "value": "20+",
+      "value": "6",
       "label": {
-        "en": "Apps Shipped",
-        "ar": "تطبيق منشور"
+        "en": "Production Apps",
+        "ar": "تطبيقات في الإنتاج"
       },
       "icon_key": "rocket"
     },
     {
-      "value": "3",
+      "value": "2",
       "label": {
-        "en": "Platforms",
-        "ar": "منصات"
+        "en": "Platforms Shipped",
+        "ar": "منصات منشورة"
       },
       "icon_key": "devices"
     }

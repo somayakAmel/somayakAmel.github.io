@@ -1,6 +1,18 @@
 {
-  "_comment": "PLACEHOLDER. url must include the FULL scheme (mailto:, https://). The email entry becomes the primary CTA in the Contact section.",
+  "_comment": "Transcribed from assets/contact.md and about.md. LinkedIn is absent from every supplied source and is therefore omitted rather than invented — add an entry here once the URL is known.",
   "social_links": [
+    {
+      "id": "email",
+      "platform": "email",
+      "label": {
+        "en": "Email me",
+        "ar": "راسليني"
+      },
+      "url": "mailto:somayaa.kamell@gmail.com",
+      "icon_key": "mail",
+      "show_in_footer": true,
+      "order": 1
+    },
     {
       "id": "github",
       "platform": "github",
@@ -8,33 +20,21 @@
         "en": "GitHub",
         "ar": "جيت هب"
       },
-      "url": "https://github.com/TODO",
+      "url": "https://github.com/somayakAmel",
       "icon_key": "github",
-      "show_in_footer": true,
-      "order": 1
-    },
-    {
-      "id": "linkedin",
-      "platform": "linkedin",
-      "label": {
-        "en": "LinkedIn",
-        "ar": "لينكد إن"
-      },
-      "url": "https://linkedin.com/in/TODO",
-      "icon_key": "linkedin",
       "show_in_footer": true,
       "order": 2
     },
     {
-      "id": "email",
-      "platform": "email",
+      "id": "phone",
+      "platform": "phone",
       "label": {
-        "en": "Email me",
-        "ar": "راسلني"
+        "en": "Call",
+        "ar": "اتصال"
       },
-      "url": "mailto:TODO@example.com",
-      "icon_key": "mail",
-      "show_in_footer": true,
+      "url": "tel:+201140239195",
+      "icon_key": "phone",
+      "show_in_footer": false,
       "order": 3
     }
   ]

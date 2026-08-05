@@ -1,13 +1,13 @@
 {
-  "_comment": "Transcribed from assets/projects/motary.md. 'role' is an unfilled TODO: that document states attribution could not be verified from git history.",
+  "_comment": "Transcribed from assets/projects/motary.md. The role statement is the contribution-level wording supplied for the portfolio; it deliberately does not claim ownership of the architecture, which the case study says could not be verified.",
   "slug": "motary",
   "overview": {
     "en": "Motary is a Flutter B2C marketplace for automotive parts built for the Arabic-speaking market. It ships two distinct applications inside one codebase: a buyer storefront for browsing, filtering, and purchasing parts, and a seller portal for merchants to register a shop, list inventory, and fulfil orders. The dual-role design is enforced at the architecture level rather than by UI toggles — separate authentication stacks, data sources, and navigation shells, with a persisted user-type enum driving request authorization and push routing. 515 Dart files across 17 feature modules, 77 use cases, and 49 routes.",
     "ar": "موتري سوق إلكتروني لقطع غيار السيارات مبني بفلاتر للسوق الناطق بالعربية. يضم تطبيقين متمايزين في قاعدة كود واحدة: متجر للمشترين للتصفح والتصفية والشراء، وبوابة للبائعين لتسجيل متجر وإدارة المخزون وتنفيذ الطلبات. يُفرض الفصل بين الدورين على مستوى المعمارية لا عبر مفاتيح في الواجهة. ٥١٥ ملف Dart عبر ١٧ وحدة و٧٧ حالة استخدام و٤٩ مسارًا."
   },
   "role": {
-    "en": "TODO: not verified. The case study for this project states that no commits in its git history match the local identity, and explicitly advises against claiming ownership of the architecture. Fill in from your own records before publishing.",
-    "ar": "مطلوب: غير مُتحقق منه. تذكر دراسة الحالة أن سجل الـ git لا يطابق الهوية المحلية، وتنصح صراحةً بعدم ادعاء ملكية المعمارية. يُرجى تعبئته من سجلاتك قبل النشر."
+    "en": "As a Flutter Developer, I contributed to developing and maintaining both buyer and seller experiences within the application. My responsibilities included implementing new features, integrating backend APIs, developing responsive user interfaces, building business logic using Bloc, improving application performance, integrating Firebase services, fixing production issues, and collaborating with backend and design teams to deliver production-ready functionality.",
+    "ar": "بصفتي مطوّرة تطبيقات فلاتر، ساهمتُ في تطوير وصيانة تجربتَي المشتري والبائع داخل التطبيق. وشملت مسؤولياتي تنفيذ ميزات جديدة، ودمج واجهات الخادم، وبناء واجهات مستخدم متجاوبة، وكتابة منطق العمل باستخدام Bloc، وتحسين أداء التطبيق، ودمج خدمات Firebase، ومعالجة مشكلات الإنتاج، والتعاون مع فريقَي الواجهة الخلفية والتصميم لتسليم وظائف جاهزة للإنتاج."
   },
   "duration": {
     "en": "Oct 2024 – Mar 2025",

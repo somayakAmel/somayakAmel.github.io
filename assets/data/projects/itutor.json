@@ -6,8 +6,8 @@
     "ar": "آي تيوتر تطبيق فلاتر للتدريس والمذاكرة بمساعدة الذكاء الاصطناعي، لدورين متمايزين: المعلمون والطلاب، لكل منهما تجربة رئيسية منفصلة. ينظّم المستخدمون عملهم في مواد، ويرفعون مصادر كملفات أو نصوص، ثم يحاورون مدرّسًا ذكيًا مستندًا إلى تلك المواد. ويولّد التطبيق خمسة عشر نوعًا من المخرجات التعليمية من المواد نفسها: بطاقات تعليمية وخرائط ذهنية واختبارات ومحاكيات امتحانات وعروضًا تقديمية ونصوص بودكاست وفيديوهات وملفات صوتية وألعابًا تفاعلية ووثائق بحث معمق وأدلة مدربين ونماذج واستبيانات ومحتوى قصصي ورسومًا معلوماتية. يدعم الإنجليزية والعربية بتطابق كامل في المفاتيح، ويُموّل عبر باقات اشتراك."
   },
   "role": {
-    "en": "TODO: not verified. The case study for this project states that no commits in its git history match the local identity, and explicitly advises against claiming ownership of the architecture. Fill in from your own records before publishing.",
-    "ar": "مطلوب: غير مُتحقق منه. تذكر دراسة الحالة أن سجل الـ git لا يطابق الهوية المحلية، وتنصح صراحةً بعدم ادعاء ملكية المعمارية. يُرجى تعبئته من سجلاتك قبل النشر."
+    "en": "TODO: no role description was supplied for this project. The case study states attribution could not be verified from git history — fill this in from your own records before publishing.",
+    "ar": "مطلوب: لم يُقدَّم وصف للدور في هذا المشروع. تذكر دراسة الحالة أن الإسناد لم يُتحقق منه من سجل git — يُرجى تعبئته من سجلاتك قبل النشر."
   },
   "duration": {
     "en": "TODO",

@@ -1,47 +1,112 @@
 {
-  "_comment": "PLACEHOLDER. end_date null means 'present' and renders an accent marker. Achievements must be OUTCOME statements, not duty lists (SPEC section 9).",
+  "_comment": "Transcribed from assets/experience.md and the Experience section of about.md.",
   "experience": [
     {
-      "id": "TODO_role_1",
+      "id": "intrazero-flutter-developer",
       "company": {
-        "en": "TODO",
-        "ar": "TODO"
+        "en": "IntraZero",
+        "ar": "إنترازيرو"
       },
       "role": {
-        "en": "TODO",
-        "ar": "TODO"
+        "en": "Flutter Developer",
+        "ar": "مطوّرة تطبيقات فلاتر"
       },
       "employment_type": "fullTime",
-      "start_date": "2024-01-01",
+      "start_date": "2024-08-01",
       "end_date": null,
       "location": {
-        "en": "TODO",
-        "ar": "TODO"
+        "en": "Egypt",
+        "ar": "مصر"
       },
       "logo_path": null,
-      "achievements": [],
-      "technologies": []
+      "achievements": [
+        {
+          "en": "Developed production-ready Flutter applications across multiple business domains.",
+          "ar": "طوّرتُ تطبيقات فلاتر جاهزة للإنتاج عبر مجالات أعمال متعددة."
+        },
+        {
+          "en": "Built scalable mobile architectures using Clean Architecture and Bloc.",
+          "ar": "بنيتُ معماريات موبايل قابلة للتوسع باستخدام المعمارية النظيفة وBloc."
+        },
+        {
+          "en": "Integrated REST APIs, Firebase services, authentication systems, and third-party SDKs.",
+          "ar": "دمجتُ واجهات REST وخدمات Firebase وأنظمة المصادقة وحزم الطرف الثالث."
+        },
+        {
+          "en": "Implemented localization, responsive layouts, push notifications, and secure authentication flows.",
+          "ar": "نفّذتُ الترجمة والتخطيطات المتجاوبة والإشعارات ومسارات المصادقة الآمنة."
+        },
+        {
+          "en": "Implemented authentication and payment workflows.",
+          "ar": "نفّذتُ مسارات المصادقة والدفع."
+        },
+        {
+          "en": "Collaborated closely with backend developers, UI/UX designers, QA engineers, and product teams.",
+          "ar": "تعاونتُ عن قرب مع مطوري الواجهة الخلفية ومصممي تجربة المستخدم ومهندسي الجودة وفرق المنتج."
+        },
+        {
+          "en": "Published and maintained applications for Android and iOS platforms.",
+          "ar": "نشرتُ وصنتُ تطبيقات لمنصتي أندرويد وiOS."
+        },
+        {
+          "en": "Participated in feature planning, debugging, optimization, and production support.",
+          "ar": "شاركتُ في تخطيط الميزات وتصحيح الأخطاء والتحسين ودعم الإنتاج."
+        }
+      ],
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Bloc",
+        "Cubit",
+        "Firebase",
+        "Dio",
+        "GetIt",
+        "REST APIs",
+        "Git",
+        "GitLab",
+        "Codemagic"
+      ]
     },
     {
-      "id": "TODO_role_2",
+      "id": "gdsc-flutter-instructor",
       "company": {
-        "en": "TODO",
-        "ar": "TODO"
+        "en": "Google Developer Student Club (GDSC)",
+        "ar": "نادي مطوّري جوجل للطلاب"
       },
       "role": {
-        "en": "TODO",
-        "ar": "TODO"
+        "en": "Flutter Instructor",
+        "ar": "مدرّبة فلاتر"
       },
-      "employment_type": "fullTime",
-      "start_date": "2022-01-01",
-      "end_date": "2023-12-31",
+      "employment_type": "partTime",
+      "start_date": "2023-10-01",
+      "end_date": "2024-01-31",
       "location": {
-        "en": "TODO",
-        "ar": "TODO"
+        "en": "Egypt",
+        "ar": "مصر"
       },
       "logo_path": null,
-      "achievements": [],
-      "technologies": []
+      "achievements": [
+        {
+          "en": "Mentored students learning Flutter development.",
+          "ar": "أرشدتُ طلابًا يتعلمون تطوير تطبيقات فلاتر."
+        },
+        {
+          "en": "Conducted Flutter workshops and technical sessions.",
+          "ar": "قدّمتُ ورش عمل وجلسات تقنية عن فلاتر."
+        },
+        {
+          "en": "Assisted students in understanding Flutter architecture and best practices.",
+          "ar": "ساعدتُ الطلاب على فهم معمارية فلاتر وأفضل الممارسات."
+        },
+        {
+          "en": "Helped beginners build complete mobile applications.",
+          "ar": "ساعدتُ المبتدئين على بناء تطبيقات موبايل كاملة."
+        }
+      ],
+      "technologies": [
+        "Flutter",
+        "Dart"
+      ]
     }
   ]
 }

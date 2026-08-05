@@ -1,9 +1,17 @@
 {
-  "_comment": "Technologies and competencies named in assets/projects/*.md tech stacks. 'level' is deliberately null — no source file ranks proficiency, and inventing a rating would be fabrication. Add logo_path values to replace the monogram tiles.",
+  "_comment": "Transcribed from assets/skills.md. 'level' is null throughout: no source ranks proficiency, and a self-assigned rating would be invention. Add logo_path values to replace the monogram tiles.",
   "skills": [
     {
       "id": "clean_architecture",
       "name": "Clean Architecture",
+      "kind": "competency",
+      "category": "architecture",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "mvvm",
+      "name": "MVVM",
       "kind": "competency",
       "category": "architecture",
       "level": null,
@@ -26,23 +34,31 @@
       "logo_path": null
     },
     {
-      "id": "offline_first",
-      "name": "Offline-First Sync",
+      "id": "feature_first",
+      "name": "Feature-first Architecture",
       "kind": "competency",
       "category": "architecture",
       "level": null,
       "logo_path": null
     },
     {
-      "id": "bloc",
-      "name": "BLoC",
+      "id": "solid",
+      "name": "SOLID Principles",
+      "kind": "competency",
+      "category": "architecture",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "bloc_skill",
+      "name": "Bloc",
       "kind": "competency",
       "category": "stateManagement",
       "level": null,
       "logo_path": null
     },
     {
-      "id": "cubit",
+      "id": "cubit_skill",
       "name": "Cubit",
       "kind": "competency",
       "category": "stateManagement",
@@ -50,24 +66,72 @@
       "logo_path": null
     },
     {
-      "id": "rest_integration",
-      "name": "REST API Integration",
+      "id": "provider_skill",
+      "name": "Provider",
+      "kind": "competency",
+      "category": "stateManagement",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "riverpod_skill",
+      "name": "Riverpod",
+      "kind": "competency",
+      "category": "stateManagement",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "formz_skill",
+      "name": "Formz",
+      "kind": "competency",
+      "category": "stateManagement",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "rest_apis",
+      "name": "REST APIs",
       "kind": "competency",
       "category": "backend",
       "level": null,
       "logo_path": null
     },
     {
-      "id": "localization_rtl",
-      "name": "Localization & RTL",
+      "id": "interceptors",
+      "name": "Interceptors",
       "kind": "competency",
-      "category": "practices",
+      "category": "backend",
       "level": null,
       "logo_path": null
     },
     {
-      "id": "responsive_design",
-      "name": "Responsive & Tablet Layouts",
+      "id": "pagination",
+      "name": "Pagination",
+      "kind": "competency",
+      "category": "backend",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "caching",
+      "name": "Caching",
+      "kind": "competency",
+      "category": "backend",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "json_serialization",
+      "name": "JSON Serialization",
+      "kind": "competency",
+      "category": "backend",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "unit_testing",
+      "name": "Unit Testing",
       "kind": "competency",
       "category": "practices",
       "level": null,
@@ -75,17 +139,106 @@
     },
     {
       "id": "widget_testing",
-      "name": "Widget & Integration Testing",
+      "name": "Widget Testing",
       "kind": "competency",
       "category": "practices",
       "level": null,
       "logo_path": null
     },
     {
-      "id": "flutter",
-      "name": "Flutter",
-      "kind": "technology",
+      "id": "bloc_test",
+      "name": "Bloc Test",
+      "kind": "competency",
+      "category": "practices",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "method_channels",
+      "name": "Method Channels",
+      "kind": "competency",
       "category": "mobile",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "android_basics",
+      "name": "Android Basics",
+      "kind": "competency",
+      "category": "mobile",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "ios_basics",
+      "name": "iOS Basics",
+      "kind": "competency",
+      "category": "mobile",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "platform_integrations",
+      "name": "Platform Integrations",
+      "kind": "competency",
+      "category": "mobile",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "responsive_design",
+      "name": "Responsive Design",
+      "kind": "competency",
+      "category": "mobile",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "problem_solving",
+      "name": "Problem Solving",
+      "kind": "competency",
+      "category": "practices",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "communication",
+      "name": "Communication",
+      "kind": "competency",
+      "category": "practices",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "teamwork",
+      "name": "Teamwork",
+      "kind": "competency",
+      "category": "practices",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "mentoring",
+      "name": "Mentoring",
+      "kind": "competency",
+      "category": "practices",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "continuous_learning",
+      "name": "Continuous Learning",
+      "kind": "competency",
+      "category": "practices",
+      "level": null,
+      "logo_path": null
+    },
+    {
+      "id": "attention_to_detail",
+      "name": "Attention to Detail",
+      "kind": "competency",
+      "category": "practices",
+      "level": null,
       "logo_path": null
     },
     {
@@ -96,31 +249,31 @@
       "logo_path": null
     },
     {
-      "id": "flutter_bloc",
-      "name": "flutter_bloc",
+      "id": "flutter",
+      "name": "Flutter",
       "kind": "technology",
-      "category": "stateManagement",
+      "category": "mobile",
       "logo_path": null
     },
     {
-      "id": "getit",
-      "name": "GetIt",
+      "id": "java",
+      "name": "Java",
       "kind": "technology",
-      "category": "architecture",
+      "category": "mobile",
       "logo_path": null
     },
     {
-      "id": "dartz",
-      "name": "dartz",
+      "id": "kotlin",
+      "name": "Kotlin",
       "kind": "technology",
-      "category": "architecture",
+      "category": "mobile",
       "logo_path": null
     },
     {
-      "id": "dio",
-      "name": "Dio",
+      "id": "swift",
+      "name": "Swift",
       "kind": "technology",
-      "category": "backend",
+      "category": "mobile",
       "logo_path": null
     },
     {
@@ -131,15 +284,57 @@
       "logo_path": null
     },
     {
-      "id": "fcm",
-      "name": "Firebase Cloud Messaging",
+      "id": "firebase_auth",
+      "name": "Firebase Authentication",
       "kind": "technology",
       "category": "backend",
       "logo_path": null
     },
     {
-      "id": "sqflite",
-      "name": "SQLite (sqflite)",
+      "id": "fcm",
+      "name": "Cloud Messaging",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "crashlytics",
+      "name": "Crashlytics",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "firebase_analytics",
+      "name": "Analytics",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "firestore",
+      "name": "Firestore",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "app_distribution",
+      "name": "App Distribution",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "dio",
+      "name": "Dio",
+      "kind": "technology",
+      "category": "backend",
+      "logo_path": null
+    },
+    {
+      "id": "http",
+      "name": "HTTP",
       "kind": "technology",
       "category": "backend",
       "logo_path": null
@@ -159,36 +354,22 @@
       "logo_path": null
     },
     {
-      "id": "stripe",
-      "name": "Stripe",
+      "id": "hive",
+      "name": "Hive",
       "kind": "technology",
       "category": "backend",
       "logo_path": null
     },
     {
-      "id": "google_maps",
-      "name": "Google Maps",
+      "id": "mocktail",
+      "name": "Mocktail",
       "kind": "technology",
       "category": "tools",
       "logo_path": null
     },
     {
-      "id": "go_router",
-      "name": "go_router",
-      "kind": "technology",
-      "category": "tools",
-      "logo_path": null
-    },
-    {
-      "id": "screenutil",
-      "name": "flutter_screenutil",
-      "kind": "technology",
-      "category": "tools",
-      "logo_path": null
-    },
-    {
-      "id": "webview",
-      "name": "WebView",
+      "id": "mockito",
+      "name": "Mockito",
       "kind": "technology",
       "category": "tools",
       "logo_path": null
@@ -196,6 +377,69 @@
     {
       "id": "git",
       "name": "Git",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "gitlab",
+      "name": "GitLab",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "codemagic",
+      "name": "Codemagic",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "xcode",
+      "name": "Xcode",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "android_studio",
+      "name": "Android Studio",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "vscode",
+      "name": "VS Code",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "postman",
+      "name": "Postman",
+      "kind": "technology",
+      "category": "tools",
+      "logo_path": null
+    },
+    {
+      "id": "jira",
+      "name": "Jira",
       "kind": "technology",
       "category": "tools",
       "logo_path": null

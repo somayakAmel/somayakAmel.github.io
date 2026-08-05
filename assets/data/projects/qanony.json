@@ -1,13 +1,13 @@
 {
-  "_comment": "Transcribed from assets/projects/qanony.md. 'role' is an unfilled TODO: that document states attribution could not be verified from git history.",
+  "_comment": "Transcribed from assets/projects/qanony.md. The role statement is the contribution-level wording supplied for the portfolio; it deliberately does not claim ownership of the architecture, which the case study says could not be verified.",
   "slug": "qanony",
   "overview": {
     "en": "Qanony is a bilingual Flutter client for a legal-services marketplace targeting the Egyptian market. It lets individuals and businesses browse legal services — contract drafting and review, company formation, trademark registration, wills and inheritance, consultations — submit a structured request with supporting documents, pay, then track the request through to delivery of the finished legal document. Services publish their price and delivery estimate, intake is driven by a per-subtype form specification so users answer only relevant questions, and requests move through an explicit lifecycle surfaced as a status timeline. Around 52,700 lines across 287 Dart files in 15 feature modules.",
     "ar": "قانوني تطبيق فلاتر ثنائي اللغة لمنصة خدمات قانونية تستهدف السوق المصري. يتيح تصفح الخدمات القانونية — صياغة العقود ومراجعتها وتأسيس الشركات وتسجيل العلامات التجارية والوصايا والمواريث والاستشارات — وتقديم طلب منظم مع المستندات الداعمة والدفع ثم تتبع الطلب حتى تسليم المستند النهائي. تُنشر الخدمات بسعرها ومدة تسليمها، ويُبنى الإدخال على مواصفة نموذج لكل نوع فرعي، وتمر الطلبات بدورة حياة صريحة تظهر كخط زمني للحالة. نحو ٥٢٧٠٠ سطر عبر ٢٨٧ ملف Dart في ١٥ وحدة."
   },
   "role": {
-    "en": "TODO: not verified. The case study for this project states that no commits in its git history match the local identity, and explicitly advises against claiming ownership of the architecture. Fill in from your own records before publishing.",
-    "ar": "مطلوب: غير مُتحقق منه. تذكر دراسة الحالة أن سجل الـ git لا يطابق الهوية المحلية، وتنصح صراحةً بعدم ادعاء ملكية المعمارية. يُرجى تعبئته من سجلاتك قبل النشر."
+    "en": "Worked as a Flutter Developer on the Qanony mobile application, contributing to feature development across authentication, legal services, request management, notifications, documents, payments, localization, and application improvements. Responsibilities included implementing UI, integrating REST APIs, developing business logic with Clean Architecture and Bloc, improving responsiveness, fixing production issues, and enhancing the overall user experience.",
+    "ar": "عملتُ مطوّرةَ تطبيقات فلاتر على تطبيق قانوني، وساهمتُ في تطوير ميزات المصادقة والخدمات القانونية وإدارة الطلبات والإشعارات والمستندات والمدفوعات والترجمة وتحسينات التطبيق. وشملت المسؤوليات بناء الواجهات، ودمج واجهات REST، وكتابة منطق العمل بالمعمارية النظيفة وBloc، وتحسين الاستجابة، ومعالجة مشكلات الإنتاج، وتطوير تجربة المستخدم عمومًا."
   },
   "duration": {
     "en": "Feb 2026 – Aug 2026",

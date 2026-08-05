@@ -1,13 +1,13 @@
 {
-  "_comment": "Transcribed from assets/projects/flowers.md. 'role' is an unfilled TODO: that document states attribution could not be verified from git history.",
+  "_comment": "Transcribed from assets/projects/flowers.md. The role statement is the contribution-level wording supplied for the portfolio; it deliberately does not claim ownership of the architecture, which the case study says could not be verified.",
   "slug": "flowers",
   "overview": {
     "en": "Flowers is a cross-platform e-commerce marketplace built in Flutter for a flower and gift retail business. The app is Arabic-first with English support, and targets buyers browsing and ordering from multiple sellers. It ships a guest browsing mode that hits dedicated unauthenticated endpoints so users can explore the catalogue before creating an account, multi-provider authentication, a product discovery stack, a cart-to-payment flow completed in an embedded WebView, order lifecycle management, and Google Maps-based address capture.",
     "ar": "فلاورز سوق تجارة إلكترونية عبر المنصات مبني بفلاتر لمتجر زهور وهدايا. التطبيق عربي أولًا مع دعم الإنجليزية، ويستهدف المشترين الذين يتصفحون ويطلبون من بائعين متعددين. يضم وضع تصفح للضيوف عبر نقاط نهاية مخصصة دون مصادقة، ومصادقة متعددة المزودين، ومنظومة اكتشاف للمنتجات، ومسارًا من السلة إلى الدفع داخل WebView، وإدارة لدورة حياة الطلب، والتقاط العناوين عبر خرائط جوجل."
   },
   "role": {
-    "en": "TODO: not verified. The case study for this project states that no commits in its git history match the local identity, and explicitly advises against claiming ownership of the architecture. Fill in from your own records before publishing.",
-    "ar": "مطلوب: غير مُتحقق منه. تذكر دراسة الحالة أن سجل الـ git لا يطابق الهوية المحلية، وتنصح صراحةً بعدم ادعاء ملكية المعمارية. يُرجى تعبئته من سجلاتك قبل النشر."
+    "en": "Contributed to developing the buyer-side marketplace experience, implementing product discovery, shopping flows, authentication, localization, notifications, and profile management. Worked closely with backend APIs, maintained Clean Architecture principles, resolved production issues, and continuously improved application stability and user experience.",
+    "ar": "ساهمتُ في تطوير تجربة السوق من جانب المشتري، ونفّذتُ اكتشاف المنتجات ومسارات الشراء والمصادقة والترجمة والإشعارات وإدارة الملف الشخصي. عملتُ عن قرب مع واجهات الخادم، وحافظتُ على مبادئ المعمارية النظيفة، وعالجتُ مشكلات الإنتاج، وحسّنتُ استقرار التطبيق وتجربة المستخدم باستمرار."
   },
   "duration": {
     "en": "Jan 2025 – Jul 2025",

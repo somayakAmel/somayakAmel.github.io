@@ -85,6 +85,9 @@ class StringsManager {
   static const String levelProficient = 'levelProficient';
   static const String levelExpert = 'levelExpert';
   static const String noSkills = 'noSkills';
+  static const String coreBadge = 'coreBadge';
+  static const String coreSkillLabel = 'coreSkillLabel';
+  static const String skillsFooter = 'skillsFooter';
 
   // Skill categories
   static const String categoryMobile = 'categoryMobile';
@@ -93,6 +96,14 @@ class StringsManager {
   static const String categoryBackend = 'categoryBackend';
   static const String categoryTools = 'categoryTools';
   static const String categoryPractices = 'categoryPractices';
+
+  // Skill category descriptions
+  static const String categoryMobileDesc = 'categoryMobileDesc';
+  static const String categoryArchitectureDesc = 'categoryArchitectureDesc';
+  static const String categoryStateManagementDesc = 'categoryStateManagementDesc';
+  static const String categoryBackendDesc = 'categoryBackendDesc';
+  static const String categoryToolsDesc = 'categoryToolsDesc';
+  static const String categoryPracticesDesc = 'categoryPracticesDesc';
 
   // Experience
   static const String experienceTitle = 'experienceTitle';

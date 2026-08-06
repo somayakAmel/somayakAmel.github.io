@@ -49,6 +49,12 @@ class IconsManager {
   static const IconData error = Icons.error_outline_rounded;
   static const IconData empty = Icons.inbox_outlined;
 
+  // Skill categories
+  static const IconData stateManagement = Icons.account_tree_outlined;
+  static const IconData cloud = Icons.cloud_outlined;
+  static const IconData tools = Icons.build_outlined;
+  static const IconData sparkle = Icons.auto_awesome_outlined;
+
   /// Maps an `icon_key` string from JSON to a glyph.
   ///
   /// [RULE] Unknown keys fall back rather than throwing — a typo in a content

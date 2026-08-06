@@ -9,6 +9,7 @@ class SkillModel {
   final SkillCategory category;
   final SkillLevel? level;
   final String? logoPath;
+  final bool isCore;
 
   const SkillModel({
     required this.id,
@@ -17,6 +18,7 @@ class SkillModel {
     required this.category,
     this.level,
     this.logoPath,
+    this.isCore = false,
   });
 
   factory SkillModel.fromJson(Map<String, dynamic> json) {
@@ -45,6 +47,7 @@ class SkillModel {
               fallback: SkillLevel.proficient,
             ),
       logoPath: json.strOrNull('logo_path'),
+      isCore: json.boolOr('is_core'),
     );
   }
 
@@ -55,5 +58,6 @@ class SkillModel {
     category: category,
     level: level,
     logoPath: logoPath,
+    isCore: isCore,
   );
 }

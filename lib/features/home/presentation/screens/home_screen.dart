@@ -10,7 +10,6 @@ import '../../../contact/presentation/widgets/contact_section.dart';
 import '../../../experience/presentation/widgets/experience_section.dart';
 import '../../../projects/presentation/widgets/featured_projects_section.dart';
 import '../../../skills/presentation/widgets/skills_section.dart';
-import '../../../skills/presentation/widgets/tech_stack_section.dart';
 import '../widgets/hero_section.dart';
 
 /// The scrolling composite (PROJECT_SPEC §6, S2).
@@ -151,7 +150,6 @@ class _HomeScreenState extends State<HomeScreen> {
             FeaturedProjectsSection(anchorKey: _projectsKey),
             AboutSection(anchorKey: _aboutKey),
             SkillsSection(anchorKey: _skillsKey),
-            const TechStackSection(),
             ExperienceSection(anchorKey: _experienceKey),
             const CertificatesSection(),
             ContactSection(anchorKey: _contactKey),

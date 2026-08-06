@@ -103,5 +103,14 @@
   "statusArchived": "مؤرشف",
   "heroGreeting": "مرحبًا، أنا",
   "viewCaseStudy": "عرض دراسة الحالة",
-  "architecture": "المعمارية"
+  "architecture": "المعمارية",
+  "coreBadge": "أساسي",
+  "coreSkillLabel": "مهارة أساسية — مستخدمة في معظم المشاريع",
+  "skillsFooter": "أتعلّم باستمرار تقنيات جديدة في فلاتر وتطبيقات الموبايل.",
+  "categoryMobileDesc": "تطبيقات عبر المنصات لأندرويد وiOS",
+  "categoryArchitectureDesc": "هيكلة أكواد قابلة للتوسع",
+  "categoryStateManagementDesc": "إدارة حالة متوقعة وقابلة للاختبار",
+  "categoryBackendDesc": "واجهات برمجية وتخزين وخدمات سحابية",
+  "categoryToolsDesc": "أدوات التطوير والتسليم اليومية",
+  "categoryPracticesDesc": "أسلوب عملي والحفاظ على الجودة"
 }

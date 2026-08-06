@@ -1,5 +1,5 @@
 {
-  "_comment": "Transcribed from assets/skills.md. 'level' is null throughout: no source ranks proficiency, and a self-assigned rating would be invention. Add logo_path values to replace the monogram tiles.",
+  "_comment": "Transcribed from assets/skills.md. 'level' is null throughout: no source ranks proficiency, and a self-assigned rating would be invention. 'is_core' is DERIVED, not asserted — true only where a skill appears in at least four of the six project tech stacks, which the project pages themselves corroborate. Add logo_path values to replace the monogram tiles; CustomImage already falls back to a monogram.",
   "skills": [
     {
       "id": "clean_architecture",
@@ -7,7 +7,8 @@
       "kind": "competency",
       "category": "architecture",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": true
     },
     {
       "id": "mvvm",
@@ -15,7 +16,8 @@
       "kind": "competency",
       "category": "architecture",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "repository_pattern",
@@ -23,7 +25,8 @@
       "kind": "competency",
       "category": "architecture",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "dependency_injection",
@@ -31,7 +34,8 @@
       "kind": "competency",
       "category": "architecture",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "feature_first",
@@ -39,7 +43,8 @@
       "kind": "competency",
       "category": "architecture",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "solid",
@@ -47,7 +52,8 @@
       "kind": "competency",
       "category": "architecture",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "bloc_skill",
@@ -55,7 +61,8 @@
       "kind": "competency",
       "category": "stateManagement",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": true
     },
     {
       "id": "cubit_skill",
@@ -63,7 +70,8 @@
       "kind": "competency",
       "category": "stateManagement",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": true
     },
     {
       "id": "provider_skill",
@@ -71,7 +79,8 @@
       "kind": "competency",
       "category": "stateManagement",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "riverpod_skill",
@@ -79,7 +88,8 @@
       "kind": "competency",
       "category": "stateManagement",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "formz_skill",
@@ -87,7 +97,8 @@
       "kind": "competency",
       "category": "stateManagement",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "rest_apis",
@@ -95,7 +106,8 @@
       "kind": "competency",
       "category": "backend",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "interceptors",
@@ -103,7 +115,8 @@
       "kind": "competency",
       "category": "backend",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "pagination",
@@ -111,7 +124,8 @@
       "kind": "competency",
       "category": "backend",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "caching",
@@ -119,7 +133,8 @@
       "kind": "competency",
       "category": "backend",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "json_serialization",
@@ -127,7 +142,8 @@
       "kind": "competency",
       "category": "backend",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "unit_testing",
@@ -135,7 +151,8 @@
       "kind": "competency",
       "category": "practices",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "widget_testing",
@@ -143,7 +160,8 @@
       "kind": "competency",
       "category": "practices",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "bloc_test",
@@ -151,7 +169,8 @@
       "kind": "competency",
       "category": "practices",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "method_channels",
@@ -159,7 +178,8 @@
       "kind": "competency",
       "category": "mobile",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "android_basics",
@@ -167,7 +187,8 @@
       "kind": "competency",
       "category": "mobile",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "ios_basics",
@@ -175,7 +196,8 @@
       "kind": "competency",
       "category": "mobile",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "platform_integrations",
@@ -183,7 +205,8 @@
       "kind": "competency",
       "category": "mobile",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "responsive_design",
@@ -191,7 +214,8 @@
       "kind": "competency",
       "category": "mobile",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "problem_solving",
@@ -199,7 +223,8 @@
       "kind": "competency",
       "category": "practices",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "communication",
@@ -207,7 +232,8 @@
       "kind": "competency",
       "category": "practices",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "teamwork",
@@ -215,7 +241,8 @@
       "kind": "competency",
       "category": "practices",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "mentoring",
@@ -223,7 +250,8 @@
       "kind": "competency",
       "category": "practices",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "continuous_learning",
@@ -231,7 +259,8 @@
       "kind": "competency",
       "category": "practices",
       "level": null,
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "attention_to_detail",
@@ -239,210 +268,248 @@
       "kind": "competency",
       "category": "practices",
       "level": null,
-      "logo_path": null
-    },
-    {
-      "id": "dart",
-      "name": "Dart",
-      "kind": "technology",
-      "category": "mobile",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "flutter",
       "name": "Flutter",
       "kind": "technology",
       "category": "mobile",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": true
+    },
+    {
+      "id": "dart",
+      "name": "Dart",
+      "kind": "technology",
+      "category": "mobile",
+      "logo_path": null,
+      "is_core": true
     },
     {
       "id": "java",
       "name": "Java",
       "kind": "technology",
       "category": "mobile",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "kotlin",
       "name": "Kotlin",
       "kind": "technology",
       "category": "mobile",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "swift",
       "name": "Swift",
       "kind": "technology",
       "category": "mobile",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
+    },
+    {
+      "id": "getit",
+      "name": "GetIt",
+      "kind": "technology",
+      "category": "architecture",
+      "logo_path": null,
+      "is_core": true
     },
     {
       "id": "firebase",
       "name": "Firebase",
       "kind": "technology",
       "category": "backend",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": true
     },
     {
       "id": "firebase_auth",
       "name": "Firebase Authentication",
       "kind": "technology",
       "category": "backend",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "fcm",
       "name": "Cloud Messaging",
       "kind": "technology",
       "category": "backend",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "crashlytics",
       "name": "Crashlytics",
       "kind": "technology",
       "category": "backend",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "firebase_analytics",
       "name": "Analytics",
       "kind": "technology",
       "category": "backend",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "firestore",
       "name": "Firestore",
       "kind": "technology",
       "category": "backend",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "app_distribution",
       "name": "App Distribution",
       "kind": "technology",
       "category": "backend",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "dio",
       "name": "Dio",
       "kind": "technology",
       "category": "backend",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": true
     },
     {
       "id": "http",
       "name": "HTTP",
       "kind": "technology",
       "category": "backend",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "shared_preferences",
       "name": "SharedPreferences",
       "kind": "technology",
       "category": "backend",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "secure_storage",
       "name": "Flutter Secure Storage",
       "kind": "technology",
       "category": "backend",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "hive",
       "name": "Hive",
       "kind": "technology",
       "category": "backend",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "mocktail",
       "name": "Mocktail",
       "kind": "technology",
       "category": "tools",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "mockito",
       "name": "Mockito",
       "kind": "technology",
       "category": "tools",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "git",
       "name": "Git",
       "kind": "technology",
       "category": "tools",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "github",
       "name": "GitHub",
       "kind": "technology",
       "category": "tools",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "gitlab",
       "name": "GitLab",
       "kind": "technology",
       "category": "tools",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "figma",
       "name": "Figma",
       "kind": "technology",
       "category": "tools",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "codemagic",
       "name": "Codemagic",
       "kind": "technology",
       "category": "tools",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "xcode",
       "name": "Xcode",
       "kind": "technology",
       "category": "tools",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "android_studio",
       "name": "Android Studio",
       "kind": "technology",
       "category": "tools",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "vscode",
       "name": "VS Code",
       "kind": "technology",
       "category": "tools",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "postman",
       "name": "Postman",
       "kind": "technology",
       "category": "tools",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     },
     {
       "id": "jira",
       "name": "Jira",
       "kind": "technology",
       "category": "tools",
-      "logo_path": null
+      "logo_path": null,
+      "is_core": false
     }
   ]
 }

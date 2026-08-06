@@ -103,5 +103,14 @@
   "statusArchived": "Archived",
   "heroGreeting": "Hi, I'm",
   "viewCaseStudy": "View case study",
-  "architecture": "Architecture"
+  "architecture": "Architecture",
+  "coreBadge": "Core",
+  "coreSkillLabel": "Core skill — used across most projects",
+  "skillsFooter": "Always learning new Flutter and mobile technologies.",
+  "categoryMobileDesc": "Cross-platform apps for Android and iOS",
+  "categoryArchitectureDesc": "Structuring codebases that scale",
+  "categoryStateManagementDesc": "Predictable, testable app state",
+  "categoryBackendDesc": "APIs, storage, and cloud services",
+  "categoryToolsDesc": "Day-to-day development and delivery",
+  "categoryPracticesDesc": "How I work and keep quality high"
 }

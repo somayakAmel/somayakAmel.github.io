@@ -39,13 +39,27 @@
   <meta name="twitter:description"
         content="Production Flutter apps across nonprofit, logistics, marketplace and legal-tech, built on Clean Architecture.">
 
+  <!-- Tints mobile browser chrome to the page background. -->
+  <meta name="theme-color" content="#0D0D0F">
+
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Portfolio">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="Somaya Kamel">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <!--
+    Favicons, most-specific first. The .ico is listed for Safari and for
+    Windows pinned tiles, which still prefer it over PNG; the 16/32 PNGs are
+    what Chrome and Firefox actually use.
+
+    NOTE: browsers cache favicons far more aggressively than page assets, and
+    the cache often survives a hard refresh. After changing these, verify in a
+    private window rather than assuming the deploy failed.
+  -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png"/>
 
   <title>Somaya Kamel — Flutter &amp; Mobile Developer</title>
   <link rel="manifest" href="manifest.json">

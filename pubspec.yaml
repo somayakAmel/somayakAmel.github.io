@@ -75,6 +75,13 @@ flutter:
     - assets/images/projects/motary/
     - assets/images/projects/qanony/
     - assets/images/projects/itutor/
+    # These four are declared ahead of the content that will fill them:
+    # icons and animations are referenced by AssetsManager, logos by each
+    # skill's logo_path, certificates by each certificate's image_path.
+    # They currently hold only a .gitkeep — git does not track empty
+    # directories, so without it they vanish on a fresh clone and
+    # `flutter analyze` fails CI with "asset directory doesn't exist".
+    # Do not delete the .gitkeep files.
     - assets/icons/
     - assets/logos/
     - assets/certificates/

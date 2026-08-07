@@ -167,7 +167,50 @@
       }
     }
   ],
-  "gallery": [],
+  "gallery": [
+    {
+      "path": "assets/images/projects/yafleet/01_splash.webp",
+      "caption": {
+        "en": "Splash screen",
+        "ar": "شاشة البداية"
+      }
+    },
+    {
+      "path": "assets/images/projects/yafleet/02_home.webp",
+      "caption": {
+        "en": "Home and trip discovery",
+        "ar": "الرئيسية واستكشاف الرحلات"
+      }
+    },
+    {
+      "path": "assets/images/projects/yafleet/03_new_trip.webp",
+      "caption": {
+        "en": "Publish a new trip",
+        "ar": "نشر رحلة جديدة"
+      }
+    },
+    {
+      "path": "assets/images/projects/yafleet/04_new_shipment.webp",
+      "caption": {
+        "en": "Request a new shipment",
+        "ar": "طلب شحنة جديدة"
+      }
+    },
+    {
+      "path": "assets/images/projects/yafleet/05_shipment.webp",
+      "caption": {
+        "en": "Shipment tracking",
+        "ar": "تتبع الشحنة"
+      }
+    },
+    {
+      "path": "assets/images/projects/yafleet/06_chat.webp",
+      "caption": {
+        "en": "Traveller–sender chat",
+        "ar": "محادثة بين المسافر والمُرسِل"
+      }
+    }
+  ],
   "links": {
     "github": null,
     "live_demo": null,

@@ -135,7 +135,50 @@
       }
     }
   ],
-  "gallery": [],
+  "gallery": [
+    {
+      "path": "assets/images/projects/qanony/01_splash.webp",
+      "caption": {
+        "en": "Splash screen",
+        "ar": "شاشة البداية"
+      }
+    },
+    {
+      "path": "assets/images/projects/qanony/02_home.webp",
+      "caption": {
+        "en": "Service discovery",
+        "ar": "استكشاف الخدمات"
+      }
+    },
+    {
+      "path": "assets/images/projects/qanony/03_service_details.webp",
+      "caption": {
+        "en": "Legal service details",
+        "ar": "تفاصيل الخدمة القانونية"
+      }
+    },
+    {
+      "path": "assets/images/projects/qanony/04_request_details.webp",
+      "caption": {
+        "en": "Request tracking",
+        "ar": "متابعة الطلب"
+      }
+    },
+    {
+      "path": "assets/images/projects/qanony/05_document_wallet.webp",
+      "caption": {
+        "en": "Document wallet",
+        "ar": "محفظة المستندات"
+      }
+    },
+    {
+      "path": "assets/images/projects/qanony/06_profile.webp",
+      "caption": {
+        "en": "User profile",
+        "ar": "الملف الشخصي"
+      }
+    }
+  ],
   "links": {
     "github": null,
     "live_demo": null,

@@ -63,7 +63,50 @@
       }
     }
   ],
-  "gallery": [],
+  "gallery": [
+    {
+      "path": "assets/images/projects/itutor/01_splash.webp",
+      "caption": {
+        "en": "Splash screen",
+        "ar": "شاشة البداية"
+      }
+    },
+    {
+      "path": "assets/images/projects/itutor/02_library.webp",
+      "caption": {
+        "en": "Study material library",
+        "ar": "مكتبة المواد الدراسية"
+      }
+    },
+    {
+      "path": "assets/images/projects/itutor/03_tools.webp",
+      "caption": {
+        "en": "Learning tools",
+        "ar": "أدوات التعلّم"
+      }
+    },
+    {
+      "path": "assets/images/projects/itutor/04_chat.webp",
+      "caption": {
+        "en": "AI tutor chat",
+        "ar": "محادثة المدرّس الذكي"
+      }
+    },
+    {
+      "path": "assets/images/projects/itutor/05_voice_chat.webp",
+      "caption": {
+        "en": "Voice tutoring session",
+        "ar": "جلسة تدريس صوتية"
+      }
+    },
+    {
+      "path": "assets/images/projects/itutor/06_subscription.webp",
+      "caption": {
+        "en": "Subscription plans",
+        "ar": "خطط الاشتراك"
+      }
+    }
+  ],
   "links": {
     "github": null,
     "live_demo": null,

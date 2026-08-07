@@ -164,7 +164,50 @@
       }
     }
   ],
-  "gallery": [],
+  "gallery": [
+    {
+      "path": "assets/images/projects/motary/01_splash.webp",
+      "caption": {
+        "en": "Splash screen",
+        "ar": "شاشة البداية"
+      }
+    },
+    {
+      "path": "assets/images/projects/motary/02_home.webp",
+      "caption": {
+        "en": "Buyer storefront",
+        "ar": "واجهة متجر المشتري"
+      }
+    },
+    {
+      "path": "assets/images/projects/motary/03_product_details.webp",
+      "caption": {
+        "en": "Part details and fitment",
+        "ar": "تفاصيل القطعة والتوافق"
+      }
+    },
+    {
+      "path": "assets/images/projects/motary/04_cart.webp",
+      "caption": {
+        "en": "Shopping cart",
+        "ar": "سلة التسوق"
+      }
+    },
+    {
+      "path": "assets/images/projects/motary/05_seller_home.webp",
+      "caption": {
+        "en": "Seller portal home",
+        "ar": "الرئيسية في بوابة البائع"
+      }
+    },
+    {
+      "path": "assets/images/projects/motary/06_seller_add_product.webp",
+      "caption": {
+        "en": "Add a new listing",
+        "ar": "إضافة منتج جديد"
+      }
+    }
+  ],
   "links": {
     "github": null,
     "live_demo": null,

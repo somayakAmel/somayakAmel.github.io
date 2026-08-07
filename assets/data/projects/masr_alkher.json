@@ -236,7 +236,43 @@
       }
     }
   ],
-  "gallery": [],
+  "gallery": [
+    {
+      "path": "assets/images/projects/masr_alkher/01_splash.webp",
+      "caption": {
+        "en": "Splash screen",
+        "ar": "شاشة البداية"
+      }
+    },
+    {
+      "path": "assets/images/projects/masr_alkher/02_dashboard.webp",
+      "caption": {
+        "en": "Field officer dashboard",
+        "ar": "لوحة الباحث الميداني"
+      }
+    },
+    {
+      "path": "assets/images/projects/masr_alkher/03_assigned_cases.webp",
+      "caption": {
+        "en": "Assigned cases list",
+        "ar": "قائمة الحالات المسندة"
+      }
+    },
+    {
+      "path": "assets/images/projects/masr_alkher/04_case_data.webp",
+      "caption": {
+        "en": "Beneficiary case record",
+        "ar": "بيانات حالة المستفيد"
+      }
+    },
+    {
+      "path": "assets/images/projects/masr_alkher/05_form.webp",
+      "caption": {
+        "en": "Field data entry form",
+        "ar": "نموذج إدخال البيانات الميدانية"
+      }
+    }
+  ],
   "links": {
     "github": null,
     "live_demo": null,

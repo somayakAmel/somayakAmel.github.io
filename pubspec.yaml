@@ -56,13 +56,25 @@ flutter:
   uses-material-design: true
 
   # [RULE] Declare folders, not individual files (§13.1).
-  # EXCEPTION: assets/projects/ is NOT recursive — each project's subfolder
-  # must be declared explicitly. See SPEC risk R-7. When adding a project,
-  # add its folder here or its images silently 404 with no analyzer warning.
+  # EXCEPTION: folder declarations are NOT recursive — each project's
+  # screenshot subfolder must be declared explicitly. See SPEC risk R-7.
+  # When adding a project, add its folder here or its images silently 404
+  # with no analyzer warning.
   assets:
     - assets/data/
     - assets/data/projects/
     - assets/images/
+    # Project screenshots — one line per project, named after the project slug.
+    # [RULE] Keep folder names slug-identical and free of spaces. Flutter
+    # percent-encodes a space at bundle time, so "misr el-kheir" ships as
+    # "misr%20el-kheir" and the served URL needs %2520 — it works, but it is a
+    # trap for anyone hand-writing a path.
+    - assets/images/projects/
+    - assets/images/projects/masr_alkher/
+    - assets/images/projects/yafleet/
+    - assets/images/projects/motary/
+    - assets/images/projects/qanony/
+    - assets/images/projects/itutor/
     - assets/icons/
     - assets/logos/
     - assets/certificates/

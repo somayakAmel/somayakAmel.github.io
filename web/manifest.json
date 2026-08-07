@@ -1,11 +1,11 @@
 {
-    "name": "portfolio",
-    "short_name": "portfolio",
+    "name": "Somaya Kamel — Flutter & Mobile Developer",
+    "short_name": "Somaya Kamel",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#0D0D0F",
+    "theme_color": "#0D0D0F",
+    "description": "Flutter & Mobile Developer portfolio — production mobile apps across nonprofit, logistics, marketplace, legal-tech and education, built on Clean Architecture.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

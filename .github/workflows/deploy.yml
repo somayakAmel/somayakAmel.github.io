@@ -1,0 +1,84 @@
+name: Deploy to GitHub Pages
+
+# Builds the Flutter web app and publishes it to GitHub Pages on every push
+# to main. Content lives in assets/data/*.json, so editing a JSON file and
+# pushing is the whole publish flow — no local build required.
+on:
+  push:
+    branches: [main]
+  # Lets you re-deploy from the Actions tab without pushing a commit.
+  workflow_dispatch:
+
+# GITHUB_TOKEN permissions needed by actions/deploy-pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deploys race. Queue instead of cancelling, so a deploy that
+# is already publishing finishes rather than leaving Pages half-updated.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          # Pinned to the version this project was developed against, so a new
+          # stable release cannot silently break the deploy.
+          flutter-version: '3.44.4'
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Verify content
+        # Gates the deploy on the content validator — a malformed JSON file
+        # fails here rather than shipping a broken section to the live site.
+        run: dart run tool/validate_data.dart
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test
+
+      - name: Build web
+        # No --base-href: the site is served from the domain root
+        # (somayakamel.github.io), so the default "/" is correct.
+        run: flutter build web --release
+
+      - name: Add SPA fallback
+        # main.dart calls usePathUrlStrategy(), so routes look like
+        # /projects/motary. GitHub Pages has no server-side rewrite: it looks
+        # for a matching file, finds none, and serves its own 404 page.
+        # Copying index.html to 404.html makes Pages hand every unmatched path
+        # back to the Flutter app, which then routes it client-side. Without
+        # this, refreshing a project page or opening a shared deep link 404s.
+        run: cp build/web/index.html build/web/404.html
+
+      - name: Bypass Jekyll
+        # Pages runs Jekyll by default, which skips files and folders starting
+        # with an underscore. Harmless today, but it would silently drop such
+        # assets later. .nojekyll turns that processing off entirely.
+        run: touch build/web/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

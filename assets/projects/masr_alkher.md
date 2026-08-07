@@ -1,4 +1,4 @@
-# Gharemeen — Field Research & Case Management App
+# Misr El-Kheir — Field Research & Case Management App
 
 **Portfolio Case Study**
 
@@ -8,7 +8,7 @@
 
 ## 1. Project Overview
 
-Gharemeen is a Flutter mobile application (Android and iOS) built for field research teams conducting social and financial assessments of debt cases. It is an internal operational tool, not a consumer product — users are staff members of the operating organization, working across four distinct roles.
+Misr El-Kheir is a Flutter mobile application (Android and iOS) built for **Misr El-Kheir Foundation**, used by its field research teams to conduct social and financial assessments of beneficiary cases. It is an internal operational tool, not a consumer product — users are staff members of the foundation, working across four distinct roles.
 
 The app serves a role-based workflow. Field researchers are assigned cases, travel to conduct in-person household assessments, and complete multi-step research forms on-site. Quality administrators and quality supervisors review that work, assign cases down the hierarchy, and approve or reject submitted research. A super-admin role has broader access.
 
@@ -712,7 +712,7 @@ The following cannot be verified from the repository and should be filled in bef
 - **Code review process** — no PR metadata is available in the local clone.
 
 ### Product & business
-- **The operating organization and its mission.** Arabic strings reference "مصر الخير", but the relationship to the product is not established in code.
+- ~~**The operating organization and its mission.**~~ **RESOLVED:** confirmed by the project owner as **Misr El-Kheir Foundation**, matching the "مصر الخير" Arabic strings found in the source.
 - **Business goals and success metrics.**
 - **Number of field researchers using the app**; number of cases processed.
 - **Whether the app shipped to production**, and to which stores or distribution channels.

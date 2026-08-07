@@ -1,9 +1,9 @@
 {
-  "_comment": "Transcribed from assets/projects/masr_alkher.md. Attribution VERIFIED in that document from git history.",
+  "_comment": "Transcribed from assets/projects/masr_alkher.md; attribution VERIFIED in that document from git history. Business context (foundation name, purpose, problem, solution) supplied separately by the project owner — the source markdown noted that Arabic strings reference 'مصر الخير' but could not establish the relationship from code alone. All technical detail below remains as verified.",
   "slug": "masr_alkher",
   "overview": {
-    "en": "Gharemeen is a Flutter application for field research teams conducting social and financial assessments of debt cases. It is an internal operational tool rather than a consumer product: users are staff working across four distinct roles. Field researchers are assigned cases, travel to conduct in-person household assessments, and complete multi-step research forms on-site. Quality administrators and supervisors review that work, assign cases down the hierarchy, and approve or reject submitted research.",
-    "ar": "غارمين تطبيق فلاتر لفرق البحث الميداني التي تُجري تقييمات اجتماعية ومالية لحالات الغارمين. هو أداة تشغيلية داخلية لا منتجًا استهلاكيًا، ويستخدمه موظفون بأربعة أدوار مختلفة. يتنقل الباحثون الميدانيون لإجراء التقييمات المنزلية ويملؤون نماذج بحث متعددة الخطوات في الموقع، بينما يراجع مديرو ومشرفو الجودة هذا العمل ويوزعون الحالات ويعتمدون أو يرفضون البحوث المقدمة."
+    "en": "Misr El-Kheir is an internal mobile application developed for Misr El-Kheir Foundation. It is not a public marketplace or consumer product — it is an operational tool used by the foundation's own employees and field workers.\n\nIts purpose is to help staff collect, organise, and manage beneficiary case data directly from the field. The application digitises the data-collection process, making it easier to register new cases, update existing records, and synchronise information with the organisation's backend systems.\n\nThe app serves a role-based workflow across four user types. Field researchers are assigned cases, travel to conduct in-person household assessments, and complete multi-step research forms on-site. Quality administrators and supervisors review that work, assign cases down the hierarchy, and approve or reject submitted research.",
+    "ar": "مصر الخير تطبيق موبايل داخلي طُوِّر لمؤسسة مصر الخير. ليس سوقًا عامًا ولا منتجًا استهلاكيًا، بل أداة تشغيلية يستخدمها موظفو المؤسسة والعاملون الميدانيون.\n\nالغرض منه مساعدة الموظفين على جمع بيانات حالات المستفيدين وتنظيمها وإدارتها مباشرةً من الميدان. يرقمن التطبيق عملية جمع البيانات، فيسهّل تسجيل الحالات الجديدة وتحديث السجلات القائمة ومزامنة المعلومات مع أنظمة المؤسسة الخلفية.\n\nيخدم التطبيق سير عمل قائمًا على الأدوار عبر أربعة أنواع من المستخدمين. تُسنَد الحالات إلى الباحثين الميدانيين الذين يتنقلون لإجراء التقييمات المنزلية ويملؤون نماذج بحث متعددة الخطوات في الموقع، بينما يراجع مديرو ومشرفو الجودة هذا العمل ويوزعون الحالات ويعتمدون أو يرفضون البحوث المقدمة."
   },
   "role": {
     "en": "Authored 93 of 136 commits (68%) across the repository's full lifetime, from the initial project-init commit to the most recent, touching 355 files. I created the application architecture and scaffolding — main.dart bootstrap, the root widget composition, the GetIt composition root, the routes table, and the API interceptor — then built the feature modules end to end and designed and implemented the offline-first system.",
@@ -41,6 +41,16 @@
     }
   ],
   "challenges": [
+    {
+      "challenge": {
+        "en": "Field teams traditionally collected beneficiary information manually or through fragmented processes, making data collection slow, inconsistent, and difficult to synchronise. The organisation needed a centralised mobile solution that lets employees capture accurate case information while working in the field.",
+        "ar": "كانت الفرق الميدانية تجمع بيانات المستفيدين يدويًا أو عبر عمليات متفرقة، ما جعل جمع البيانات بطيئًا وغير متسق وصعب المزامنة. احتاجت المؤسسة إلى حل موبايل مركزي يتيح للموظفين تسجيل بيانات دقيقة للحالات أثناء عملهم في الميدان."
+      },
+      "solution": {
+        "en": "A single field application providing digital case registration, structured beneficiary data forms, case updates, and secure synchronisation with the foundation's backend — built to keep working when connectivity does not, so field operations are faster and more reliable.",
+        "ar": "تطبيق ميداني واحد يوفّر تسجيلًا رقميًا للحالات ونماذج منظمة لبيانات المستفيدين وتحديثًا للحالات ومزامنة آمنة مع أنظمة المؤسسة، وقد بُني ليستمر في العمل عند انقطاع الاتصال، فتصبح العمليات الميدانية أسرع وأكثر موثوقية."
+      }
+    },
     {
       "challenge": {
         "en": "Preserving multi-step form work without connectivity.",

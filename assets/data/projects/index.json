@@ -1,19 +1,19 @@
 {
-  "_comment": "Transcribed from assets/projects/*.md, with categories from the supplied projects.md. Two deliberate departures from that file: (1) Gharemeen and YaFleet are featured because they are the only two whose case studies verify authorship, while the four it marked featured all state attribution could not be verified; (2) YaFleet's category is Logistics, not Fleet Management — its case study documents a peer-to-peer luggage-space marketplace. Adding a project: add an entry here, create the detail_file, and declare assets/projects/<slug>/ in pubspec.yaml — folder declarations are NOT recursive.",
+  "_comment": "Transcribed from assets/projects/*.md, with categories from the supplied projects.md. Two deliberate departures from that file: (1) Misr El-Kheir and YaFleet are featured because they are the only two whose case studies verify authorship, while the four it marked featured all state attribution could not be verified; (2) YaFleet's category is Logistics, not Fleet Management — its case study documents a peer-to-peer luggage-space marketplace. Adding a project: add an entry here, create the detail_file, and declare assets/projects/<slug>/ in pubspec.yaml — folder declarations are NOT recursive.",
   "projects": [
     {
       "slug": "masr_alkher",
       "title": {
-        "en": "Gharemeen",
-        "ar": "غارمين"
+        "en": "Misr El-Kheir",
+        "ar": "مصر الخير"
       },
       "tagline": {
-        "en": "Offline-first field research tool for social and financial debt-case assessments.",
-        "ar": "تطبيق ميداني يعمل دون اتصال لإجراء البحوث الاجتماعية والمالية لحالات الغارمين."
+        "en": "Internal field application for Misr El-Kheir Foundation, digitising beneficiary case collection.",
+        "ar": "تطبيق ميداني داخلي لمؤسسة مصر الخير لرقمنة جمع بيانات حالات المستفيدين."
       },
       "domain": {
-        "en": "Charity",
-        "ar": "الأعمال الخيرية"
+        "en": "Nonprofit",
+        "ar": "العمل الأهلي"
       },
       "cover_path": null,
       "type": "product",

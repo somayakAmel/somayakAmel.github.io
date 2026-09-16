@@ -15,7 +15,7 @@
         "en": "Nonprofit",
         "ar": "العمل الأهلي"
       },
-      "cover_path": null,
+      "cover_path": "assets/covers/masr_alkher.jpeg",
       "type": "product",
       "primary_tech": [
         "Flutter",
@@ -40,7 +40,7 @@
         "en": "Logistics",
         "ar": "الخدمات اللوجستية"
       },
-      "cover_path": null,
+      "cover_path": "assets/covers/yafleet.jpeg",
       "type": "client",
       "primary_tech": [
         "Flutter",
@@ -65,7 +65,7 @@
         "en": "Marketplace",
         "ar": "سوق إلكتروني"
       },
-      "cover_path": null,
+      "cover_path": "assets/covers/motary.jpeg",
       "type": "client",
       "primary_tech": [
         "Flutter",
@@ -90,7 +90,7 @@
         "en": "Legal Technology",
         "ar": "التقنية القانونية"
       },
-      "cover_path": null,
+      "cover_path": "assets/covers/qanony.jpeg",
       "type": "client",
       "primary_tech": [
         "Flutter",
@@ -115,7 +115,7 @@
         "en": "Marketplace",
         "ar": "سوق إلكتروني"
       },
-      "cover_path": null,
+      "cover_path": "assets/covers/flowers.jpeg",
       "type": "client",
       "primary_tech": [
         "Flutter",
@@ -140,7 +140,7 @@
         "en": "Education",
         "ar": "التعليم"
       },
-      "cover_path": null,
+      "cover_path": "assets/covers/itutor.jpeg",
       "type": "client",
       "primary_tech": [
         "Flutter",

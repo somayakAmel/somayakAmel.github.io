@@ -134,7 +134,36 @@
       }
     }
   ],
-  "gallery": [],
+  "gallery": [
+    {
+      "path": "assets/images/projects/flowers/splash.jpeg",
+      "caption": {
+        "en": "Splash screen",
+        "ar": "شاشة البداية"
+      }
+    },
+    {
+      "path": "assets/images/projects/flowers/home.jpeg",
+      "caption": {
+        "en": "Home — categories and personalised picks",
+        "ar": "الرئيسية — الفئات والمقترحات المخصصة"
+      }
+    },
+    {
+      "path": "assets/images/projects/flowers/product.jpeg",
+      "caption": {
+        "en": "Product details",
+        "ar": "تفاصيل المنتج"
+      }
+    },
+    {
+      "path": "assets/images/projects/flowers/cart.jpeg",
+      "caption": {
+        "en": "Shopping cart",
+        "ar": "سلة التسوق"
+      }
+    }
+  ],
   "links": {
     "github": null,
     "live_demo": null,

@@ -65,9 +65,7 @@ class _ProjectCardState extends State<ProjectCard> {
                   AppSize.s8.spaceH,
                   CustomText.display(
                     project.title.of(context),
-                    fontSize: isMobile
-                        ? FontSize.h2Mobile
-                        : FontSize.h2Desktop,
+                    fontSize: isMobile ? FontSize.h2Mobile : FontSize.h2Desktop,
                     height: LineHeights.heading,
                     textAlign: TextAlign.start,
                     maxLines: 1,
@@ -100,13 +98,19 @@ class _ProjectCardState extends State<ProjectCard> {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      CustomText(
-                        StringsManager.viewCaseStudy.tr(context),
-                        fontSize: FontSize.labelDesktop,
-                        fontWeight: FontWeightManager.semiBold,
-                        color: _isHovered
-                            ? colors.accent
-                            : colors.textTertiary,
+                      // Flexible, not fixed: the label is translated, and the
+                      // Arabic or a large system font is wider than the
+                      // English at the default scale.
+                      Flexible(
+                        child: CustomText(
+                          StringsManager.viewCaseStudy.tr(context),
+                          fontSize: FontSize.labelDesktop,
+                          fontWeight: FontWeightManager.semiBold,
+                          maxLines: 1,
+                          color: _isHovered
+                              ? colors.accent
+                              : colors.textTertiary,
+                        ),
                       ),
                       AppSize.s6.spaceW,
                       AnimatedSlide(

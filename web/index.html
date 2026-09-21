@@ -92,8 +92,27 @@
       transition: opacity 300ms ease-out;
     }
     #loading.hidden { opacity: 0; pointer-events: none; }
-    #loading .name { font-size: 20px; font-weight: 700; letter-spacing: -0.2px; }
+    /*
+      Must match the Flutter splash exactly — min(62vw, 400px), dead centre —
+      so the handoff when Flutter paints its first frame does not jump. See
+      _splashLogoWidthFactor in splash_screen.dart. The width/height
+      attributes on the <img> reserve its box before the file arrives.
+    */
+    #loading .logo {
+      display: block;
+      width: min(62vw, 400px);
+      height: auto;
+    }
+    /*
+      Positioned out of the flex flow so the logo alone is centred, as it is
+      on the Flutter splash; the bar hangs 20px below the logo's bottom edge.
+      The logo is 996x192, so its half-height is its width x 96/996.
+    */
     #loading .bar {
+      position: absolute;
+      left: 50%;
+      top: calc(50% + min(62vw, 400px) * 96 / 996 + 20px);
+      transform: translateX(-50%);
       width: 120px;
       height: 2px;
       background-color: #232328;
@@ -119,7 +138,12 @@
 </head>
 <body>
   <div id="loading">
-    <div class="name">Somaya Kamel</div>
+    <!--
+      Flutter's own asset path, so the browser caches it once and the Flutter
+      splash that follows reuses it rather than downloading it again.
+    -->
+    <img class="logo" src="assets/assets/images/sk_logo.png"
+         alt="Somaya Kamel" width="996" height="192" decoding="async">
     <div class="bar"></div>
   </div>
 

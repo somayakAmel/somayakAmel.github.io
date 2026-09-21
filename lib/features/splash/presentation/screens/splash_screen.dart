@@ -1,8 +1,17 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../../../../core/core.dart';
 import '../../../../src/service_locator.dart';
 import '../../../home/presentation/screens/home_screen.dart';
+
+/// Share of the viewport the splash lockup spans, and its absolute cap.
+///
+/// [RULE] Mirrored in web/index.html as `min(62vw, 400px)`. Change both or
+/// the pre-loader and this screen stop lining up at the handoff.
+const double _splashLogoWidthFactor = 0.62;
+const double _splashLogoMaxWidth = 400;
 
 /// Preloads above-the-fold content, then navigates to Home
 /// (PROJECT_SPEC §6, S1).
@@ -55,9 +64,23 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
     body: Center(
-      child: CustomText.display(
-        StringsManager.appName.tr(context),
-        fontSize: FontSize.h1Desktop,
+      // The lockup carries the name, so nothing is printed beside it.
+      //
+      // [RULE] Sized in raw viewport pixels, deliberately NOT through .rw:
+      // this must match web/index.html's pre-loader — `min(62vw, 400px)` —
+      // exactly, so the handoff from the HTML placeholder to this frame does
+      // not jump. Passing the width to CustomImage would run it through .rw a
+      // second time and shrink it on every phone (242px became 214px at 390).
+      child: SizedBox(
+        width: math.min(
+          context.screenWidth * _splashLogoWidthFactor,
+          _splashLogoMaxWidth,
+        ),
+        child: CustomImage(
+          path: AssetsManager.logo,
+          fit: BoxFit.contain,
+          semanticLabel: StringsManager.appName.tr(context),
+        ),
       ),
     ),
   );

@@ -28,6 +28,17 @@ class AssetsManager {
   static const String placeholder = '$_imagesPath/placeholder.webp';
   static const String avatarFallback = placeholder;
 
+  /// The SK wordmark — monogram, name and role in one lockup.
+  ///
+  /// Cropped to the mark and keyed to transparency from the original in
+  /// `assets/_src/logo/`, which is deliberately outside the bundle: it is
+  /// 1408x768 of mostly empty backing, and `assets/images/` ships every file
+  /// in the folder whether the app references it or not.
+  ///
+  /// The lockup already reads "Somaya Kamel", so anywhere this appears the
+  /// app must not also print the name beside it.
+  static const String logo = '$_imagesPath/sk_logo.png';
+
   // Icons
   static const String iconsDir = _iconsPath;
 

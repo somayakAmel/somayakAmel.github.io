@@ -106,9 +106,14 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: CustomAppBar(
         isScrolled: _isScrolled,
         showBack: false,
-        leadingWidget: CustomText.display(
-          StringsManager.appName.tr(context),
-          fontSize: FontSize.h3Desktop,
+        // The lockup replaces the wordmark text rather than joining it: it
+        // already reads "Somaya Kamel", and printing the name beside it would
+        // say the same thing twice.
+        leadingWidget: CustomImage(
+          path: AssetsManager.logo,
+          height: context.isMobile ? AppSize.s24 : AppSize.s28,
+          fit: BoxFit.contain,
+          semanticLabel: StringsManager.appName.tr(context),
         ),
         actions: <Widget>[
           if (context.isDesktopClass) ...<Widget>[

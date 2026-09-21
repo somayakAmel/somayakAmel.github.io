@@ -15,6 +15,20 @@ import 'certificate_card.dart';
 /// The Certifications block on Home (PROJECT_SPEC §7.7).
 ///
 /// Shows a preview capped at four; the full list lives on /certificates.
+///
+/// ## Why this section can render nothing at all
+///
+/// Home is the only place it is optional. A heading, a "View all" link and a
+/// "No certificates yet" plate is a section announcing its own absence — and
+/// the link would lead to a page that is equally empty. So when the fetch
+/// succeeds with nothing in it, the section removes itself and Home closes the
+/// gap between Experience and Contact.
+///
+/// [RULE] Only the SUCCESS-and-empty case disappears. A failure still renders,
+/// because it has a retry to offer, and silently swallowing it would leave no
+/// way to tell a visitor with no certificates from a visitor whose fetch
+/// broke. /certificates keeps its empty state either way: arriving at a page
+/// that says nothing is worse than a page that says there is nothing.
 class CertificatesSection extends StatelessWidget {
   final GlobalKey? anchorKey;
 
@@ -25,41 +39,44 @@ class CertificatesSection extends StatelessWidget {
     return BlocProvider<CertificatesCubit>(
       create: (_) => sl<CertificatesCubit>()
         ..getCertificates(params: GetCertificatesParams.preview),
-      child: Builder(
-        builder: (BuildContext context) => SectionContainer(
-          sectionId: 'certificates',
-          anchorKey: anchorKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SectionHeader(
-                eyebrowKey: StringsManager.certificatesEyebrow,
-                titleKey: StringsManager.certificatesTitle,
-                actionKey: StringsManager.viewAll,
-                onActionTap: () =>
-                    Navigator.of(context).pushNamed(CertificatesScreen.route),
-              ),
-              AppSize.s32.spaceH,
-              BlocBuilder<CertificatesCubit, CertificatesState>(
-                builder: (BuildContext context, CertificatesState state) =>
-                    SectionStateBuilder<List<Certificate>>(
-                      state: state.getCertificatesState,
-                      isEmpty: (List<Certificate> c) => c.isEmpty,
-                      empty: SectionEmptyState(
-                        title: StringsManager.noCertificates.tr(context),
-                      ),
-                      onRetry: () => CertificatesCubit.get(context)
-                          .getCertificates(
-                            params: GetCertificatesParams.preview,
-                          ),
-                      builder:
-                          (BuildContext context, List<Certificate> items) =>
-                              CertificatesGrid(certificates: items),
-                    ),
-              ),
-            ],
-          ),
-        ),
+      // The BlocBuilder sits ABOVE SectionContainer rather than inside it, so
+      // that an empty result takes the heading and the section's vertical
+      // rhythm with it instead of leaving them behind.
+      child: BlocBuilder<CertificatesCubit, CertificatesState>(
+        builder: (BuildContext context, CertificatesState state) {
+          final CustomState<List<Certificate>> fetch =
+              state.getCertificatesState;
+
+          if (fetch.isSuccess && (fetch.data?.isEmpty ?? true)) {
+            return const SizedBox.shrink();
+          }
+
+          return SectionContainer(
+            sectionId: 'certificates',
+            anchorKey: anchorKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SectionHeader(
+                  eyebrowKey: StringsManager.certificatesEyebrow,
+                  titleKey: StringsManager.certificatesTitle,
+                  actionKey: StringsManager.viewAll,
+                  onActionTap: () =>
+                      Navigator.of(context).pushNamed(CertificatesScreen.route),
+                ),
+                AppSize.s32.spaceH,
+                SectionStateBuilder<List<Certificate>>(
+                  state: fetch,
+                  onRetry: () => CertificatesCubit.get(
+                    context,
+                  ).getCertificates(params: GetCertificatesParams.preview),
+                  builder: (BuildContext context, List<Certificate> items) =>
+                      CertificatesGrid(certificates: items),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
